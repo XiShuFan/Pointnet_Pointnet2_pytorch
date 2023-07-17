@@ -77,35 +77,41 @@ def convert_to_ply(fullName: str, target: str):
                         coor_x = startBox[0] - x * dx
                         coor_y = startBox[1] - y * dx
                         coor_z = startBox[2] - z * dx
-                        vertex_info += f'{coor_x} {coor_y} {coor_z}\n'
+                        vertex_info += f'{coor_x},{coor_y},{coor_z}\n'
                         count += 1
-
-        f.write("ply\n")
-        f.write("format ascii 1.0\n")
-        f.write("comment VCGLIB generated\n")
-        f.write(f"element vertex {count}\n")
-        f.write("property double x\n")
-        f.write("property double y\n")
-        f.write("property double z\n")
-        f.write("end_header\n")
+        # 直接按照txt文本写入点坐标
         f.write(vertex_info)
-
 
     volFile.close()
 
 
-def batch(normal_src_path, normal_tgt_path, abnormal, cls: str):
-    files = os.listdir(src_path)
+def batch(normal_src, normal_tgt, abnormal_src, abnormal_tgt):
+    normal_files = os.listdir(normal_src)
+    train_info = ""
 
-    assert cls in ('positive', 'negative')
-
-    train_info
-
-    for file in files:
+    for file in normal_files:
         # 把文件名字换成我们希望的名字
         bare_name = file.split('.')[0]
         code = bare_name[2:]
 
+        tgt_file = 'normal_' + code + '.txt'
+        train_info += tgt_file + '\n'
+
+        convert_to_ply(os.path.join(normal_src, file), os.path.join(normal_tgt, tgt_file))
+
+    abnormal_files = os.listdir(abnormal_src)
+    for file in abnormal_files:
+        # 文件名替换
+        bare_name = file.split('.')[0]
+        code = base_name[2:]
+        tgt_file = 'abnormal_' + code + '.txt'
+        train_info += tgt_file + '\n'
+
+        convert_to_ply(os.path.join(abnormal_src, file), os.path.join(abnormal_tgt, tgt_file))
+
+    # 写入训练文件
+    with open(, 'w') as f:
+        f.write(train_info)
 
 
 if __name__ == '__main__':
