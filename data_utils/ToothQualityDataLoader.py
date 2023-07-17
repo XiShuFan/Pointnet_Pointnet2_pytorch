@@ -47,7 +47,7 @@ def farthest_point_sample(point, npoint):
 
 
 class ToothQualityDataLoader(Dataset):
-    def __init__(self, root, args, split='train', process_data=False):
+    def __init__(self, root: object, args: object, split: object = 'train', process_data: object = False) -> object:
         self.root = root
         self.npoints = args.num_point
         self.process_data = process_data
