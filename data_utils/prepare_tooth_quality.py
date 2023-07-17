@@ -95,7 +95,7 @@ def batch(normal_src, normal_tgt, abnormal_src, abnormal_tgt):
         code = bare_name[2:]
 
         tgt_file = 'normal_' + code + '.txt'
-        train_info += tgt_file + '\n'
+        train_info += 'normal_' + code + '\n'
 
         convert_to_ply(os.path.join(normal_src, file), os.path.join(normal_tgt, tgt_file))
 
@@ -103,16 +103,21 @@ def batch(normal_src, normal_tgt, abnormal_src, abnormal_tgt):
     for file in abnormal_files:
         # 文件名替换
         bare_name = file.split('.')[0]
-        code = base_name[2:]
+        code = bare_name[2:]
         tgt_file = 'abnormal_' + code + '.txt'
-        train_info += tgt_file + '\n'
+        train_info += 'abnormal_' + code + '\n'
 
         convert_to_ply(os.path.join(abnormal_src, file), os.path.join(abnormal_tgt, tgt_file))
 
     # 写入训练文件
-    with open(, 'w') as f:
+    with open('/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/tooth_quality_train.txt', 'w') as f:
         f.write(train_info)
 
 
 if __name__ == '__main__':
-    convert_to_ply("D:\\Dataset\\Tooth_quality\\abnormal\\TN050.vol", "D:\\Dataset\\Tooth_quality\\abnormal_ply\\TN050.ply")
+    # convert_to_ply("D:\\Dataset\\Tooth_quality\\abnormal\\TN050.vol", "D:\\Dataset\\Tooth_quality\\abnormal_ply\\TN050.ply")
+    normal_src = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/positive_origin'
+    normal_tgt = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/normal'
+    abnormal_src = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/negative_origin'
+    abnormal_tgt = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/abnormal'
+    batch(normal_src, normal_tgt, abnormal_src, abnormal_tgt)
