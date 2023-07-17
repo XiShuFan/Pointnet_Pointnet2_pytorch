@@ -27,18 +27,34 @@ def parse_args():
     '''PARAMETERS'''
     parser = argparse.ArgumentParser('training')
     parser.add_argument('--use_cpu', action='store_true', default=False, help='use cpu mode')
+
+    # 这里没有进行多卡训练，需要我来设置
     parser.add_argument('--gpu', type=str, default='0', help='specify gpu device')
+    # batch size
     parser.add_argument('--batch_size', type=int, default=24, help='batch size in training')
-    parser.add_argument('--model', default='pointnet_cls', help='model name [default: pointnet_cls]')
-    parser.add_argument('--num_category', default=40, type=int, choices=[10, 40],  help='training on ModelNet10/40')
+
+    # 选择PointNet++，然后这里的点云没有法向量信息
+    parser.add_argument('--model', default='pointnet_cls_ssg', help='model name [default: pointnet_cls]')
+
+    # 这里只有二分类
+    parser.add_argument('--num_category', default=2, type=int,  help='classes')
+
     parser.add_argument('--epoch', default=200, type=int, help='number of epoch in training')
     parser.add_argument('--learning_rate', default=0.001, type=float, help='learning rate in training')
+
+    # 设置采样点的个数
     parser.add_argument('--num_point', type=int, default=1024, help='Point Number')
     parser.add_argument('--optimizer', type=str, default='Adam', help='optimizer for training')
     parser.add_argument('--log_dir', type=str, default=None, help='experiment root')
     parser.add_argument('--decay_rate', type=float, default=1e-4, help='decay rate')
+
+    # 是否使用法向量，我们的数据中没有法向量
     parser.add_argument('--use_normals', action='store_true', default=False, help='use normals')
+
+    # 是否要离线增强数据，否
     parser.add_argument('--process_data', action='store_true', default=False, help='save data offline')
+
+    # 是否使用平均采样，否
     parser.add_argument('--use_uniform_sample', action='store_true', default=False, help='use uniform sampiling')
     return parser.parse_args()
 
