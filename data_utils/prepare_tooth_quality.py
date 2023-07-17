@@ -38,6 +38,7 @@ fread(&solidSDF[0], sizeof(float), volNum, volFile);
 
 
 import struct
+import os
 
 
 def convert_to_ply(fullName: str, target: str):
@@ -91,6 +92,19 @@ def convert_to_ply(fullName: str, target: str):
 
 
     volFile.close()
+
+
+def batch(normal_src_path, normal_tgt_path, abnormal, cls: str):
+    files = os.listdir(src_path)
+
+    assert cls in ('positive', 'negative')
+
+    train_info
+
+    for file in files:
+        # 把文件名字换成我们希望的名字
+        bare_name = file.split('.')[0]
+        code = bare_name[2:]
 
 
 
