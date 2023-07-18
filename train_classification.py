@@ -34,7 +34,7 @@ def parse_args():
     parser.add_argument('--batch_size', type=int, default=24, help='batch size in training')
 
     # 选择PointNet++，然后这里的点云没有法向量信息
-    parser.add_argument('--model', default='pointnet_cls_ssg', help='model name [default: pointnet_cls]')
+    parser.add_argument('--model', default='pointnet2_cls_ssg', help='model name [default: pointnet_cls]')
 
     # 这里只有二分类
     parser.add_argument('--num_category', default=2, type=int,  help='classes')
@@ -43,7 +43,7 @@ def parse_args():
     parser.add_argument('--learning_rate', default=0.001, type=float, help='learning rate in training')
 
     # 设置采样点的个数
-    parser.add_argument('--num_point', type=int, default=1024, help='Point Number')
+    parser.add_argument('--num_point', type=int, default=6000, help='Point Number')
     parser.add_argument('--optimizer', type=str, default='Adam', help='optimizer for training')
     parser.add_argument('--log_dir', type=str, default=None, help='experiment root')
     parser.add_argument('--decay_rate', type=float, default=1e-4, help='decay rate')
@@ -132,7 +132,7 @@ def main(args):
 
     '''DATA LOADING'''
     log_string('Load dataset ...')
-    data_path = 'data/modelnet40_normal_resampled/'
+    data_path = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality'
 
     train_dataset = ToothQualityDataLoader(root=data_path, args=args, split='train', process_data=args.process_data)
     test_dataset = ToothQualityDataLoader(root=data_path, args=args, split='test', process_data=args.process_data)

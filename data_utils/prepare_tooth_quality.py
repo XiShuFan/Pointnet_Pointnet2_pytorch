@@ -9,6 +9,8 @@ def convert_to_txt(source_file, target_file):
     # 面片的法向量
     normals = tooth.normals
 
+    assert len(normals) > 0
+
     # 面片的中点
     centroids = tooth.centroids
 
@@ -16,6 +18,7 @@ def convert_to_txt(source_file, target_file):
     with open(target_file, 'w', encoding='ascii') as f:
         for centroid, normal in zip(centroids, normals):
             f.write(f'{centroid[0]},{centroid[1]},{centroid[2]},{normal[0]},{normal[1]},{normal[2]}\n')
+            f.flush()
 
 
 def batch(normal_src, normal_tgt, abnormal_src, abnormal_tgt):
@@ -43,13 +46,13 @@ def batch(normal_src, normal_tgt, abnormal_src, abnormal_tgt):
         convert_to_txt(os.path.join(abnormal_src, file), os.path.join(abnormal_tgt, tgt_file))
 
     # 写入训练文件
-    with open('D:\\Dataset\\Tooth_quality/tooth_quality_train.txt', 'w') as f:
+    with open('/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/tooth_quality_train.txt', 'w') as f:
         f.write(train_info)
 
 
 if __name__ == '__main__':
-    normal_src = 'D:\\Dataset\\Tooth_quality/positive_origin'
-    normal_tgt = 'D:\\Dataset\\Tooth_quality/normal'
-    abnormal_src = 'D:\\Dataset\\Tooth_quality/negative_origin'
-    abnormal_tgt = 'D:\\Dataset\\Tooth_quality/abnormal'
+    normal_src = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/normal_origin'
+    normal_tgt = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/normal'
+    abnormal_src = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/abnormal_origin'
+    abnormal_tgt = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/abnormal'
     batch(normal_src, normal_tgt, abnormal_src, abnormal_tgt)
