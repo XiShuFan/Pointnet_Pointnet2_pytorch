@@ -19,7 +19,8 @@ import torch.nn.functional as F
 from pathlib import Path
 from tqdm import tqdm
 from data_utils.ToothQualityDataLoader import ToothQualityDataLoader, farthest_point_sample, pc_normalize
-
+import trimesh
+from stl import mesh
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
@@ -45,7 +46,7 @@ def parse_args():
     parser.add_argument('--learning_rate', default=0.001, type=float, help='learning rate in training')
 
     # 设置采样点的个数
-    parser.add_argument('--num_point', type=int, default=20000, help='Point Number')
+    parser.add_argument('--num_point', type=int, default=5000, help='Point Number')
     parser.add_argument('--optimizer', type=str, default='Adam', help='optimizer for training')
     parser.add_argument('--log_dir', type=str, default=None, help='experiment root')
     parser.add_argument('--decay_rate', type=float, default=1e-4, help='decay rate')
@@ -66,11 +67,11 @@ def parse_args():
     # 使用法向量
     args.use_normals = True
     # 采样的点云数
-    args.num_point = 30000
+    args.num_point = 8000
     # 采样方法，默认使用FPS
     args.use_uniform_sample = False
     #
-    args.batch_size = 16
+    args.batch_size = 48
 
     return args
 
@@ -81,7 +82,9 @@ def inplace_relu(m):
         m.inplace=True
 
 
-def main(args, input_file):
+def main(input_file):
+    args = parse_args()
+
     '''HYPER PARAMETER'''
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
     torch.backends.cudnn.deterministic = True
@@ -106,12 +109,32 @@ def main(args, input_file):
         exit(-1)
 
     '''prediction'''
-    point_set = np.loadtxt(input_file, delimiter=',').astype(np.float32)
+    origin_mesh = trimesh.load_mesh(input_file)
+    # 降采样到10000
+    downsampled_mesh = origin_mesh.simplify_quadratic_decimation(10000)
+    # 降采样文件输出
+    downsampled_mesh.export('./downsampled.stl')
+
+
+    # 把降采样文件转换成txt文本文件
+    tooth = mesh.Mesh.from_file('./downsampled.stl')
+    # 面片法向量
+    normals = tooth.normals
+    centroids = tooth.centroids
+
+    with open('./downsampled.txt', 'w', encoding='ascii') as f:
+        for centroid, normal in zip(centroids, normals):
+            f.write(f'{centroid[0]},{centroid[1]},{centroid[2]},{normal[0]},{normal[1]},{normal[2]}\n')
+            f.flush()
+
+    point_set = np.loadtxt('./downsampled.txt', delimiter=',').astype(np.float32)
 
     # TODO: 这里的逻辑是不是有问题
     if args.use_uniform_sample:
         point_set = farthest_point_sample(point_set, args.num_point)
     else:
+        # 随机打乱
+        np.random.shuffle(point_set)
         point_set = point_set[0:args.num_point, :]
 
 
@@ -139,13 +162,12 @@ def main(args, input_file):
 
     # 计算钻牙正常的概率
     score = F.softmax(pred.data, dim=1)[0][0]
-    pred_choice = pred.data.max(1)[1]
+    pred_choice = pred.data.max(1)[1].cpu().item()
 
-    print(f'预测的钻牙类别是{pred_choice}, 置信度是{score if pred_choice == 0 else 1 - score}')
+    print(f'预测的钻牙类别是"{"好牙" if pred_choice == 0 else "坏牙"}", 置信度是{score if pred_choice == 0 else 1 - score}')
 
 
 if __name__ == '__main__':
-    args = parse_args()
-    # 这里是需要输入的文件1
-    input_file = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/abnormal/abnormal_020.txt'
-    main(args, input_file)
+    # 这里是需要输入的文件
+    input_file = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/TP003.stl'
+    main(input_file)
