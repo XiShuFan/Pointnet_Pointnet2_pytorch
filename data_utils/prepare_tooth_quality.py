@@ -1,6 +1,7 @@
 import struct
 import os
 from stl import mesh
+import trimesh
 
 def convert_to_txt(source_file, target_file):
     tooth = mesh.Mesh.from_file(source_file)
@@ -19,6 +20,21 @@ def convert_to_txt(source_file, target_file):
         for centroid, normal in zip(centroids, normals):
             f.write(f'{centroid[0]},{centroid[1]},{centroid[2]},{normal[0]},{normal[1]},{normal[2]}\n')
             f.flush()
+
+
+def downsample(source_path, target_path):
+    files = os.listdir(source_path)
+
+    for file in files:
+        print(file)
+        # 加载STL文件
+        mesh = trimesh.load_mesh(os.path.join(source_path, file))
+
+        # 使用trimesh进行降采样
+        downsampled_mesh = mesh.simplify_quadratic_decimation(10000)
+
+        # 将降采样后的模型保存为新的STL文件
+        downsampled_mesh.export(os.path.join(target_path, file))
 
 
 def batch(normal_src, normal_tgt, abnormal_src, abnormal_tgt):
@@ -46,13 +62,14 @@ def batch(normal_src, normal_tgt, abnormal_src, abnormal_tgt):
         convert_to_txt(os.path.join(abnormal_src, file), os.path.join(abnormal_tgt, tgt_file))
 
     # 写入训练文件
-    with open('/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/tooth_quality_train.txt', 'w') as f:
+    with open('D:/Dataset/Tooth_quality/tooth_quality_train.txt', 'w') as f:
         f.write(train_info)
 
 
 if __name__ == '__main__':
-    normal_src = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/normal_origin'
-    normal_tgt = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/normal'
-    abnormal_src = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/abnormal_origin'
-    abnormal_tgt = '/media/why/77B8B456EE73FE06/users/xsf_ubuntu/Dataset/Tooth_quality/abnormal'
+    normal_src = 'D:/Dataset/Tooth_quality/normal_downsample'
+    normal_tgt = 'D:/Dataset/Tooth_quality/normal'
+    abnormal_src = 'D:/Dataset/Tooth_quality/abnormal_downsample'
+    abnormal_tgt = 'D:/Dataset/Tooth_quality/abnormal'
     batch(normal_src, normal_tgt, abnormal_src, abnormal_tgt)
+    # downsample("D:\\Dataset\\Tooth_quality\\normal_origin", "D:\\Dataset\\Tooth_quality\\normal_downsample")
