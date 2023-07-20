@@ -43,20 +43,34 @@ def parse_args():
     parser.add_argument('--learning_rate', default=0.001, type=float, help='learning rate in training')
 
     # 设置采样点的个数
-    parser.add_argument('--num_point', type=int, default=6000, help='Point Number')
+    parser.add_argument('--num_point', type=int, default=5000, help='Point Number')
     parser.add_argument('--optimizer', type=str, default='Adam', help='optimizer for training')
     parser.add_argument('--log_dir', type=str, default=None, help='experiment root')
     parser.add_argument('--decay_rate', type=float, default=1e-4, help='decay rate')
 
-    # 是否使用法向量，我们的数据中没有法向量
+    # 是否使用法向量
     parser.add_argument('--use_normals', action='store_true', default=False, help='use normals')
 
     # 是否要离线增强数据，否
     parser.add_argument('--process_data', action='store_true', default=False, help='save data offline')
 
     # 是否使用平均采样，否
-    parser.add_argument('--use_uniform_sample', action='store_true', default=False, help='use uniform sampiling')
-    return parser.parse_args()
+    parser.add_argument('--c', action='store_true', default=False, help='use uniform sampiling')
+
+
+    args = parser.parse_args()
+    # 使用的模型
+    args.model = 'pointnet2_cls_msg'
+    # 使用法向量
+    args.use_normals = True
+    # 采样的点云数
+    args.num_point = 8000
+    # 采样方法，默认使用FPS
+    args.use_uniform_sample = False
+    #
+    args.batch_size = 48
+
+    return args
 
 
 def inplace_relu(m):
@@ -65,7 +79,7 @@ def inplace_relu(m):
         m.inplace=True
 
 
-def test(model, loader, num_class=40):
+def test(model, loader, num_class=2):
     mean_correct = []
     class_acc = np.zeros((num_class, 3))
     classifier = model.eval()
@@ -136,8 +150,8 @@ def main(args):
 
     train_dataset = ToothQualityDataLoader(root=data_path, args=args, split='train', process_data=args.process_data)
     test_dataset = ToothQualityDataLoader(root=data_path, args=args, split='test', process_data=args.process_data)
-    trainDataLoader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=10, drop_last=True)
-    testDataLoader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=10)
+    trainDataLoader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=20, drop_last=True)
+    testDataLoader = torch.utils.data.DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=20)
 
     '''MODEL LOADING'''
     num_class = args.num_category
