@@ -21,8 +21,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
 sys.path.append(os.path.join(ROOT_DIR, 'models'))
 
-classes = ['ceiling', 'floor', 'wall', 'beam', 'column', 'window', 'door', 'table', 'chair', 'sofa', 'bookcase',
-           'board', 'clutter']
+# 分割的类别，我们只需要两类：牙龈线，其他区域
+classes = ['trim_line', 'others']
+
 class2label = {cls: i for i, cls in enumerate(classes)}
 seg_classes = class2label
 seg_label_to_cat = {}
@@ -36,18 +37,30 @@ def inplace_relu(m):
 
 def parse_args():
     parser = argparse.ArgumentParser('Model')
-    parser.add_argument('--model', type=str, default='pointnet_sem_seg', help='model name [default: pointnet_sem_seg]')
+
+    # 使用pointnet2的语义分割模型试试
+    parser.add_argument('--model', type=str, default='pointnet2_sem_seg', help='model name [default: pointnet_sem_seg]')
+
+    # 这里如果不进行下采样的话，batch size可能得设置的很小，之后看看
     parser.add_argument('--batch_size', type=int, default=16, help='Batch Size during training [default: 16]')
-    parser.add_argument('--epoch', default=32, type=int, help='Epoch to run [default: 32]')
+
+    # 训练轮数
+    parser.add_argument('--epoch', default=200, type=int, help='Epoch to run [default: 32]')
+    # 学习率不动
     parser.add_argument('--learning_rate', default=0.001, type=float, help='Initial learning rate [default: 0.001]')
     parser.add_argument('--gpu', type=str, default='0', help='GPU to use [default: GPU 0]')
     parser.add_argument('--optimizer', type=str, default='Adam', help='Adam or SGD [default: Adam]')
+    # 日志存放目录
     parser.add_argument('--log_dir', type=str, default=None, help='Log path [default: None]')
+
     parser.add_argument('--decay_rate', type=float, default=1e-4, help='weight decay [default: 1e-4]')
+
+    # 点云数量，这个得统计一下
     parser.add_argument('--npoint', type=int, default=4096, help='Point Number [default: 4096]')
-    parser.add_argument('--step_size', type=int, default=10, help='Decay step for lr decay [default: every 10 epochs]')
+
+    # 学习率衰减
+    parser.add_argument('--step_size', type=int, default=20, help='Decay step for lr decay [default: every 10 epochs]')
     parser.add_argument('--lr_decay', type=float, default=0.7, help='Decay rate for lr decay [default: 0.7]')
-    parser.add_argument('--test_area', type=int, default=5, help='Which area to use for test, option: 1-6 [default: 5]')
 
     return parser.parse_args()
 
@@ -88,8 +101,10 @@ def main(args):
     log_string('PARAMETER ...')
     log_string(args)
 
+    # 数据目录，要换成我们的牙龈线分割数据目录
     root = 'data/stanford_indoor3d/'
-    NUM_CLASSES = 13
+    # 两类
+    NUM_CLASSES = 2
     NUM_POINT = args.npoint
     BATCH_SIZE = args.batch_size
 
