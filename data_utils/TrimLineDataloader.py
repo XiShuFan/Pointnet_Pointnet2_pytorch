@@ -3,7 +3,7 @@ import numpy as np
 
 from tqdm import tqdm
 from torch.utils.data import Dataset
-
+import random
 
 class TrimLineDataloader(Dataset):
     def __init__(self, data_root, num_point=6000, transform=None):
@@ -15,13 +15,12 @@ class TrimLineDataloader(Dataset):
         # 得到文件夹下所有的文件
         self.file_list = os.listdir(self.data_root)
 
-        # 标签的权重值，避免不平衡的标签数量
+        # 标签的权重值，避免不平衡的标签数量，目前设置2：1
         self.labelweights = np.array([2, 1])
 
     def __getitem__(self, idx):
         tooth_path = os.path.join(self.data_root, self.file_list[idx])
-        info = np.load(tooth_path, allow_pickle=True)
-        info = dict(info)
+        info = np.load(tooth_path, allow_pickle=True).item()
 
         # 拿出口扫的信息
         face_num = info['face_num']
@@ -30,7 +29,7 @@ class TrimLineDataloader(Dataset):
         vertex_norms = info['vertex_norms']
         face_norms = info['face_norms']
         vertex_colors = info['vertex_colors']
-        # TODO: 注意这里面片上并没有颜色，我们需要从顶点颜色上计算
+        # TODO: 注意面片颜色是否正确
         face_colors = info['face_colors']
         labels = np.array(info['labels'], dtype=int)
 
@@ -58,22 +57,21 @@ class TrimLineDataloader(Dataset):
 
         # TODO: 使用的信息包括：面片中心点坐标、三个顶点的坐标、面片法向量
         # 把面片中心放在第一位是为了方便计算邻居
-        current_points = np.zeros((self.num_point, 15))
-        current_points[:face_num, 0:3] = face_centers
-        current_points[:face_num, 3:6] = vertices[faces[:, 0]]
-        current_points[:face_num, 6:9] = vertices[faces[:, 1]]
-        current_points[:face_num, 9:12] = vertices[faces[:, 2]]
-        current_points[:face_num, 12:15] = face_norms
-        # current_points[:face_num, 15:18] = face_colors
+        current_points = np.zeros((face_num, 15))
+        current_points[:, 0:3] = face_centers
+        current_points[:, 3:6] = vertices[faces[:, 0]]
+        current_points[:, 6:9] = vertices[faces[:, 1]]
+        current_points[:, 9:12] = vertices[faces[:, 2]]
+        current_points[:, 12:15] = face_norms
+        # current_points[:, 15:18] = face_colors
 
         # 标签值也一样
-        current_labels = np.zeros((self.num_point))
-        current_labels[:face_num] = labels
+        current_labels = labels
 
-        # 随机打乱顺序
-        permute = np.random.permutation(self.num_point)
-        current_labels = current_labels[permute]
-        current_points = current_points[permute]
+        # 随机选取num_point个数目的特征信息
+        select_index = random.sample(range(face_num), self.num_point)
+        current_labels = current_labels[select_index]
+        current_points = current_points[select_index]
 
         if self.transform is not None:
             current_points, current_labels = self.transform(current_points, current_labels)
@@ -84,8 +82,10 @@ class TrimLineDataloader(Dataset):
 
 
 if __name__ == '__main__':
-    dataset = TrimLineDataloader(data_root='D:\\Dataset\\OralScan_trim_line\\train')
+    dataset = TrimLineDataloader(data_root="D:\\Dataset\\OralScan_trim_line\\visualize_ply_train_data_10000_npy")
 
     print(len(dataset))
 
     print(dataset[0])
+
+    print('end')

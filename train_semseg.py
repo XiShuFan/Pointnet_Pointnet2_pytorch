@@ -21,15 +21,14 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
 sys.path.append(os.path.join(ROOT_DIR, 'models'))
 
-# TODO: 注意这里的标签0才是前景标签
 # 分割的类别，我们只需要两类：牙龈线，其他区域
-classes = ['trim_line', 'others']
+classes = ['others', 'trim_line']
 
-# {trim_line: 0, others: 1}
+# {others: 0, trim_line: 1}
 class2label = {cls: i for i, cls in enumerate(classes)}
 seg_classes = class2label
 
-# {0: trim_line, 1: other}
+# {0: others, 1: trim_line}
 seg_label_to_cat = {}
 for i, cat in enumerate(seg_classes.keys()):
     seg_label_to_cat[i] = cat
