@@ -4,7 +4,6 @@ Date: Nov 2019
 """
 import argparse
 import os
-from data_utils.S3DISDataLoader import S3DISDataset
 import torch
 import datetime
 import logging
@@ -16,16 +15,21 @@ from tqdm import tqdm
 import provider
 import numpy as np
 import time
+from data_utils.TrimLineDataloader import TrimLineDataloader
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
 sys.path.append(os.path.join(ROOT_DIR, 'models'))
 
+# TODO: 注意这里的标签0才是前景标签
 # 分割的类别，我们只需要两类：牙龈线，其他区域
 classes = ['trim_line', 'others']
 
+# {trim_line: 0, others: 1}
 class2label = {cls: i for i, cls in enumerate(classes)}
 seg_classes = class2label
+
+# {0: trim_line, 1: other}
 seg_label_to_cat = {}
 for i, cat in enumerate(seg_classes.keys()):
     seg_label_to_cat[i] = cat
@@ -33,7 +37,7 @@ for i, cat in enumerate(seg_classes.keys()):
 def inplace_relu(m):
     classname = m.__class__.__name__
     if classname.find('ReLU') != -1:
-        m.inplace=True
+        m.inplace = True
 
 def parse_args():
     parser = argparse.ArgumentParser('Model')
@@ -53,10 +57,11 @@ def parse_args():
     # 日志存放目录
     parser.add_argument('--log_dir', type=str, default=None, help='Log path [default: None]')
 
+    # 使用SGD优化器才会用到动量衰减
     parser.add_argument('--decay_rate', type=float, default=1e-4, help='weight decay [default: 1e-4]')
 
-    # 点云数量，这个得统计一下
-    parser.add_argument('--npoint', type=int, default=4096, help='Point Number [default: 4096]')
+    # TODO: 采样点云数量，这个得统计一下
+    parser.add_argument('--npoint', type=int, default=6000, help='Point Number [default: 4096]')
 
     # 学习率衰减
     parser.add_argument('--step_size', type=int, default=20, help='Decay step for lr decay [default: every 10 epochs]')
@@ -109,14 +114,15 @@ def main(args):
     BATCH_SIZE = args.batch_size
 
     print("start loading training data ...")
-    TRAIN_DATASET = S3DISDataset(split='train', data_root=root, num_point=NUM_POINT, test_area=args.test_area, block_size=1.0, sample_rate=1.0, transform=None)
+
+    TRAIN_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None)
     print("start loading test data ...")
-    TEST_DATASET = S3DISDataset(split='test', data_root=root, num_point=NUM_POINT, test_area=args.test_area, block_size=1.0, sample_rate=1.0, transform=None)
+    TEST_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None)
 
     trainDataLoader = torch.utils.data.DataLoader(TRAIN_DATASET, batch_size=BATCH_SIZE, shuffle=True, num_workers=10,
                                                   pin_memory=True, drop_last=True,
                                                   worker_init_fn=lambda x: np.random.seed(x + int(time.time())))
-    testDataLoader = torch.utils.data.DataLoader(TEST_DATASET, batch_size=BATCH_SIZE, shuffle=False, num_workers=10,
+    testDataLoader = torch.utils.data.DataLoader(TEST_DATASET, batch_size=1, shuffle=False, num_workers=10,
                                                  pin_memory=True, drop_last=True)
     weights = torch.Tensor(TRAIN_DATASET.labelweights).cuda()
 
