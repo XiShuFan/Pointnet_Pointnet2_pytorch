@@ -6,8 +6,8 @@ import os
 import numpy as np
 import vedo
 
-source_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_train_data_10000"
-target_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_train_data_10000_npy"
+source_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_3_selective_downsample_20000"
+target_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_3_selective_downsample_20000_npy"
 
 for file in os.listdir(source_path):
     print(file)

@@ -38,3 +38,11 @@ class get_loss(torch.nn.Module):
 
         total_loss = loss + mat_diff_loss * self.mat_diff_loss_scale
         return total_loss
+
+
+if __name__ == '__main__':
+    model = get_model(2)
+
+    input = torch.zeros((16, 6, 10000))
+
+    output, trans_feat = model(input)
