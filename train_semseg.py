@@ -42,7 +42,7 @@ def parse_args():
     parser = argparse.ArgumentParser('Model')
 
     # 使用pointnet2的语义分割模型试试
-    parser.add_argument('--model', type=str, default='pointnet2_sem_seg', help='model name [default: pointnet_sem_seg]')
+    parser.add_argument('--model', type=str, default='pointnet_sem_seg', help='model name [default: pointnet_sem_seg]')
 
     # 这里如果不进行下采样的话，batch size可能得设置的很小，之后看看
     parser.add_argument('--batch_size', type=int, default=16, help='Batch Size during training [default: 16]')
@@ -114,9 +114,9 @@ def main(args):
 
     print("start loading training data ...")
 
-    TRAIN_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None)
+    TRAIN_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None, is_train=True)
     print("start loading test data ...")
-    TEST_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None)
+    TEST_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None, is_train=False)
 
     trainDataLoader = torch.utils.data.DataLoader(TRAIN_DATASET, batch_size=BATCH_SIZE, shuffle=True, num_workers=10,
                                                   pin_memory=True, drop_last=True,
@@ -201,9 +201,16 @@ def main(args):
             optimizer.zero_grad()
 
             points = points.data.numpy()
+            # TODO: 这里有一个数据增强，所有坐标信息和法向量都得做才行
             points[:, :, :3] = provider.rotate_point_cloud_z(points[:, :, :3])
+            points[:, :, 3:6] = provider.rotate_point_cloud_z(points[:, :, 3:6])
+            points[:, :, 6:9] = provider.rotate_point_cloud_z(points[:, :, 6:9])
+            points[:, :, 9:12] = provider.rotate_point_cloud_z(points[:, :, 9:12])
+            points[:, :, 12:15] = provider.rotate_point_cloud_z(points[:, :, 12:15])
+
             points = torch.Tensor(points)
             points, target = points.float().cuda(), target.long().cuda()
+            # TODO: 这里将点云维度重构成了 [batch size, num channel, num points]
             points = points.transpose(2, 1)
 
             seg_pred, trans_feat = classifier(points)

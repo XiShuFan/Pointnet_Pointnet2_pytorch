@@ -6,17 +6,18 @@ from torch.utils.data import Dataset
 import random
 
 class TrimLineDataloader(Dataset):
-    def __init__(self, data_root, num_point=6000, transform=None):
+    def __init__(self, data_root, num_point=6000, transform=None, is_train=True):
         super().__init__()
         self.data_root = data_root
         self.num_point = num_point
         self.transform = transform
+        self.is_train = is_train
 
         # 得到文件夹下所有的文件
         self.file_list = os.listdir(self.data_root)
 
-        # 标签的权重值，避免不平衡的标签数量，目前设置2：1
-        self.labelweights = np.array([2, 1])
+        # 标签的权重值，避免不平衡的标签数量，目前设置1:2
+        self.labelweights = np.array([1, 2])
 
     def __getitem__(self, idx):
         tooth_path = os.path.join(self.data_root, self.file_list[idx])
@@ -57,6 +58,7 @@ class TrimLineDataloader(Dataset):
 
         # TODO: 使用的信息包括：面片中心点坐标、三个顶点的坐标、面片法向量
         # 把面片中心放在第一位是为了方便计算邻居
+        # TODO: 增加或者删除特征，需要注意 PointNetEncoder模块做相应的transform！！
         current_points = np.zeros((face_num, 15))
         current_points[:, 0:3] = face_centers
         current_points[:, 3:6] = vertices[faces[:, 0]]
@@ -68,13 +70,15 @@ class TrimLineDataloader(Dataset):
         # 标签值也一样
         current_labels = labels
 
-        # 随机选取num_point个数目的特征信息
-        select_index = random.sample(range(face_num), self.num_point)
-        current_labels = current_labels[select_index]
-        current_points = current_points[select_index]
+        if self.is_train:
+            # 随机选取num_point个数目的特征信息
+            select_index = random.sample(range(face_num), self.num_point)
+            current_labels = current_labels[select_index]
+            current_points = current_points[select_index]
 
-        if self.transform is not None:
-            current_points, current_labels = self.transform(current_points, current_labels)
+            if self.transform is not None:
+                current_points, current_labels = self.transform(current_points, current_labels)
+
         return current_points, current_labels
 
     def __len__(self):

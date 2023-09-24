@@ -104,12 +104,14 @@ class PointNetEncoder(nn.Module):
         B, D, N = x.size()
         trans = self.stn(x)
         x = x.transpose(2, 1)
-        if D > 3:
-            feature = x[:, :, 3:]
-            x = x[:, :, :3]
-        x = torch.bmm(x, trans)
-        if D > 3:
-            x = torch.cat([x, feature], dim=2)
+
+        # TODO: 做空间变化
+        x[:, :, :3] = torch.bmm(x[:, :, :3], trans)
+        x[:, :, 3:6] = torch.bmm(x[:, :, 3:6], trans)
+        x[:, :, 6:9] = torch.bmm(x[:, :, 6:9], trans)
+        x[:, :, 9:12] = torch.bmm(x[:, :, 9:12], trans)
+        x[:, :, 12:15] = torch.bmm(x[:, :, 12:15], trans)
+
         x = x.transpose(2, 1)
         x = F.relu(self.bn1(self.conv1(x)))
 
