@@ -49,7 +49,7 @@ def parse_args():
 
     # 训练轮数
     parser.add_argument('--epoch', default=200, type=int, help='Epoch to run [default: 32]')
-    # 学习率不动
+    # 学习率不动c
     parser.add_argument('--learning_rate', default=0.001, type=float, help='Initial learning rate [default: 0.001]')
     parser.add_argument('--gpu', type=str, default='0', help='GPU to use [default: GPU 0]')
     parser.add_argument('--optimizer', type=str, default='Adam', help='Adam or SGD [default: Adam]')
@@ -60,7 +60,7 @@ def parse_args():
     parser.add_argument('--decay_rate', type=float, default=1e-4, help='weight decay [default: 1e-4]')
 
     # TODO: 采样点云数量，这个得统计一下
-    parser.add_argument('--npoint', type=int, default=6000, help='Point Number [default: 4096]')
+    parser.add_argument('--npoint', type=int, default=16000, help='Point Number [default: 4096]')
 
     # 学习率衰减
     parser.add_argument('--step_size', type=int, default=20, help='Decay step for lr decay [default: every 10 epochs]')
@@ -106,7 +106,7 @@ def main(args):
     log_string(args)
 
     # 数据目录，要换成我们的牙龈线分割数据目录
-    root = 'data/stanford_indoor3d/'
+    root = '/media/why/新加卷/xsf/Dataset/visualize_ply_train_data_20000_npy'
     # 两类
     NUM_CLASSES = 2
     NUM_POINT = args.npoint
