@@ -106,7 +106,7 @@ def main(args):
     log_string(args)
 
     # 数据目录，要换成我们的牙龈线分割数据目录
-    root = '/media/why/新加卷/xsf/Dataset/visualize_ply_train_data_20000_npy'
+    root = '/media/why/新加卷/xsf/Dataset/visualize_ply_expand_3_20000_npy'
     # 两类
     NUM_CLASSES = 2
     NUM_POINT = args.npoint
@@ -131,9 +131,10 @@ def main(args):
     '''MODEL LOADING'''
     MODEL = importlib.import_module(args.model)
     shutil.copy('models/%s.py' % args.model, str(experiment_dir))
-    shutil.copy('models/pointnet2_utils.py', str(experiment_dir))
+    shutil.copy('models/pointnet_utils.py', str(experiment_dir))
 
-    classifier = MODEL.get_model(NUM_CLASSES).cuda()
+    # TODO: 这里注意特征维度
+    classifier = MODEL.get_model(NUM_CLASSES, channel=15).cuda()
     criterion = MODEL.get_loss().cuda()
     classifier.apply(inplace_relu)
 
