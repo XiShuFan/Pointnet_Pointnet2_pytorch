@@ -16,6 +16,10 @@ import provider
 import numpy as np
 import time
 from data_utils.TrimLineDataloader import TrimLineDataloader
+from util import VisdomLinePlotter
+
+# 绘图用
+plotter = VisdomLinePlotter(env_name='PointNet')
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
@@ -48,7 +52,7 @@ def parse_args():
     parser.add_argument('--batch_size', type=int, default=16, help='Batch Size during training [default: 16]')
 
     # 训练轮数
-    parser.add_argument('--epoch', default=200, type=int, help='Epoch to run [default: 32]')
+    parser.add_argument('--epoch', default=400, type=int, help='Epoch to run [default: 32]')
     # 学习率不动c
     parser.add_argument('--learning_rate', default=0.001, type=float, help='Initial learning rate [default: 0.001]')
     parser.add_argument('--gpu', type=str, default='0', help='GPU to use [default: GPU 0]')
@@ -231,6 +235,11 @@ def main(args):
         log_string('Training mean loss: %f' % (loss_sum / num_batches))
         log_string('Training accuracy: %f' % (total_correct / float(total_seen)))
 
+        # TODO: 画出训练过程
+        plotter.plot('loss', 'train', 'Loss', epoch, loss_sum / num_batches)
+        plotter.plot('accuracy', 'train', 'Acc', epoch, total_correct / float(total_seen))
+        plotter.plot('learning_rate', 'train', 'Lr', epoch, lr)
+
         if epoch % 5 == 0:
             logger.info('Save model...')
             savepath = str(checkpoints_dir) + '/model.pth'
@@ -285,20 +294,26 @@ def main(args):
             labelweights = labelweights.astype(np.float32) / np.sum(labelweights.astype(np.float32))
             mIoU = np.mean(np.array(total_correct_class) / (np.array(total_iou_deno_class, dtype=np.float) + 1e-6))
             log_string('eval mean loss: %f' % (loss_sum / float(num_batches)))
-            log_string('eval point avg class IoU: %f' % (mIoU))
+            log_string('eval mIoU: %f' % (mIoU))
             log_string('eval point accuracy: %f' % (total_correct / float(total_seen)))
-            log_string('eval point avg class acc: %f' % (
+            log_string('eval point class accuracy: %f' % (
                 np.mean(np.array(total_correct_class) / (np.array(total_seen_class, dtype=np.float) + 1e-6))))
+
+            # TODO: 画出预测过程的结果
+            plotter.plot('loss', 'val', 'Loss', epoch, loss_sum / float(num_batches))
+            plotter.plot('accuracy', 'val', 'Acc', epoch, total_correct / float(total_seen))
+            plotter.plot('iou', 'mIoU', 'IoU', epoch, mIoU)
 
             iou_per_class_str = '------- IoU --------\n'
             for l in range(NUM_CLASSES):
                 iou_per_class_str += 'class %s weight: %.3f, IoU: %.3f \n' % (
                     seg_label_to_cat[l] + ' ' * (14 - len(seg_label_to_cat[l])), labelweights[l - 1],
                     total_correct_class[l] / float(total_iou_deno_class[l]))
+                # TODO: 画出每个类别的IoU
+                plotter.plot('iou', f'{seg_label_to_cat[l]}', 'IoU', epoch, total_correct_class[l] / float(total_iou_deno_class[l]))
 
             log_string(iou_per_class_str)
-            log_string('Eval mean loss: %f' % (loss_sum / num_batches))
-            log_string('Eval accuracy: %f' % (total_correct / float(total_seen)))
+
 
             if mIoU >= best_iou:
                 best_iou = mIoU
