@@ -16,8 +16,8 @@ class TrimLineDataloader(Dataset):
         # 得到文件夹下所有的文件
         self.file_list = os.listdir(self.data_root)
 
-        # 标签的权重值，避免不平衡的标签数量，目前设置1:5
-        self.labelweights = np.array([1, 4])
+        # 标签的权重值，避免不平衡的标签数量
+        self.labelweights = np.array([0.2, 0.8])
 
     def __getitem__(self, idx):
         tooth_path = os.path.join(self.data_root, self.file_list[idx])

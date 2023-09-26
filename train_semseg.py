@@ -55,7 +55,7 @@ def parse_args():
     parser.add_argument('--epoch', default=400, type=int, help='Epoch to run [default: 32]')
     # 学习率不动c
     parser.add_argument('--learning_rate', default=0.001, type=float, help='Initial learning rate [default: 0.001]')
-    parser.add_argument('--gpu', type=str, default='0', help='GPU to use [default: GPU 0]')
+    parser.add_argument('--gpu', type=str, default='1', help='GPU to use [default: GPU 0]')
     parser.add_argument('--optimizer', type=str, default='Adam', help='Adam or SGD [default: Adam]')
     # 日志存放目录
     parser.add_argument('--log_dir', type=str, default=None, help='Log path [default: None]')
@@ -236,6 +236,7 @@ def main(args):
         log_string('Training accuracy: %f' % (total_correct / float(total_seen)))
 
         # TODO: 画出训练过程
+        loss_sum = loss_sum.cpu().detach()
         plotter.plot('loss', 'train', 'Loss', epoch, loss_sum / num_batches)
         plotter.plot('accuracy', 'train', 'Acc', epoch, total_correct / float(total_seen))
         plotter.plot('learning_rate', 'train', 'Lr', epoch, lr)
@@ -282,7 +283,7 @@ def main(args):
                 pred_val = np.argmax(pred_val, 2)
                 correct = np.sum((pred_val == batch_label))
                 total_correct += correct
-                total_seen += (BATCH_SIZE * NUM_POINT)
+                total_seen += points.shape[-1]
                 tmp, _ = np.histogram(batch_label, range(NUM_CLASSES + 1))
                 labelweights += tmp
 
@@ -300,6 +301,7 @@ def main(args):
                 np.mean(np.array(total_correct_class) / (np.array(total_seen_class, dtype=np.float) + 1e-6))))
 
             # TODO: 画出预测过程的结果
+            loss_sum = loss_sum.cpu().detach()
             plotter.plot('loss', 'val', 'Loss', epoch, loss_sum / float(num_batches))
             plotter.plot('accuracy', 'val', 'Acc', epoch, total_correct / float(total_seen))
             plotter.plot('iou', 'mIoU', 'IoU', epoch, mIoU)
