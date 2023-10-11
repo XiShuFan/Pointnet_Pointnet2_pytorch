@@ -54,7 +54,7 @@ def parse_args():
     # 训练轮数
     parser.add_argument('--epoch', default=400, type=int, help='Epoch to run [default: 32]')
     # 学习率不动c
-    parser.add_argument('--learning_rate', default=0.001, type=float, help='Initial learning rate [default: 0.001]')
+    parser.add_argument('--learning_rate', default=0.0004, type=float, help='Initial learning rate [default: 0.001]')
     parser.add_argument('--gpu', type=str, default='1', help='GPU to use [default: GPU 0]')
     parser.add_argument('--optimizer', type=str, default='Adam', help='Adam or SGD [default: Adam]')
     # 日志存放目录
@@ -64,11 +64,11 @@ def parse_args():
     parser.add_argument('--decay_rate', type=float, default=1e-4, help='weight decay [default: 1e-4]')
 
     # TODO: 采样点云数量，这个得统计一下
-    parser.add_argument('--npoint', type=int, default=30000, help='Point Number [default: 4096]')
+    parser.add_argument('--npoint', type=int, default=16000, help='Point Number [default: 4096]')
 
     # 学习率衰减
     parser.add_argument('--step_size', type=int, default=20, help='Decay step for lr decay [default: every 10 epochs]')
-    parser.add_argument('--lr_decay', type=float, default=0.7, help='Decay rate for lr decay [default: 0.7]')
+    parser.add_argument('--lr_decay', type=float, default=0.9, help='Decay rate for lr decay [default: 0.7]')
 
     return parser.parse_args()
 
@@ -176,7 +176,8 @@ def main(args):
         if isinstance(m, torch.nn.BatchNorm2d) or isinstance(m, torch.nn.BatchNorm1d):
             m.momentum = momentum
 
-    LEARNING_RATE_CLIP = 1e-5
+    # TODO: 限制一下学习率最小值，否则后续训练不动了
+    LEARNING_RATE_CLIP = 1e-4
     MOMENTUM_ORIGINAL = 0.1
     MOMENTUM_DECCAY = 0.5
     MOMENTUM_DECCAY_STEP = args.step_size
