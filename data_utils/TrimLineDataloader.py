@@ -1,3 +1,4 @@
+import copy
 import os
 import numpy as np
 
@@ -39,7 +40,9 @@ class TrimLineDataloader(Dataset):
 
 
     def parse_npy(self, tooth_path):
+        # TODO: 注意map类型的值会被改变，所以返回时需要重新加载一下
         info = np.load(tooth_path, allow_pickle=True).item()
+        info_ori = copy.deepcopy(info)
 
         # 拿出口扫的信息
         face_num = info['face_num']
@@ -88,7 +91,7 @@ class TrimLineDataloader(Dataset):
         # 标签值也一样
         current_labels = labels
 
-        return current_points, current_labels, info
+        return current_points, current_labels, info_ori
 
     def __len__(self):
         return len(self.file_list)
