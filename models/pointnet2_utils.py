@@ -110,9 +110,9 @@ def query_ball_point(radius, nsample, xyz, new_xyz):
 def sample_and_group(npoint, radius, nsample, xyz, points, returnfps=False):
     """
     Input:
-        npoint:
-        radius:
-        nsample:
+        npoint: 需要采样的中心点数量
+        radius: 采样半径
+        nsample: 每个中心点在半径内采样的最多点个数
         xyz: input points position data, [B, N, 3]
         points: input points data, [B, N, D]
     Return:
@@ -195,7 +195,7 @@ class PointNetSetAbstraction(nn.Module):
         new_points = new_points.permute(0, 3, 2, 1) # [B, C+D, nsample,npoint]
         for i, conv in enumerate(self.mlp_convs):
             bn = self.mlp_bns[i]
-            new_points =  F.relu(bn(conv(new_points)))
+            new_points = F.relu(bn(conv(new_points)))
 
         new_points = torch.max(new_points, 2)[0]
         new_xyz = new_xyz.permute(0, 2, 1)

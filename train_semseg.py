@@ -177,7 +177,8 @@ def main(args):
             m.momentum = momentum
 
     # TODO: 限制一下学习率最小值，否则后续训练不动了
-    LEARNING_RATE_CLIP = 1e-4
+    # TODO: 学习率太大了也会很波动，画图看看，权衡一下
+    LEARNING_RATE_CLIP = 1e-5
     MOMENTUM_ORIGINAL = 0.1
     MOMENTUM_DECCAY = 0.5
     MOMENTUM_DECCAY_STEP = args.step_size
