@@ -60,19 +60,22 @@ def visualize_ply(cell_labels, cells, points, file_name):
              f"property uchar alpha\n" \
              f"end_header\n"
     point_info = ""
-    point_label = np.zeros(len(points))
+    point_labels = np.zeros(len(points))
     cell_info = ""
     for cell_label, cell in zip(cell_labels, cells):
         if cell_label == 1:
             cell_info += f"3 {cell[0]} {cell[1]} {cell[2]} 255 0 0 255\n"
-            point_label[cell[0]] = 1
-            point_label[cell[1]] = 1
-            point_label[cell[2]] = 1
+            point_labels[cell[0]] = 1
+            point_labels[cell[1]] = 1
+            point_labels[cell[2]] = 1
         else:
             cell_info += f"3 {cell[0]} {cell[1]} {cell[2]} 255 255 255 255\n"
 
-    for point in points:
-        point_info += f"{point[0]} {point[1]} {point[2]} 255 255 255 255\n"
+    for point, label in zip(points, point_labels):
+        if label == 1:
+            point_info += f"{point[0]} {point[1]} {point[2]} 255 0 0 255\n"
+        else:
+            point_info += f"{point[0]} {point[1]} {point[2]} 255 255 255 255\n"
 
     # 写出到文件中
     with open(file_name, 'w', encoding='ascii') as f:
@@ -127,5 +130,15 @@ def main(args):
 
 
 if __name__ == '__main__':
-    args = parse_args()
-    main(args)
+    # args = parse_args()
+    # main(args)
+
+    file = "D:\\Dataset\\OralScan_trim_line\\实验二\\001C_P3B.npy"
+    vis_file = "D:\\Dataset\\OralScan_trim_line\\实验二\\001C_P3B.ply"
+
+    info = np.load(file, allow_pickle=True).item()
+    vertices = info['vertices']
+    faces = info['faces']
+    labels = np.array(info['labels'], dtype=int)
+
+    visualize_ply(labels, faces, vertices, vis_file)
