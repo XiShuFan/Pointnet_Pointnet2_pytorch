@@ -126,7 +126,7 @@ def main(args):
             pred_choice = seg_pred.cpu().data.max(1)[1].numpy()
 
             # 把预测结果写入到ply文件中进行可视化
-            visualize_ply(pred_choice, info['faces'], info['vertices'], os.path.join(visualize_dir, tooth_file))
+            visualize_ply(pred_choice, info['faces'], info['vertices'], os.path.join(visualize_dir, tooth_file[:-4] + '.ply'))
 
 
 if __name__ == '__main__':
