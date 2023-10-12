@@ -115,3 +115,5 @@ dmypy.json
 
 # 权重文件不要保存
 *.pth
+*.xml
+*.iml
