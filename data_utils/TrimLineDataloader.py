@@ -58,10 +58,14 @@ class TrimLineDataloader(Dataset):
         # 计算得到顶点的范围，为了归一化
         coord_min, coord_max = np.amin(vertices, axis=0)[:3], np.amax(vertices, axis=0)[:3]
 
+        # TODO：为了让网络学习到正确的拓扑形状，XYZ轴的比例必须保持一致
+        XYZ_scale = coord_max - coord_min
+        XYZ_scale /= XYZ_scale[0]
+
         # 顶点坐标归一化
-        vertices[:, 0] = (vertices[:, 0] - coord_min[0]) / (coord_max[0] - coord_min[0])
-        vertices[:, 1] = (vertices[:, 1] - coord_min[1]) / (coord_max[1] - coord_min[1])
-        vertices[:, 2] = (vertices[:, 2] - coord_min[2]) / (coord_max[2] - coord_min[2])
+        vertices[:, 0] = (vertices[:, 0] - coord_min[0]) / (coord_max[0] - coord_min[0]) * XYZ_scale[0]
+        vertices[:, 1] = (vertices[:, 1] - coord_min[1]) / (coord_max[1] - coord_min[1]) * XYZ_scale[1]
+        vertices[:, 2] = (vertices[:, 2] - coord_min[2]) / (coord_max[2] - coord_min[2]) * XYZ_scale[2]
 
         # 得到面片中心点坐标
         face_centers = [np.mean(vertices[face], axis=0) for face in faces]
@@ -98,7 +102,7 @@ class TrimLineDataloader(Dataset):
 
 
 if __name__ == '__main__':
-    dataset = TrimLineDataloader(data_root="D:\\Dataset\\OralScan_trim_line\\visualize_ply_train_data_10000_npy")
+    dataset = TrimLineDataloader(data_root="D:\\Dataset\\OralScan_trim_line\\实验五\\visualize_ply_expand_3_selective_downsample_20000_npy")
 
     print(len(dataset))
 
