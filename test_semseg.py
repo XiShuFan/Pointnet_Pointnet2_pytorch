@@ -130,15 +130,5 @@ def main(args):
 
 
 if __name__ == '__main__':
-    # args = parse_args()
-    # main(args)
-
-    file = "D:\\Dataset\\OralScan_trim_line\\实验二\\001C_P3B.npy"
-    vis_file = "D:\\Dataset\\OralScan_trim_line\\实验二\\001C_P3B.ply"
-
-    info = np.load(file, allow_pickle=True).item()
-    vertices = info['vertices']
-    faces = info['faces']
-    labels = np.array(info['labels'], dtype=int)
-
-    visualize_ply(labels, faces, vertices, vis_file)
+    args = parse_args()
+    main(args)
