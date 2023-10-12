@@ -84,11 +84,11 @@ def visualize_ply(cell_labels, cells, points, file_name):
 
 def main(args):
     # 训练数据文件夹
-    root = ""
+    root = "/media/why/新加卷/xsf/Dataset/visualize_ply_expand_3_selective_downsample_20000_npy"
     # 可视化文件夹
-    visualize_dir = ""
+    visualize_dir = "/media/why/新加卷/xsf/Dataset/实验5/pred_result"
     # 训练结果文件夹
-    experiment_dir = ""
+    experiment_dir = "/media/why/新加卷/xsf/Pointnet_Pointnet2_pytorch/log/sem_seg/实验5"
 
     '''HYPER PARAMETER'''
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
@@ -102,7 +102,7 @@ def main(args):
     '''MODEL LOADING'''
     model_name = os.listdir(experiment_dir + '/logs')[0].split('.')[0]
     MODEL = importlib.import_module(model_name)
-    classifier = MODEL.get_model(NUM_CLASSES).cuda()
+    classifier = MODEL.get_model(NUM_CLASSES, channel=15).cuda()
     # 这里加载的是最好的model
     checkpoint = torch.load(str(experiment_dir) + '/checkpoints/best_model.pth')
     classifier.load_state_dict(checkpoint['model_state_dict'])
@@ -123,7 +123,7 @@ def main(args):
             pred_choice = seg_pred.cpu().data.max(1)[1].numpy()
 
             # 把预测结果写入到ply文件中进行可视化
-            visualize_ply(pred_choice, info['faces'], info['vertices'], os.path.join(visualize_dir, tooth_file))
+            visualize_ply(pred_choice, info['faces'], info['vertices'], os.path.join(visualize_dir, tooth_file[:-4] + '.ply'))
 
 
 if __name__ == '__main__':
