@@ -21,6 +21,24 @@ class TrimLineDataloader(Dataset):
 
     def __getitem__(self, idx):
         tooth_path = os.path.join(self.data_root, self.file_list[idx])
+
+        # 得到训练数据，另外info也一并返回
+        current_points, current_labels, info = self.parse_npy(tooth_path)
+
+        # TODO: 只有训练的时候才需要随机采样
+        if self.is_train:
+            # 随机选取num_point个数目的特征信息
+            select_index = random.sample(range(len(current_points)), self.num_point)
+            current_labels = current_labels[select_index]
+            current_points = current_points[select_index]
+
+            if self.transform is not None:
+                current_points, current_labels = self.transform(current_points, current_labels)
+
+        return current_points, current_labels
+
+
+    def parse_npy(self, tooth_path):
         info = np.load(tooth_path, allow_pickle=True).item()
 
         # 拿出口扫的信息
@@ -70,16 +88,7 @@ class TrimLineDataloader(Dataset):
         # 标签值也一样
         current_labels = labels
 
-        if self.is_train:
-            # 随机选取num_point个数目的特征信息
-            select_index = random.sample(range(face_num), self.num_point)
-            current_labels = current_labels[select_index]
-            current_points = current_points[select_index]
-
-            if self.transform is not None:
-                current_points, current_labels = self.transform(current_points, current_labels)
-
-        return current_points, current_labels
+        return current_points, current_labels, info
 
     def __len__(self):
         return len(self.file_list)

@@ -4,25 +4,25 @@ Date: Nov 2019
 """
 import argparse
 import os
-from data_utils.S3DISDataLoader import ScannetDatasetWholeScene
-from data_utils.indoor3d_util import g_label2color
+from data_utils.TrimLineDataloader import TrimLineDataloader
 import torch
-import logging
-from pathlib import Path
 import sys
 import importlib
 from tqdm import tqdm
-import provider
 import numpy as np
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
 sys.path.append(os.path.join(ROOT_DIR, 'models'))
 
-classes = ['ceiling', 'floor', 'wall', 'beam', 'column', 'window', 'door', 'table', 'chair', 'sofa', 'bookcase',
-           'board', 'clutter']
+# 分割的类别，我们只需要两类：牙龈线，其他区域
+classes = ['others', 'trim_line']
+
+# {others: 0, trim_line: 1}
 class2label = {cls: i for i, cls in enumerate(classes)}
 seg_classes = class2label
+
+# {0: others, 1: trim_line}
 seg_label_to_cat = {}
 for i, cat in enumerate(seg_classes.keys()):
     seg_label_to_cat[i] = cat
@@ -31,171 +31,99 @@ for i, cat in enumerate(seg_classes.keys()):
 def parse_args():
     '''PARAMETERS'''
     parser = argparse.ArgumentParser('Model')
-    parser.add_argument('--batch_size', type=int, default=32, help='batch size in testing [default: 32]')
-    parser.add_argument('--gpu', type=str, default='0', help='specify gpu device')
-    parser.add_argument('--num_point', type=int, default=4096, help='point number [default: 4096]')
-    parser.add_argument('--log_dir', type=str, required=True, help='experiment root')
-    parser.add_argument('--visual', action='store_true', default=False, help='visualize result [default: False]')
-    parser.add_argument('--test_area', type=int, default=5, help='area for testing, option: 1-6 [default: 5]')
-    parser.add_argument('--num_votes', type=int, default=3, help='aggregate segmentation scores with voting [default: 5]')
+    parser.add_argument('--batch_size', type=int, default=1, help='batch size in testing [default: 32]')
+    parser.add_argument('--gpu', type=str, default='1', help='specify gpu device')
+    parser.add_argument('--num_point', type=int, default=16000, help='point number [default: 4096]')
     return parser.parse_args()
 
 
-def add_vote(vote_label_pool, point_idx, pred_label, weight):
-    B = pred_label.shape[0]
-    N = pred_label.shape[1]
-    for b in range(B):
-        for n in range(N):
-            if weight[b, n] != 0 and not np.isinf(weight[b, n]):
-                vote_label_pool[int(point_idx[b, n]), int(pred_label[b, n])] += 1
-    return vote_label_pool
+def visualize_ply(cell_labels, cells, points, file_name):
+    """
+    把面片输出到ply文件中
+    """
+    header = f"ply\n" \
+             f"format ascii 1.0\n" \
+             f"comment VCGLIB generated\n" \
+             f"element vertex {len(points)}\n" \
+             f"property float x\n" \
+             f"property float y\n" \
+             f"property float z\n" \
+             f"property uchar red\n" \
+             f"property uchar green\n" \
+             f"property uchar blue\n" \
+             f"property uchar alpha\n" \
+             f"element face {len(cell_labels)}\n" \
+             f"property list uchar int vertex_indices\n" \
+             f"property uchar red\n" \
+             f"property uchar green\n" \
+             f"property uchar blue\n" \
+             f"property uchar alpha\n" \
+             f"end_header\n"
+    point_info = ""
+    point_label = np.zeros(len(points))
+    cell_info = ""
+    for cell_label, cell in zip(cell_labels, cells):
+        if cell_label == 1:
+            cell_info += f"3 {cell[0]} {cell[1]} {cell[2]} 255 0 0 255\n"
+            point_label[cell[0]] = 1
+            point_label[cell[1]] = 1
+            point_label[cell[2]] = 1
+        else:
+            cell_info += f"3 {cell[0]} {cell[1]} {cell[2]} 255 255 255 255\n"
+
+    for point in points:
+        point_info += f"{point[0]} {point[1]} {point[2]} 255 255 255 255\n"
+
+    # 写出到文件中
+    with open(file_name, 'w', encoding='ascii') as f:
+        f.write(header)
+        f.write(point_info)
+        f.write(cell_info)
+    return
 
 
 def main(args):
-    def log_string(str):
-        logger.info(str)
-        print(str)
+    # 训练数据文件夹
+    root = ""
+    # 可视化文件夹
+    visualize_dir = ""
+    # 训练结果文件夹
+    experiment_dir = ""
 
     '''HYPER PARAMETER'''
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
-    experiment_dir = 'log/sem_seg/' + args.log_dir
-    visual_dir = experiment_dir + '/visual/'
-    visual_dir = Path(visual_dir)
-    visual_dir.mkdir(exist_ok=True)
 
-    '''LOG'''
-    args = parse_args()
-    logger = logging.getLogger("Model")
-    logger.setLevel(logging.INFO)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    file_handler = logging.FileHandler('%s/eval.txt' % experiment_dir)
-    file_handler.setLevel(logging.INFO)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
-    log_string('PARAMETER ...')
-    log_string(args)
-
-    NUM_CLASSES = 13
+    NUM_CLASSES = 2
     BATCH_SIZE = args.batch_size
     NUM_POINT = args.num_point
 
-    root = 'data/s3dis/stanford_indoor3d/'
-
-    TEST_DATASET_WHOLE_SCENE = ScannetDatasetWholeScene(root, split='test', test_area=args.test_area, block_points=NUM_POINT)
-    log_string("The number of test data is: %d" % len(TEST_DATASET_WHOLE_SCENE))
+    TEST_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None, is_train=False)
 
     '''MODEL LOADING'''
     model_name = os.listdir(experiment_dir + '/logs')[0].split('.')[0]
     MODEL = importlib.import_module(model_name)
     classifier = MODEL.get_model(NUM_CLASSES).cuda()
+    # 这里加载的是最好的model
     checkpoint = torch.load(str(experiment_dir) + '/checkpoints/best_model.pth')
     classifier.load_state_dict(checkpoint['model_state_dict'])
     classifier = classifier.eval()
 
     with torch.no_grad():
-        scene_id = TEST_DATASET_WHOLE_SCENE.file_list
-        scene_id = [x[:-4] for x in scene_id]
-        num_batches = len(TEST_DATASET_WHOLE_SCENE)
+        for tooth_file in os.listdir(root):
+            points, labels, info = TEST_DATASET.parse_npy(os.path.join(root, tooth_file))
 
-        total_seen_class = [0 for _ in range(NUM_CLASSES)]
-        total_correct_class = [0 for _ in range(NUM_CLASSES)]
-        total_iou_deno_class = [0 for _ in range(NUM_CLASSES)]
+            points = torch.Tensor(points)
+            points = points.float().cuda()
+            # TODO: 这里将点云维度重构成了 [1, num channel, num points]
+            points = points.unsqueeze(dim=0).transpose(2, 1)
 
-        log_string('---- EVALUATION WHOLE SCENE----')
+            seg_pred, _ = classifier(points)
+            seg_pred = seg_pred.contiguous().view(-1, NUM_CLASSES)
 
-        for batch_idx in range(num_batches):
-            print("Inference [%d/%d] %s ..." % (batch_idx + 1, num_batches, scene_id[batch_idx]))
-            total_seen_class_tmp = [0 for _ in range(NUM_CLASSES)]
-            total_correct_class_tmp = [0 for _ in range(NUM_CLASSES)]
-            total_iou_deno_class_tmp = [0 for _ in range(NUM_CLASSES)]
-            if args.visual:
-                fout = open(os.path.join(visual_dir, scene_id[batch_idx] + '_pred.obj'), 'w')
-                fout_gt = open(os.path.join(visual_dir, scene_id[batch_idx] + '_gt.obj'), 'w')
+            pred_choice = seg_pred.cpu().data.max(1)[1].numpy()
 
-            whole_scene_data = TEST_DATASET_WHOLE_SCENE.scene_points_list[batch_idx]
-            whole_scene_label = TEST_DATASET_WHOLE_SCENE.semantic_labels_list[batch_idx]
-            vote_label_pool = np.zeros((whole_scene_label.shape[0], NUM_CLASSES))
-            for _ in tqdm(range(args.num_votes), total=args.num_votes):
-                scene_data, scene_label, scene_smpw, scene_point_index = TEST_DATASET_WHOLE_SCENE[batch_idx]
-                num_blocks = scene_data.shape[0]
-                s_batch_num = (num_blocks + BATCH_SIZE - 1) // BATCH_SIZE
-                batch_data = np.zeros((BATCH_SIZE, NUM_POINT, 9))
-
-                batch_label = np.zeros((BATCH_SIZE, NUM_POINT))
-                batch_point_index = np.zeros((BATCH_SIZE, NUM_POINT))
-                batch_smpw = np.zeros((BATCH_SIZE, NUM_POINT))
-
-                for sbatch in range(s_batch_num):
-                    start_idx = sbatch * BATCH_SIZE
-                    end_idx = min((sbatch + 1) * BATCH_SIZE, num_blocks)
-                    real_batch_size = end_idx - start_idx
-                    batch_data[0:real_batch_size, ...] = scene_data[start_idx:end_idx, ...]
-                    batch_label[0:real_batch_size, ...] = scene_label[start_idx:end_idx, ...]
-                    batch_point_index[0:real_batch_size, ...] = scene_point_index[start_idx:end_idx, ...]
-                    batch_smpw[0:real_batch_size, ...] = scene_smpw[start_idx:end_idx, ...]
-                    batch_data[:, :, 3:6] /= 1.0
-
-                    torch_data = torch.Tensor(batch_data)
-                    torch_data = torch_data.float().cuda()
-                    torch_data = torch_data.transpose(2, 1)
-                    seg_pred, _ = classifier(torch_data)
-                    batch_pred_label = seg_pred.contiguous().cpu().data.max(2)[1].numpy()
-
-                    vote_label_pool = add_vote(vote_label_pool, batch_point_index[0:real_batch_size, ...],
-                                               batch_pred_label[0:real_batch_size, ...],
-                                               batch_smpw[0:real_batch_size, ...])
-
-            pred_label = np.argmax(vote_label_pool, 1)
-
-            for l in range(NUM_CLASSES):
-                total_seen_class_tmp[l] += np.sum((whole_scene_label == l))
-                total_correct_class_tmp[l] += np.sum((pred_label == l) & (whole_scene_label == l))
-                total_iou_deno_class_tmp[l] += np.sum(((pred_label == l) | (whole_scene_label == l)))
-                total_seen_class[l] += total_seen_class_tmp[l]
-                total_correct_class[l] += total_correct_class_tmp[l]
-                total_iou_deno_class[l] += total_iou_deno_class_tmp[l]
-
-            iou_map = np.array(total_correct_class_tmp) / (np.array(total_iou_deno_class_tmp, dtype=np.float) + 1e-6)
-            print(iou_map)
-            arr = np.array(total_seen_class_tmp)
-            tmp_iou = np.mean(iou_map[arr != 0])
-            log_string('Mean IoU of %s: %.4f' % (scene_id[batch_idx], tmp_iou))
-            print('----------------------------')
-
-            filename = os.path.join(visual_dir, scene_id[batch_idx] + '.txt')
-            with open(filename, 'w') as pl_save:
-                for i in pred_label:
-                    pl_save.write(str(int(i)) + '\n')
-                pl_save.close()
-            for i in range(whole_scene_label.shape[0]):
-                color = g_label2color[pred_label[i]]
-                color_gt = g_label2color[whole_scene_label[i]]
-                if args.visual:
-                    fout.write('v %f %f %f %d %d %d\n' % (
-                        whole_scene_data[i, 0], whole_scene_data[i, 1], whole_scene_data[i, 2], color[0], color[1],
-                        color[2]))
-                    fout_gt.write(
-                        'v %f %f %f %d %d %d\n' % (
-                            whole_scene_data[i, 0], whole_scene_data[i, 1], whole_scene_data[i, 2], color_gt[0],
-                            color_gt[1], color_gt[2]))
-            if args.visual:
-                fout.close()
-                fout_gt.close()
-
-        IoU = np.array(total_correct_class) / (np.array(total_iou_deno_class, dtype=np.float) + 1e-6)
-        iou_per_class_str = '------- IoU --------\n'
-        for l in range(NUM_CLASSES):
-            iou_per_class_str += 'class %s, IoU: %.3f \n' % (
-                seg_label_to_cat[l] + ' ' * (14 - len(seg_label_to_cat[l])),
-                total_correct_class[l] / float(total_iou_deno_class[l]))
-        log_string(iou_per_class_str)
-        log_string('eval point avg class IoU: %f' % np.mean(IoU))
-        log_string('eval whole scene point avg class acc: %f' % (
-            np.mean(np.array(total_correct_class) / (np.array(total_seen_class, dtype=np.float) + 1e-6))))
-        log_string('eval whole scene point accuracy: %f' % (
-                np.sum(total_correct_class) / float(np.sum(total_seen_class) + 1e-6)))
-
-        print("Done!")
+            # 把预测结果写入到ply文件中进行可视化
+            visualize_ply(pred_choice, info['faces'], info['vertices'], os.path.join(visualize_dir, tooth_file))
 
 
 if __name__ == '__main__':
