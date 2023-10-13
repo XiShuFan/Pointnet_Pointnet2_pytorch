@@ -160,6 +160,16 @@ def sample_and_group_all(xyz, points):
 
 class PointNetSetAbstraction(nn.Module):
     def __init__(self, npoint, radius, nsample, in_channel, mlp, group_all):
+        """
+
+        Args:
+            npoint: 采样的点个数
+            radius: 采样点的特征聚合半径
+            nsample: 半径内的聚合点个数
+            in_channel:
+            mlp:
+            group_all:
+        """
         super(PointNetSetAbstraction, self).__init__()
         self.npoint = npoint
         self.radius = radius

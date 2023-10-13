@@ -19,7 +19,7 @@ from data_utils.TrimLineDataloader import TrimLineDataloader
 from util import VisdomLinePlotter
 
 # 绘图用
-plotter = VisdomLinePlotter(env_name='PointNet')
+plotter = VisdomLinePlotter(env_name='PointNet2')
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = BASE_DIR
@@ -46,7 +46,7 @@ def parse_args():
     parser = argparse.ArgumentParser('Model')
 
     # 使用pointnet2的语义分割模型试试
-    parser.add_argument('--model', type=str, default='pointnet_sem_seg', help='model name [default: pointnet_sem_seg]')
+    parser.add_argument('--model', type=str, default='pointnet2_sem_seg', help='model name [default: pointnet_sem_seg]')
 
     # 这里如果不进行下采样的话，batch size可能得设置的很小，之后看看
     parser.add_argument('--batch_size', type=int, default=16, help='Batch Size during training [default: 16]')
@@ -135,7 +135,7 @@ def main(args):
     '''MODEL LOADING'''
     MODEL = importlib.import_module(args.model)
     shutil.copy('models/%s.py' % args.model, str(experiment_dir))
-    shutil.copy('models/pointnet_utils.py', str(experiment_dir))
+    shutil.copy('models/pointnet2_utils.py', str(experiment_dir))
 
     # TODO: 这里注意特征维度
     classifier = MODEL.get_model(NUM_CLASSES, channel=15).cuda()
@@ -209,11 +209,12 @@ def main(args):
 
             points = points.data.numpy()
             # TODO: 这里有一个数据增强，所有坐标信息和法向量都得做才行
-            points[:, :, :3] = provider.rotate_point_cloud_z(points[:, :, :3])
-            points[:, :, 3:6] = provider.rotate_point_cloud_z(points[:, :, 3:6])
-            points[:, :, 6:9] = provider.rotate_point_cloud_z(points[:, :, 6:9])
-            points[:, :, 9:12] = provider.rotate_point_cloud_z(points[:, :, 9:12])
-            points[:, :, 12:15] = provider.rotate_point_cloud_z(points[:, :, 12:15])
+            # TODO: 我们手动离线增强了，所以不需要继续增强，先排除这个变量
+            # points[:, :, :3] = provider.rotate_point_cloud_z(points[:, :, :3])
+            # points[:, :, 3:6] = provider.rotate_point_cloud_z(points[:, :, 3:6])
+            # points[:, :, 6:9] = provider.rotate_point_cloud_z(points[:, :, 6:9])
+            # points[:, :, 9:12] = provider.rotate_point_cloud_z(points[:, :, 9:12])
+            # points[:, :, 12:15] = provider.rotate_point_cloud_z(points[:, :, 12:15])
 
             points = torch.Tensor(points)
             points, target = points.float().cuda(), target.long().cuda()
