@@ -110,7 +110,7 @@ def main(args):
     log_string(args)
 
     # 数据目录，要换成我们的牙龈线分割数据目录
-    root = '/media/why/新加卷/xsf/Dataset/visualize_ply_expand_3_selective_downsample_20000_aug_npy'
+    root = '/media/why/新加卷/xsf/Dataset/实验5/visualize_ply_expand_3_selective_downsample_20000_aug_npy'
     # 两类
     NUM_CLASSES = 2
     NUM_POINT = args.npoint
