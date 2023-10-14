@@ -49,12 +49,12 @@ def parse_args():
     parser.add_argument('--model', type=str, default='pointnet2_sem_seg', help='model name [default: pointnet_sem_seg]')
 
     # 这里如果不进行下采样的话，batch size可能得设置的很小，之后看看
-    parser.add_argument('--batch_size', type=int, default=16, help='Batch Size during training [default: 16]')
+    parser.add_argument('--batch_size', type=int, default=8, help='Batch Size during training [default: 16]')
 
     # 训练轮数
     parser.add_argument('--epoch', default=400, type=int, help='Epoch to run [default: 32]')
     # 学习率不动c
-    parser.add_argument('--learning_rate', default=0.0004, type=float, help='Initial learning rate [default: 0.001]')
+    parser.add_argument('--learning_rate', default=0.0002, type=float, help='Initial learning rate [default: 0.001]')
     parser.add_argument('--gpu', type=str, default='1', help='GPU to use [default: GPU 0]')
     parser.add_argument('--optimizer', type=str, default='Adam', help='Adam or SGD [default: Adam]')
     # 日志存放目录
@@ -138,7 +138,7 @@ def main(args):
     shutil.copy('models/pointnet2_utils.py', str(experiment_dir))
 
     # TODO: 这里注意特征维度
-    classifier = MODEL.get_model(NUM_CLASSES, channel=15).cuda()
+    classifier = MODEL.get_model(NUM_CLASSES, channel=6).cuda()
     criterion = MODEL.get_loss().cuda()
     classifier.apply(inplace_relu)
 
@@ -256,84 +256,86 @@ def main(args):
             torch.save(state, savepath)
             log_string('Saving model....')
 
-        '''Evaluate on chopped scenes'''
-        with torch.no_grad():
-            num_batches = len(testDataLoader)
-            total_correct = 0
-            total_seen = 0
-            loss_sum = 0
-            labelweights = np.zeros(NUM_CLASSES)
-            total_seen_class = [0 for _ in range(NUM_CLASSES)]
-            total_correct_class = [0 for _ in range(NUM_CLASSES)]
-            total_iou_deno_class = [0 for _ in range(NUM_CLASSES)]
-            classifier = classifier.eval()
+        # TODO: 控制验证的频率
+        if epoch % 10 == 0:
+            '''Evaluate on chopped scenes'''
+            with torch.no_grad():
+                num_batches = len(testDataLoader)
+                total_correct = 0
+                total_seen = 0
+                loss_sum = 0
+                labelweights = np.zeros(NUM_CLASSES)
+                total_seen_class = [0 for _ in range(NUM_CLASSES)]
+                total_correct_class = [0 for _ in range(NUM_CLASSES)]
+                total_iou_deno_class = [0 for _ in range(NUM_CLASSES)]
+                classifier = classifier.eval()
 
-            log_string('---- EPOCH %03d EVALUATION ----' % (global_epoch + 1))
-            for i, (points, target) in tqdm(enumerate(testDataLoader), total=len(testDataLoader), smoothing=0.9):
-                points = points.data.numpy()
-                points = torch.Tensor(points)
-                points, target = points.float().cuda(), target.long().cuda()
-                points = points.transpose(2, 1)
+                log_string('---- EPOCH %03d EVALUATION ----' % (global_epoch + 1))
+                for i, (points, target) in tqdm(enumerate(testDataLoader), total=len(testDataLoader), smoothing=0.9):
+                    points = points.data.numpy()
+                    points = torch.Tensor(points)
+                    points, target = points.float().cuda(), target.long().cuda()
+                    points = points.transpose(2, 1)
 
-                seg_pred, trans_feat = classifier(points)
-                pred_val = seg_pred.contiguous().cpu().data.numpy()
-                seg_pred = seg_pred.contiguous().view(-1, NUM_CLASSES)
+                    seg_pred, trans_feat = classifier(points)
+                    pred_val = seg_pred.contiguous().cpu().data.numpy()
+                    seg_pred = seg_pred.contiguous().view(-1, NUM_CLASSES)
 
-                batch_label = target.cpu().data.numpy()
-                target = target.view(-1, 1)[:, 0]
-                loss = criterion(seg_pred, target, trans_feat, weights)
-                loss_sum += loss
-                pred_val = np.argmax(pred_val, 2)
-                correct = np.sum((pred_val == batch_label))
-                total_correct += correct
-                total_seen += points.shape[-1]
-                tmp, _ = np.histogram(batch_label, range(NUM_CLASSES + 1))
-                labelweights += tmp
+                    batch_label = target.cpu().data.numpy()
+                    target = target.view(-1, 1)[:, 0]
+                    loss = criterion(seg_pred, target, trans_feat, weights)
+                    loss_sum += loss
+                    pred_val = np.argmax(pred_val, 2)
+                    correct = np.sum((pred_val == batch_label))
+                    total_correct += correct
+                    total_seen += points.shape[-1]
+                    tmp, _ = np.histogram(batch_label, range(NUM_CLASSES + 1))
+                    labelweights += tmp
 
+                    for l in range(NUM_CLASSES):
+                        total_seen_class[l] += np.sum((batch_label == l))
+                        total_correct_class[l] += np.sum((pred_val == l) & (batch_label == l))
+                        total_iou_deno_class[l] += np.sum(((pred_val == l) | (batch_label == l)))
+
+                labelweights = labelweights.astype(np.float32) / np.sum(labelweights.astype(np.float32))
+                mIoU = np.mean(np.array(total_correct_class) / (np.array(total_iou_deno_class, dtype=np.float) + 1e-6))
+                log_string('eval mean loss: %f' % (loss_sum / float(num_batches)))
+                log_string('eval mIoU: %f' % (mIoU))
+                log_string('eval point accuracy: %f' % (total_correct / float(total_seen)))
+                log_string('eval point class accuracy: %f' % (
+                    np.mean(np.array(total_correct_class) / (np.array(total_seen_class, dtype=np.float) + 1e-6))))
+
+                # TODO: 画出预测过程的结果
+                loss_sum = loss_sum.cpu().detach()
+                plotter.plot('loss', 'val', 'Loss', epoch, loss_sum / float(num_batches))
+                plotter.plot('accuracy', 'val', 'Acc', epoch, total_correct / float(total_seen))
+                plotter.plot('iou', 'mIoU', 'IoU', epoch, mIoU)
+
+                iou_per_class_str = '------- IoU --------\n'
                 for l in range(NUM_CLASSES):
-                    total_seen_class[l] += np.sum((batch_label == l))
-                    total_correct_class[l] += np.sum((pred_val == l) & (batch_label == l))
-                    total_iou_deno_class[l] += np.sum(((pred_val == l) | (batch_label == l)))
+                    iou_per_class_str += 'class %s weight: %.3f, IoU: %.3f \n' % (
+                        seg_label_to_cat[l] + ' ' * (14 - len(seg_label_to_cat[l])), labelweights[l - 1],
+                        total_correct_class[l] / float(total_iou_deno_class[l]))
+                    # TODO: 画出每个类别的IoU
+                    plotter.plot('iou', f'{seg_label_to_cat[l]}', 'IoU', epoch, total_correct_class[l] / float(total_iou_deno_class[l]))
 
-            labelweights = labelweights.astype(np.float32) / np.sum(labelweights.astype(np.float32))
-            mIoU = np.mean(np.array(total_correct_class) / (np.array(total_iou_deno_class, dtype=np.float) + 1e-6))
-            log_string('eval mean loss: %f' % (loss_sum / float(num_batches)))
-            log_string('eval mIoU: %f' % (mIoU))
-            log_string('eval point accuracy: %f' % (total_correct / float(total_seen)))
-            log_string('eval point class accuracy: %f' % (
-                np.mean(np.array(total_correct_class) / (np.array(total_seen_class, dtype=np.float) + 1e-6))))
-
-            # TODO: 画出预测过程的结果
-            loss_sum = loss_sum.cpu().detach()
-            plotter.plot('loss', 'val', 'Loss', epoch, loss_sum / float(num_batches))
-            plotter.plot('accuracy', 'val', 'Acc', epoch, total_correct / float(total_seen))
-            plotter.plot('iou', 'mIoU', 'IoU', epoch, mIoU)
-
-            iou_per_class_str = '------- IoU --------\n'
-            for l in range(NUM_CLASSES):
-                iou_per_class_str += 'class %s weight: %.3f, IoU: %.3f \n' % (
-                    seg_label_to_cat[l] + ' ' * (14 - len(seg_label_to_cat[l])), labelweights[l - 1],
-                    total_correct_class[l] / float(total_iou_deno_class[l]))
-                # TODO: 画出每个类别的IoU
-                plotter.plot('iou', f'{seg_label_to_cat[l]}', 'IoU', epoch, total_correct_class[l] / float(total_iou_deno_class[l]))
-
-            log_string(iou_per_class_str)
+                log_string(iou_per_class_str)
 
 
-            if mIoU >= best_iou:
-                best_iou = mIoU
-                logger.info('Save model...')
-                savepath = str(checkpoints_dir) + '/best_model.pth'
-                log_string('Saving at %s' % savepath)
-                state = {
-                    'epoch': epoch,
-                    'class_avg_iou': mIoU,
-                    'model_state_dict': classifier.state_dict(),
-                    'optimizer_state_dict': optimizer.state_dict(),
-                }
-                torch.save(state, savepath)
-                log_string('Saving model....')
-            log_string('Best mIoU: %f' % best_iou)
+                if mIoU >= best_iou:
+                    best_iou = mIoU
+                    logger.info('Save model...')
+                    savepath = str(checkpoints_dir) + '/best_model.pth'
+                    log_string('Saving at %s' % savepath)
+                    state = {
+                        'epoch': epoch,
+                        'class_avg_iou': mIoU,
+                        'model_state_dict': classifier.state_dict(),
+                        'optimizer_state_dict': optimizer.state_dict(),
+                    }
+                    torch.save(state, savepath)
+                    log_string('Saving model....')
+                log_string('Best mIoU: %f' % best_iou)
         global_epoch += 1
 
 
