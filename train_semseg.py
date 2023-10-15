@@ -138,7 +138,7 @@ def main(args):
     shutil.copy('models/pointnet2_utils.py', str(experiment_dir))
 
     # TODO: 这里注意特征维度
-    classifier = MODEL.get_model(NUM_CLASSES, channel=6).cuda()
+    classifier = MODEL.get_model(NUM_CLASSES, channel=15).cuda()
     criterion = MODEL.get_loss().cuda()
     classifier.apply(inplace_relu)
 
@@ -204,17 +204,17 @@ def main(args):
         loss_sum = 0
         classifier = classifier.train()
 
-        for i, (points, target) in tqdm(enumerate(trainDataLoader), total=len(trainDataLoader), smoothing=0.9):
+        for i, (points, target, _, _) in tqdm(enumerate(trainDataLoader), total=len(trainDataLoader), smoothing=0.9):
             optimizer.zero_grad()
 
             points = points.data.numpy()
             # TODO: 这里有一个数据增强，所有坐标信息和法向量都得做才行
             # TODO: 我们手动离线增强了，所以不需要继续增强，先排除这个变量
-            # points[:, :, :3] = provider.rotate_point_cloud_z(points[:, :, :3])
-            # points[:, :, 3:6] = provider.rotate_point_cloud_z(points[:, :, 3:6])
-            # points[:, :, 6:9] = provider.rotate_point_cloud_z(points[:, :, 6:9])
-            # points[:, :, 9:12] = provider.rotate_point_cloud_z(points[:, :, 9:12])
-            # points[:, :, 12:15] = provider.rotate_point_cloud_z(points[:, :, 12:15])
+            points[:, :, :3] = provider.rotate_point_cloud_z(points[:, :, :3])
+            points[:, :, 3:6] = provider.rotate_point_cloud_z(points[:, :, 3:6])
+            points[:, :, 6:9] = provider.rotate_point_cloud_z(points[:, :, 6:9])
+            points[:, :, 9:12] = provider.rotate_point_cloud_z(points[:, :, 9:12])
+            points[:, :, 12:15] = provider.rotate_point_cloud_z(points[:, :, 12:15])
 
             points = torch.Tensor(points)
             points, target = points.float().cuda(), target.long().cuda()
@@ -271,7 +271,7 @@ def main(args):
                 classifier = classifier.eval()
 
                 log_string('---- EPOCH %03d EVALUATION ----' % (global_epoch + 1))
-                for i, (points, target) in tqdm(enumerate(testDataLoader), total=len(testDataLoader), smoothing=0.9):
+                for i, (points, target, _, _) in tqdm(enumerate(testDataLoader), total=len(testDataLoader), smoothing=0.9):
                     points = points.data.numpy()
                     points = torch.Tensor(points)
                     points, target = points.float().cuda(), target.long().cuda()

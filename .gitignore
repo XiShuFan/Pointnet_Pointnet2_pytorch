@@ -117,3 +117,5 @@ dmypy.json
 *.pth
 *.xml
 *.iml
+
+.idea/

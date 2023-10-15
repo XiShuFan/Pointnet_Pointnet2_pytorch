@@ -30,19 +30,26 @@ class TrimLineDataloader(Dataset):
         if self.is_train:
             # 随机选取num_point个数目的特征信息
             select_index = random.sample(range(len(current_points)), self.num_point)
-            current_labels = current_labels[select_index]
-            current_points = current_points[select_index]
+        else:
+            # 测试时选取所有点
+            select_index = list(range(len(current_points)))
 
-            if self.transform is not None:
-                current_points, current_labels = self.transform(current_points, current_labels)
+        # 选取训练点或者测试点
+        current_labels = current_labels[select_index]
+        current_points = current_points[select_index]
 
-        return current_points, current_labels
+        # 训练判断是否做transform
+        if self.is_train and self.transform is not None:
+            current_points, current_labels = self.transform(current_points, current_labels)
+
+        return current_points, current_labels, select_index, info
 
 
     def parse_npy(self, tooth_path):
         # TODO: 注意map类型的值会被改变，所以返回时需要重新加载一下
         info = np.load(tooth_path, allow_pickle=True).item()
         info_ori = copy.deepcopy(info)
+        info_ori['file_name'] = os.path.basename(tooth_path)
 
         # 拿出口扫的信息
         face_num = info['face_num']
@@ -81,16 +88,14 @@ class TrimLineDataloader(Dataset):
         face_colors = np.array(face_colors)[:, :3]
         face_colors /= 255
 
-        # TODO: 使用的信息包括：面片中心点坐标、三个顶点的坐标、面片法向量
-        # 把面片中心放在第一位是为了方便计算邻居
+        # TODO: 使用的信息包括：面片中心点坐标、三个顶点的坐标、面片法向量；把面片中心放在第一位是为了方便计算邻居
         # TODO: 增加或者删除特征，需要注意 PointNetEncoder模块做相应的transform！！（只存在于PointNet中）
-        # TODO: 由于PointNet++消耗显存太多，先不加面片顶点坐标特征
         current_points = np.zeros((face_num, 6))
         current_points[:, 0:3] = face_centers
-        # current_points[:, 3:6] = vertices[faces[:, 0]]
-        # current_points[:, 6:9] = vertices[faces[:, 1]]
-        # current_points[:, 9:12] = vertices[faces[:, 2]]
-        current_points[:, 3:6] = face_norms
+        current_points[:, 3:6] = vertices[faces[:, 0]]
+        current_points[:, 6:9] = vertices[faces[:, 1]]
+        current_points[:, 9:12] = vertices[faces[:, 2]]
+        current_points[:, 12:15] = face_norms
         # current_points[:, 15:18] = face_colors
 
         # 标签值也一样

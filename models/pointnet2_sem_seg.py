@@ -6,7 +6,6 @@ from models.pointnet2_utils import PointNetSetAbstraction, PointNetFeaturePropag
 class get_model(nn.Module):
     def __init__(self, num_classes, channel):
         super(get_model, self).__init__()
-        # TODO: 这里我们传入的特征维度是 6 + 3
         # TODO: 这里group all的操作是将所有点聚合成一个点，可以试试
         self.sa1 = PointNetSetAbstraction(2000, 0.1, 16, channel + 3, [16, 16, 32], False)
         self.sa2 = PointNetSetAbstraction(500, 0.2, 8, 32 + 3, [32, 32, 64], False)
