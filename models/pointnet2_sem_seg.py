@@ -7,10 +7,10 @@ class get_model(nn.Module):
     def __init__(self, num_classes, channel):
         super(get_model, self).__init__()
         # TODO: 这里group all的操作是将所有点聚合成一个点，可以试试
-        self.sa1 = PointNetSetAbstraction(2000, 0.1, 16, channel + 3, [16, 16, 32], False)
-        self.sa2 = PointNetSetAbstraction(500, 0.2, 8, 32 + 3, [32, 32, 64], False)
+        self.sa1 = PointNetSetAbstraction(2000, 0.1, 32, channel + 3, [32, 32, 32], False)
+        self.sa2 = PointNetSetAbstraction(500, 0.2, 16, 32 + 3, [32, 32, 64], False)
         self.sa3 = PointNetSetAbstraction(125, 0.4, 8, 64 + 3, [64, 64, 128], False)
-        self.sa4 = PointNetSetAbstraction(25, 0.8, 8, 128 + 3, [128, 128, 256], False)
+        self.sa4 = PointNetSetAbstraction(25, 0.8, 4, 128 + 3, [128, 128, 256], False)
         self.fp4 = PointNetFeaturePropagation(384, [256, 256])
         self.fp3 = PointNetFeaturePropagation(320, [256, 256])
         self.fp2 = PointNetFeaturePropagation(288, [256, 128])

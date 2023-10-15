@@ -84,35 +84,31 @@ def farthest_point_sample(xyz, npoint):
     return centroids
 
 
-def query_ball_point(radius, nsample, xyz, new_xyz):
+def query_ball_point(radius, nsample, xyz, new_xyz, fps_idx):
     """
     Input:
         radius: local region radius
         nsample: max sample number in local region
         xyz: all points, [B, N, 3]
         new_xyz: query points, [B, S, 3]
+        fps_idx: farthest point sampling
     Return:
         group_idx: grouped points index, [B, S, nsample]
     """
     device = xyz.device
     B, N, C = xyz.shape
     _, S, _ = new_xyz.shape
-    group_idx = torch.arange(N, dtype=torch.long).to(device).view(1, 1, N).repeat([B, S, 1])
     sqrdists = square_distance(new_xyz, xyz)
-    group_idx[sqrdists > radius ** 2] = N
-    # TODO： 为了避免CUDA OOM，放到CPU来做
-    if N > 20000:
-        group_idx = group_idx.detach().cpu().numpy()
-        group_idx = np.sort(group_idx, axis=2)
-        group_idx = group_idx[:, :, :nsample]
-        group_idx = torch.tensor(group_idx).cuda()
-    else:
-        group_idx = group_idx.sort(dim=-1)[0][:, :, :nsample]
 
-    group_first = group_idx[:, :, 0].view(B, S, 1).repeat([1, 1, nsample])
-    mask = group_idx == N
-    group_idx[mask] = group_first[mask]
-    return group_idx
+    # 按照距离升序排序
+    sqrdists, sqrdists_idx = sqrdists.sort(dim=-1)
+    sqrdists = sqrdists[:, :, :nsample]
+    sqrdists_idx = sqrdists_idx[:, :, :nsample]
+    query_self = fps_idx.view(B, S, 1).repeat([1, 1, nsample])
+    mask = sqrdists > radius ** 2
+    sqrdists_idx[mask] = query_self[mask]
+
+    return sqrdists_idx
 
 
 def sample_and_group(npoint, radius, nsample, xyz, points, returnfps=False):
@@ -131,7 +127,7 @@ def sample_and_group(npoint, radius, nsample, xyz, points, returnfps=False):
     S = npoint
     fps_idx = farthest_point_sample(xyz, npoint) # [B, npoint, C]
     new_xyz = index_points(xyz, fps_idx)
-    idx = query_ball_point(radius, nsample, xyz, new_xyz)
+    idx = query_ball_point(radius, nsample, xyz, new_xyz, fps_idx)
     grouped_xyz = index_points(xyz, idx) # [B, npoint, nsample, C]
     grouped_xyz_norm = grouped_xyz - new_xyz.view(B, S, 1, C)
 
@@ -140,8 +136,9 @@ def sample_and_group(npoint, radius, nsample, xyz, points, returnfps=False):
         new_points = torch.cat([grouped_xyz_norm, grouped_points], dim=-1) # [B, npoint, nsample, C+D]
     else:
         new_points = grouped_xyz_norm
+    # 这里输出FPS的采样点以及球查询的采样点
     if returnfps:
-        return new_xyz, new_points, grouped_xyz, fps_idx
+        return new_xyz, new_points, grouped_xyz, fps_idx, idx
     else:
         return new_xyz, new_points
 
