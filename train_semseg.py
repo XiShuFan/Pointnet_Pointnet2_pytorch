@@ -49,7 +49,7 @@ def parse_args():
     parser.add_argument('--model', type=str, default='pointnet2_sem_seg', help='model name [default: pointnet_sem_seg]')
 
     # 这里如果不进行下采样的话，batch size可能得设置的很小，之后看看
-    parser.add_argument('--batch_size', type=int, default=8, help='Batch Size during training [default: 16]')
+    parser.add_argument('--batch_size', type=int, default=12, help='Batch Size during training [default: 16]')
 
     # 训练轮数
     parser.add_argument('--epoch', default=400, type=int, help='Epoch to run [default: 32]')
@@ -118,9 +118,9 @@ def main(args):
 
     print("start loading training data ...")
 
-    TRAIN_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None, is_train=True)
+    TRAIN_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None, is_train=True, return_info=False)
     print("start loading test data ...")
-    TEST_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None, is_train=False)
+    TEST_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None, is_train=False, return_info=False)
 
     trainDataLoader = torch.utils.data.DataLoader(TRAIN_DATASET, batch_size=BATCH_SIZE, shuffle=True, num_workers=10,
                                                   pin_memory=True, drop_last=True,
@@ -204,7 +204,7 @@ def main(args):
         loss_sum = 0
         classifier = classifier.train()
 
-        for i, (points, target, _, _) in tqdm(enumerate(trainDataLoader), total=len(trainDataLoader), smoothing=0.9):
+        for i, (points, target) in tqdm(enumerate(trainDataLoader), total=len(trainDataLoader), smoothing=0.9):
             optimizer.zero_grad()
 
             points = points.data.numpy()
@@ -271,7 +271,7 @@ def main(args):
                 classifier = classifier.eval()
 
                 log_string('---- EPOCH %03d EVALUATION ----' % (global_epoch + 1))
-                for i, (points, target, _, _) in tqdm(enumerate(testDataLoader), total=len(testDataLoader), smoothing=0.9):
+                for i, (points, target) in tqdm(enumerate(testDataLoader), total=len(testDataLoader), smoothing=0.9):
                     points = points.data.numpy()
                     points = torch.Tensor(points)
                     points, target = points.float().cuda(), target.long().cuda()

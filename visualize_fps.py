@@ -65,7 +65,7 @@ def fps_once(config, xyz, points, select_index, info, target_path):
 
 # 输出4次FPS+ball query的效果图
 def visualize(points, labels, select_index, info, target_path):
-    points = torch.tensor(points).unsqueeze(0)
+    points = torch.tensor(points, dtype=torch.float32).unsqueeze(0)
     xyz = points[:, :, :3]
     select_index = np.array(select_index)
 

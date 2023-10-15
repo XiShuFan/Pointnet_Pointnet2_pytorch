@@ -7,12 +7,13 @@ from torch.utils.data import Dataset
 import random
 
 class TrimLineDataloader(Dataset):
-    def __init__(self, data_root, num_point=6000, transform=None, is_train=True):
+    def __init__(self, data_root, num_point=6000, transform=None, is_train=True, return_info=False):
         super().__init__()
         self.data_root = data_root
         self.num_point = num_point
         self.transform = transform
         self.is_train = is_train
+        self.return_info = return_info
 
         # 得到文件夹下所有的文件
         self.file_list = os.listdir(self.data_root)
@@ -42,7 +43,10 @@ class TrimLineDataloader(Dataset):
         if self.is_train and self.transform is not None:
             current_points, current_labels = self.transform(current_points, current_labels)
 
-        return current_points, current_labels, select_index, info
+        if self.return_info:
+            return current_points, current_labels, select_index, info
+        else:
+            return current_points, current_labels
 
 
     def parse_npy(self, tooth_path):
@@ -90,7 +94,7 @@ class TrimLineDataloader(Dataset):
 
         # TODO: 使用的信息包括：面片中心点坐标、三个顶点的坐标、面片法向量；把面片中心放在第一位是为了方便计算邻居
         # TODO: 增加或者删除特征，需要注意 PointNetEncoder模块做相应的transform！！（只存在于PointNet中）
-        current_points = np.zeros((face_num, 6))
+        current_points = np.zeros((face_num, 15))
         current_points[:, 0:3] = face_centers
         current_points[:, 3:6] = vertices[faces[:, 0]]
         current_points[:, 6:9] = vertices[faces[:, 1]]
