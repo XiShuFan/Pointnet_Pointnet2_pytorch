@@ -51,6 +51,8 @@ def parse_args():
     # 这里如果不进行下采样的话，batch size可能得设置的很小，之后看看
     parser.add_argument('--batch_size', type=int, default=10, help='Batch Size during training [default: 16]')
 
+    parser.add_argument('--test_batch_size', type=int, default=8, help='Batch Size during test')
+
     # 训练轮数
     parser.add_argument('--epoch', default=400, type=int, help='Epoch to run [default: 32]')
     # 学习率不动c
@@ -119,16 +121,19 @@ def main(args):
     NUM_POINT = args.npoint
     BATCH_SIZE = args.batch_size
 
+    TOTAL_NUM_POINT = args.total_point
+    TEST_BATCH_SIZE = args.test_batch_size
+
     print("start loading training data ...")
 
-    TRAIN_DATASET = TrimLineDataloader(data_root=root, total_point=args.total_point, num_point=NUM_POINT, transform=None, is_train=True, return_info=False)
+    TRAIN_DATASET = TrimLineDataloader(data_root=root, total_point=TOTAL_NUM_POINT, num_point=NUM_POINT, transform=None, is_train=True, return_info=False)
     print("start loading test data ...")
-    TEST_DATASET = TrimLineDataloader(data_root=root, total_point=args.total_point, num_point=NUM_POINT, transform=None, is_train=False, return_info=False)
+    TEST_DATASET = TrimLineDataloader(data_root=root, total_point=TOTAL_NUM_POINT, num_point=NUM_POINT, transform=None, is_train=False, return_info=False)
 
     trainDataLoader = torch.utils.data.DataLoader(TRAIN_DATASET, batch_size=BATCH_SIZE, shuffle=True, num_workers=10,
                                                   pin_memory=True, drop_last=True,
                                                   worker_init_fn=lambda x: np.random.seed(x + int(time.time())))
-    testDataLoader = torch.utils.data.DataLoader(TEST_DATASET, batch_size=8, shuffle=False, num_workers=10,
+    testDataLoader = torch.utils.data.DataLoader(TEST_DATASET, batch_size=TEST_BATCH_SIZE, shuffle=False, num_workers=10,
                                                  pin_memory=True, drop_last=True)
     weights = torch.Tensor(TRAIN_DATASET.labelweights).cuda()
 
@@ -291,7 +296,7 @@ def main(args):
                     pred_val = np.argmax(pred_val, 2)
                     correct = np.sum((pred_val == batch_label))
                     total_correct += correct
-                    total_seen += points.shape[-1]
+                    total_seen += (TEST_BATCH_SIZE * TOTAL_NUM_POINT)
                     tmp, _ = np.histogram(batch_label, range(NUM_CLASSES + 1))
                     labelweights += tmp
 
