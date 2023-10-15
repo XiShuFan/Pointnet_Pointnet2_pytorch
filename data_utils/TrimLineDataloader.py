@@ -7,9 +7,10 @@ from torch.utils.data import Dataset
 import random
 
 class TrimLineDataloader(Dataset):
-    def __init__(self, data_root, num_point=6000, transform=None, is_train=True, return_info=False):
+    def __init__(self, data_root, total_point, num_point=16000, transform=None, is_train=True, return_info=False):
         super().__init__()
         self.data_root = data_root
+        self.total_point = total_point
         self.num_point = num_point
         self.transform = transform
         self.is_train = is_train
@@ -31,15 +32,20 @@ class TrimLineDataloader(Dataset):
         if self.is_train:
             # 随机选取num_point个数目的特征信息
             select_index = random.sample(range(len(current_points)), self.num_point)
+            assert(len(select_index) == self.num_point, f'expect {self.num_point} points, but got {len(select_index)} points')
         else:
             # 测试时选取所有点
             select_index = list(range(len(current_points)))
+            # TODO：注意我们目前是选取20000个点，少了就补上额外的点
+            if len(current_points) < self.total_point:
+                select_index += [select_index[0]] * (self.total_point - len(current_points))
+            assert(len(select_index) == self.total_point, f'expect {self.total_point} points, but got {len(select_index)} points')
 
         # 选取训练点或者测试点
         current_labels = current_labels[select_index]
         current_points = current_points[select_index]
 
-        # 训练判断是否做transform
+        # 训练判断是否做transformc
         if self.is_train and self.transform is not None:
             current_points, current_labels = self.transform(current_points, current_labels)
 

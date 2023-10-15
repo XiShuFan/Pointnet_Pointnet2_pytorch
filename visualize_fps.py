@@ -104,7 +104,7 @@ if __name__ == '__main__':
     file_path = 'D:\\Dataset\\OralScan_trim_line\\实验五\\visualize_ply_expand_3_selective_downsample_20000_npy'
     target_path = "D:\\Dataset\\OralScan_trim_line\\viualize_pointnet_fps"
 
-    dataset = TrimLineDataloader(data_root=file_path, num_point=16000, transform=None, is_train=False)
+    dataset = TrimLineDataloader(data_root=file_path, total_point=20000, num_point=16000, transform=None, is_train=False)
 
     points, labels, select_index, info = dataset[0]
     visualize(points, labels, select_index, info, target_path)
