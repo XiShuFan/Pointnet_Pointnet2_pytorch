@@ -49,7 +49,7 @@ def parse_args():
     parser.add_argument('--model', type=str, default='pointnet2_sem_seg', help='model name [default: pointnet_sem_seg]')
 
     # 这里如果不进行下采样的话，batch size可能得设置的很小，之后看看
-    parser.add_argument('--batch_size', type=int, default=10, help='Batch Size during training [default: 16]')
+    parser.add_argument('--batch_size', type=int, default=12, help='Batch Size during training [default: 16]')
 
     parser.add_argument('--test_batch_size', type=int, default=8, help='Batch Size during test')
 
