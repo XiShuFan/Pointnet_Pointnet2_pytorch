@@ -33,6 +33,7 @@ def parse_args():
     parser = argparse.ArgumentParser('Model')
     parser.add_argument('--batch_size', type=int, default=1, help='batch size in testing [default: 32]')
     parser.add_argument('--gpu', type=str, default='1', help='specify gpu device')
+    parser.add_argument('--total_point', type=int, default=20000, help='Total points of data')
     parser.add_argument('--num_point', type=int, default=16000, help='point number [default: 4096]')
     return parser.parse_args()
 
@@ -89,9 +90,9 @@ def main(args):
     # 训练数据文件夹
     root = "/media/why/新加卷/xsf/Dataset/visualize_ply_expand_3_selective_downsample_20000_npy"
     # 可视化文件夹
-    visualize_dir = "/media/why/新加卷/xsf/Dataset/实验6/pred_result"
+    visualize_dir = "/media/why/新加卷/xsf/Dataset/实验8/pred_result"
     # 训练结果文件夹
-    experiment_dir = "/media/why/新加卷/xsf/Pointnet_Pointnet2_pytorch/log/sem_seg/实验6"
+    experiment_dir = "/media/why/新加卷/xsf/Pointnet_Pointnet2_pytorch/log/sem_seg/实验8"
 
     '''HYPER PARAMETER'''
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
@@ -99,8 +100,9 @@ def main(args):
     NUM_CLASSES = 2
     BATCH_SIZE = args.batch_size
     NUM_POINT = args.num_point
+    NUM_TOTAL_POINT = args.total_point
 
-    TEST_DATASET = TrimLineDataloader(data_root=root, num_point=NUM_POINT, transform=None, is_train=False)
+    TEST_DATASET = TrimLineDataloader(data_root=root, total_point=NUM_TOTAL_POINT, num_point=NUM_POINT, transform=None, is_train=False)
 
     '''MODEL LOADING'''
     model_name = os.listdir(experiment_dir + '/logs')[0].split('.')[0]
