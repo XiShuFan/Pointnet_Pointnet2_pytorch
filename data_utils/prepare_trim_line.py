@@ -71,9 +71,22 @@ def data_augment(source_path, augment_path):
             mesh.apply_transform(vtk_matrix)
             vedo.io.write(mesh, os.path.join(augment_path, output_file_name), binary=False)
 
-def ply_to_npy(augment_path, target_path):
+def ply_to_npy(augment_path, target_path, is_precision=False):
+    """
+
+    Args:
+        augment_path:
+        target_path:
+        is_precision: 是否是精度分割测试
+
+    Returns:
+
+    """
     min_ncells = 1e9
     max_ncells = 0
+
+    # TODO: 统计一下精度分割测试的面片数量
+    precision_cells = []
 
     for file in os.listdir(augment_path):
         if 'INTER' in file:
@@ -94,9 +107,14 @@ def ply_to_npy(augment_path, target_path):
         min_ncells = min(mesh.ncells, min_ncells)
         max_ncells = max(mesh.ncells, max_ncells)
 
-        # 注意还要添加一下面片的label，颜色为红色的是label
-        # TODO: 转换成颜色不是白色的为label
-        labels = np.any(mesh.cellcolors != np.array([255, 255, 255, 255]), axis=1, keepdims=False)
+        # 注意还要添加一下面片的label
+        if is_precision:
+            # TODO: 黄色是需要分割的label
+            labels = np.all(mesh.cellcolors == np.array([255, 255, 0, 255]), axis=1, keepdims=False)
+            precision_cells.append(labels.sum())
+        else:
+            # TODO: 转换成颜色不是白色的为label
+            labels = np.any(mesh.cellcolors != np.array([255, 255, 255, 255]), axis=1, keepdims=False)
 
         info['labels'] = labels
 
@@ -104,14 +122,17 @@ def ply_to_npy(augment_path, target_path):
 
     print(f'min_ncells {min_ncells}, max_ncells {max_ncells}')
 
+    precision_cells.sort()
+    print(f'精度分割面片数量：{precision_cells}')
+
 
 def main():
-    source_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_3_selective_downsample_20000"
-    augment_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_3_selective_downsample_20000_aug"
-    target_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_3_selective_downsample_20000_aug_npy"
+    source_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_0_outof_6_selective_downsample_20000"
+    augment_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_0_outof_6_selective_downsample_20000_aug"
+    target_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_0_outof_6_selective_downsample_20000_aug_npy"
 
     # data_augment(source_path, augment_path)
-    ply_to_npy(augment_path, target_path)
+    ply_to_npy(augment_path, target_path, is_precision=True)
 
 
 if __name__ == '__main__':
