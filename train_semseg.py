@@ -72,8 +72,8 @@ def parse_args():
     parser.add_argument('--npoint', type=int, default=16000, help='Point Number [default: 4096]')
 
     # 学习率衰减
-    parser.add_argument('--step_size', type=int, default=20, help='Decay step for lr decay [default: every 10 epochs]')
-    parser.add_argument('--lr_decay', type=float, default=0.9, help='Decay rate for lr decay [default: 0.7]')
+    parser.add_argument('--step_size', type=int, default=30, help='Decay step for lr decay [default: every 10 epochs]')
+    parser.add_argument('--lr_decay', type=float, default=0.95, help='Decay rate for lr decay [default: 0.7]')
 
     return parser.parse_args()
 
@@ -115,7 +115,7 @@ def main(args):
     log_string(args)
 
     # 数据目录，要换成我们的牙龈线分割数据目录
-    root = '/media/why/新加卷/xsf/Dataset/实验5/visualize_ply_expand_3_selective_downsample_20000_aug_npy'
+    root = '/media/why/新加卷/xsf/Dataset/实验10/visualize_ply_expand_0_outof_6_selective_downsample_20000_aug_npy'
     # 两类
     NUM_CLASSES = 2
     NUM_POINT = args.npoint

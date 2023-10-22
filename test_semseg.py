@@ -90,9 +90,9 @@ def main(args):
     # 训练数据文件夹
     root = "/media/why/新加卷/xsf/Dataset/visualize_ply_expand_3_selective_downsample_20000_npy"
     # 可视化文件夹
-    visualize_dir = "/media/why/新加卷/xsf/Dataset/实验8/pred_result"
+    visualize_dir = "/media/why/新加卷/xsf/Dataset/实验10/pred_result"
     # 训练结果文件夹
-    experiment_dir = "/media/why/新加卷/xsf/Pointnet_Pointnet2_pytorch/log/sem_seg/实验8"
+    experiment_dir = "/media/why/新加卷/xsf/Pointnet_Pointnet2_pytorch/log/sem_seg/实验10"
 
     '''HYPER PARAMETER'''
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
