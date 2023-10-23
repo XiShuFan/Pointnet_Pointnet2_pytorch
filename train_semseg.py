@@ -115,7 +115,7 @@ def main(args):
     log_string(args)
 
     # 数据目录，要换成我们的牙龈线分割数据目录
-    root = '/media/why/新加卷/xsf/Dataset/实验10/visualize_ply_expand_0_outof_6_selective_downsample_20000_aug_npy'
+    root = '/media/why/新加卷/xsf/Dataset/实验11/visualize_ply_expand_0_outof_9_selective_downsample_20000_v2_aug_npy'
     # 两类
     NUM_CLASSES = 2
     NUM_POINT = args.npoint
