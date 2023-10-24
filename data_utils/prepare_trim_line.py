@@ -127,11 +127,11 @@ def ply_to_npy(augment_path, target_path, is_precision=False):
 
 
 def main():
-    source_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_0_outof_6_selective_downsample_20000"
-    augment_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_0_outof_6_selective_downsample_20000_aug"
-    target_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_0_outof_6_selective_downsample_20000_aug_npy"
+    source_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_0_outof_9_selective_downsample_20000_v2"
+    augment_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_0_outof_9_selective_downsample_20000_v2_aug"
+    target_path = "D:\\Dataset\\OralScan_trim_line\\visualize_ply_expand_0_outof_9_selective_downsample_20000_v2_aug_npy"
 
-    # data_augment(source_path, augment_path)
+    data_augment(source_path, augment_path)
     ply_to_npy(augment_path, target_path, is_precision=True)
 
 
