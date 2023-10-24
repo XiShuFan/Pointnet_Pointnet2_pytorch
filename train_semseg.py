@@ -56,7 +56,7 @@ def parse_args():
     # 训练轮数
     parser.add_argument('--epoch', default=400, type=int, help='Epoch to run [default: 32]')
     # 学习率不动c
-    parser.add_argument('--learning_rate', default=4e-4, type=float, help='Initial learning rate [default: 0.001]')
+    parser.add_argument('--learning_rate', default=1e-3, type=float, help='Initial learning rate [default: 0.001]')
     parser.add_argument('--gpu', type=str, default='1', help='GPU to use [default: GPU 0]')
     parser.add_argument('--optimizer', type=str, default='Adam', help='Adam or SGD [default: Adam]')
     # 日志存放目录
@@ -142,8 +142,10 @@ def main(args):
 
     '''MODEL LOADING'''
     MODEL = importlib.import_module(args.model)
+    # TODO: 保留训练脚本很重要
     shutil.copy('models/%s.py' % args.model, str(experiment_dir))
     shutil.copy('models/pointnet2_utils.py', str(experiment_dir))
+    shutil.copy('train_semseg.py', str(experiment_dir))
 
     # TODO: 这里注意特征维度
     classifier = MODEL.get_model(NUM_CLASSES, channel=15).cuda()

@@ -1,0 +1,2696 @@
+2023-10-23 21:39:07,415 - Model - INFO - PARAMETER ...
+2023-10-23 21:39:07,415 - Model - INFO - Namespace(batch_size=12, decay_rate=0.0001, epoch=400, gpu='1', learning_rate=0.001, log_dir=None, lr_decay=0.95, model='pointnet2_sem_seg', npoint=16000, optimizer='Adam', step_size=30, test_batch_size=8, total_point=20000)
+2023-10-23 21:39:08,512 - Model - INFO - The number of training data is: 1360
+2023-10-23 21:39:08,513 - Model - INFO - The number of test data is: 1360
+2023-10-23 21:39:08,533 - Model - INFO - No existing model, starting training from scratch...
+2023-10-23 21:39:08,534 - Model - INFO - **** Epoch 1 (1/400) ****
+2023-10-23 21:39:08,534 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:40:39,114 - Model - INFO - Training mean loss: 0.664743
+2023-10-23 21:40:39,115 - Model - INFO - Training accuracy: 0.557030
+2023-10-23 21:40:39,138 - Model - INFO - Save model...
+2023-10-23 21:40:39,139 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 21:40:39,221 - Model - INFO - Saving model....
+2023-10-23 21:40:39,222 - Model - INFO - ---- EPOCH 001 EVALUATION ----
+2023-10-23 21:42:27,756 - Model - INFO - eval mean loss: 0.652608
+2023-10-23 21:42:27,756 - Model - INFO - eval mIoU: 0.464356
+2023-10-23 21:42:27,757 - Model - INFO - eval point accuracy: 0.645808
+2023-10-23 21:42:27,757 - Model - INFO - eval point class accuracy: 0.659883
+2023-10-23 21:42:27,789 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.546 
+class trim_line      weight: 0.686, IoU: 0.382 
+
+2023-10-23 21:42:27,789 - Model - INFO - Save model...
+2023-10-23 21:42:27,789 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-23 21:42:27,872 - Model - INFO - Saving model....
+2023-10-23 21:42:27,872 - Model - INFO - Best mIoU: 0.464356
+2023-10-23 21:42:27,873 - Model - INFO - **** Epoch 2 (2/400) ****
+2023-10-23 21:42:27,873 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:43:53,596 - Model - INFO - Training mean loss: 0.601589
+2023-10-23 21:43:53,597 - Model - INFO - Training accuracy: 0.641499
+2023-10-23 21:43:53,631 - Model - INFO - **** Epoch 3 (3/400) ****
+2023-10-23 21:43:53,631 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:45:19,918 - Model - INFO - Training mean loss: 0.572230
+2023-10-23 21:45:19,918 - Model - INFO - Training accuracy: 0.669657
+2023-10-23 21:45:19,951 - Model - INFO - **** Epoch 4 (4/400) ****
+2023-10-23 21:45:19,952 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:46:42,948 - Model - INFO - Training mean loss: 0.554608
+2023-10-23 21:46:42,949 - Model - INFO - Training accuracy: 0.682614
+2023-10-23 21:46:42,979 - Model - INFO - **** Epoch 5 (5/400) ****
+2023-10-23 21:46:42,979 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:48:09,632 - Model - INFO - Training mean loss: 0.541597
+2023-10-23 21:48:09,633 - Model - INFO - Training accuracy: 0.690373
+2023-10-23 21:48:09,661 - Model - INFO - **** Epoch 6 (6/400) ****
+2023-10-23 21:48:09,662 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:49:36,771 - Model - INFO - Training mean loss: 0.528771
+2023-10-23 21:49:36,771 - Model - INFO - Training accuracy: 0.697031
+2023-10-23 21:49:36,808 - Model - INFO - Save model...
+2023-10-23 21:49:36,809 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 21:49:36,906 - Model - INFO - Saving model....
+2023-10-23 21:49:36,907 - Model - INFO - ---- EPOCH 006 EVALUATION ----
+2023-10-23 21:51:26,962 - Model - INFO - eval mean loss: 0.506909
+2023-10-23 21:51:26,963 - Model - INFO - eval mIoU: 0.554486
+2023-10-23 21:51:26,963 - Model - INFO - eval point accuracy: 0.724058
+2023-10-23 21:51:26,964 - Model - INFO - eval point class accuracy: 0.746084
+2023-10-23 21:51:26,990 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.631 
+class trim_line      weight: 0.686, IoU: 0.478 
+
+2023-10-23 21:51:26,990 - Model - INFO - Save model...
+2023-10-23 21:51:26,991 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-23 21:51:27,072 - Model - INFO - Saving model....
+2023-10-23 21:51:27,072 - Model - INFO - Best mIoU: 0.554486
+2023-10-23 21:51:27,072 - Model - INFO - **** Epoch 7 (7/400) ****
+2023-10-23 21:51:27,072 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:52:50,481 - Model - INFO - Training mean loss: 0.519772
+2023-10-23 21:52:50,482 - Model - INFO - Training accuracy: 0.704020
+2023-10-23 21:52:50,514 - Model - INFO - **** Epoch 8 (8/400) ****
+2023-10-23 21:52:50,515 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:54:18,597 - Model - INFO - Training mean loss: 0.512249
+2023-10-23 21:54:18,598 - Model - INFO - Training accuracy: 0.708215
+2023-10-23 21:54:18,635 - Model - INFO - **** Epoch 9 (9/400) ****
+2023-10-23 21:54:18,635 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:55:44,910 - Model - INFO - Training mean loss: 0.504509
+2023-10-23 21:55:44,910 - Model - INFO - Training accuracy: 0.714310
+2023-10-23 21:55:44,939 - Model - INFO - **** Epoch 10 (10/400) ****
+2023-10-23 21:55:44,940 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:57:08,674 - Model - INFO - Training mean loss: 0.497025
+2023-10-23 21:57:08,675 - Model - INFO - Training accuracy: 0.718566
+2023-10-23 21:57:08,719 - Model - INFO - **** Epoch 11 (11/400) ****
+2023-10-23 21:57:08,720 - Model - INFO - Learning rate:0.001000
+2023-10-23 21:58:36,298 - Model - INFO - Training mean loss: 0.491061
+2023-10-23 21:58:36,298 - Model - INFO - Training accuracy: 0.723232
+2023-10-23 21:58:36,333 - Model - INFO - Save model...
+2023-10-23 21:58:36,333 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 21:58:36,427 - Model - INFO - Saving model....
+2023-10-23 21:58:36,428 - Model - INFO - ---- EPOCH 011 EVALUATION ----
+2023-10-23 22:00:21,306 - Model - INFO - eval mean loss: 0.470179
+2023-10-23 22:00:21,306 - Model - INFO - eval mIoU: 0.582580
+2023-10-23 22:00:21,307 - Model - INFO - eval point accuracy: 0.746981
+2023-10-23 22:00:21,307 - Model - INFO - eval point class accuracy: 0.769201
+2023-10-23 22:00:21,343 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.658 
+class trim_line      weight: 0.686, IoU: 0.507 
+
+2023-10-23 22:00:21,344 - Model - INFO - Save model...
+2023-10-23 22:00:21,344 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-23 22:00:21,423 - Model - INFO - Saving model....
+2023-10-23 22:00:21,424 - Model - INFO - Best mIoU: 0.582580
+2023-10-23 22:00:21,424 - Model - INFO - **** Epoch 12 (12/400) ****
+2023-10-23 22:00:21,424 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:01:44,649 - Model - INFO - Training mean loss: 0.486247
+2023-10-23 22:01:44,650 - Model - INFO - Training accuracy: 0.726163
+2023-10-23 22:01:44,686 - Model - INFO - **** Epoch 13 (13/400) ****
+2023-10-23 22:01:44,686 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:03:10,253 - Model - INFO - Training mean loss: 0.481070
+2023-10-23 22:03:10,254 - Model - INFO - Training accuracy: 0.730119
+2023-10-23 22:03:10,291 - Model - INFO - **** Epoch 14 (14/400) ****
+2023-10-23 22:03:10,292 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:04:33,616 - Model - INFO - Training mean loss: 0.473327
+2023-10-23 22:04:33,617 - Model - INFO - Training accuracy: 0.735197
+2023-10-23 22:04:33,644 - Model - INFO - **** Epoch 15 (15/400) ****
+2023-10-23 22:04:33,644 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:06:01,395 - Model - INFO - Training mean loss: 0.452319
+2023-10-23 22:06:01,396 - Model - INFO - Training accuracy: 0.746065
+2023-10-23 22:06:01,424 - Model - INFO - **** Epoch 16 (16/400) ****
+2023-10-23 22:06:01,424 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:07:21,802 - Model - INFO - Training mean loss: 0.423353
+2023-10-23 22:07:21,802 - Model - INFO - Training accuracy: 0.765609
+2023-10-23 22:07:21,839 - Model - INFO - Save model...
+2023-10-23 22:07:21,840 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 22:07:21,951 - Model - INFO - Saving model....
+2023-10-23 22:07:21,952 - Model - INFO - ---- EPOCH 016 EVALUATION ----
+2023-10-23 22:09:05,423 - Model - INFO - eval mean loss: 0.394294
+2023-10-23 22:09:05,424 - Model - INFO - eval mIoU: 0.649144
+2023-10-23 22:09:05,424 - Model - INFO - eval point accuracy: 0.798056
+2023-10-23 22:09:05,424 - Model - INFO - eval point class accuracy: 0.819312
+2023-10-23 22:09:05,463 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.721 
+class trim_line      weight: 0.686, IoU: 0.577 
+
+2023-10-23 22:09:05,464 - Model - INFO - Save model...
+2023-10-23 22:09:05,464 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-23 22:09:05,546 - Model - INFO - Saving model....
+2023-10-23 22:09:05,547 - Model - INFO - Best mIoU: 0.649144
+2023-10-23 22:09:05,547 - Model - INFO - **** Epoch 17 (17/400) ****
+2023-10-23 22:09:05,547 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:10:31,581 - Model - INFO - Training mean loss: 0.394691
+2023-10-23 22:10:31,581 - Model - INFO - Training accuracy: 0.787630
+2023-10-23 22:10:31,607 - Model - INFO - **** Epoch 18 (18/400) ****
+2023-10-23 22:10:31,607 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:11:58,771 - Model - INFO - Training mean loss: 0.374938
+2023-10-23 22:11:58,771 - Model - INFO - Training accuracy: 0.803162
+2023-10-23 22:11:58,808 - Model - INFO - **** Epoch 19 (19/400) ****
+2023-10-23 22:11:58,808 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:13:25,962 - Model - INFO - Training mean loss: 0.362182
+2023-10-23 22:13:25,962 - Model - INFO - Training accuracy: 0.812687
+2023-10-23 22:13:26,000 - Model - INFO - **** Epoch 20 (20/400) ****
+2023-10-23 22:13:26,000 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:14:46,112 - Model - INFO - Training mean loss: 0.349283
+2023-10-23 22:14:46,112 - Model - INFO - Training accuracy: 0.821246
+2023-10-23 22:14:46,140 - Model - INFO - **** Epoch 21 (21/400) ****
+2023-10-23 22:14:46,140 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:16:13,255 - Model - INFO - Training mean loss: 0.341833
+2023-10-23 22:16:13,256 - Model - INFO - Training accuracy: 0.826394
+2023-10-23 22:16:13,292 - Model - INFO - Save model...
+2023-10-23 22:16:13,292 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 22:16:13,380 - Model - INFO - Saving model....
+2023-10-23 22:16:13,381 - Model - INFO - ---- EPOCH 021 EVALUATION ----
+2023-10-23 22:17:55,148 - Model - INFO - eval mean loss: 0.326254
+2023-10-23 22:17:55,148 - Model - INFO - eval mIoU: 0.715851
+2023-10-23 22:17:55,149 - Model - INFO - eval point accuracy: 0.846496
+2023-10-23 22:17:55,149 - Model - INFO - eval point class accuracy: 0.856885
+2023-10-23 22:17:55,186 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.787 
+class trim_line      weight: 0.686, IoU: 0.644 
+
+2023-10-23 22:17:55,186 - Model - INFO - Save model...
+2023-10-23 22:17:55,187 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-23 22:17:55,278 - Model - INFO - Saving model....
+2023-10-23 22:17:55,278 - Model - INFO - Best mIoU: 0.715851
+2023-10-23 22:17:55,279 - Model - INFO - **** Epoch 22 (22/400) ****
+2023-10-23 22:17:55,279 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:19:19,252 - Model - INFO - Training mean loss: 0.337702
+2023-10-23 22:19:19,252 - Model - INFO - Training accuracy: 0.829340
+2023-10-23 22:19:19,282 - Model - INFO - **** Epoch 23 (23/400) ****
+2023-10-23 22:19:19,282 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:20:45,637 - Model - INFO - Training mean loss: 0.333263
+2023-10-23 22:20:45,637 - Model - INFO - Training accuracy: 0.831532
+2023-10-23 22:20:45,673 - Model - INFO - **** Epoch 24 (24/400) ****
+2023-10-23 22:20:45,674 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:22:14,617 - Model - INFO - Training mean loss: 0.327898
+2023-10-23 22:22:14,618 - Model - INFO - Training accuracy: 0.835095
+2023-10-23 22:22:14,659 - Model - INFO - **** Epoch 25 (25/400) ****
+2023-10-23 22:22:14,660 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:23:36,375 - Model - INFO - Training mean loss: 0.327614
+2023-10-23 22:23:36,375 - Model - INFO - Training accuracy: 0.835489
+2023-10-23 22:23:36,404 - Model - INFO - **** Epoch 26 (26/400) ****
+2023-10-23 22:23:36,404 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:24:59,979 - Model - INFO - Training mean loss: 0.324611
+2023-10-23 22:24:59,979 - Model - INFO - Training accuracy: 0.837395
+2023-10-23 22:25:00,016 - Model - INFO - Save model...
+2023-10-23 22:25:00,016 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 22:25:00,119 - Model - INFO - Saving model....
+2023-10-23 22:25:00,120 - Model - INFO - ---- EPOCH 026 EVALUATION ----
+2023-10-23 22:26:41,816 - Model - INFO - eval mean loss: 0.317891
+2023-10-23 22:26:41,817 - Model - INFO - eval mIoU: 0.694893
+2023-10-23 22:26:41,817 - Model - INFO - eval point accuracy: 0.828858
+2023-10-23 22:26:41,817 - Model - INFO - eval point class accuracy: 0.857978
+2023-10-23 22:26:41,852 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.757 
+class trim_line      weight: 0.686, IoU: 0.632 
+
+2023-10-23 22:26:41,852 - Model - INFO - Best mIoU: 0.715851
+2023-10-23 22:26:41,853 - Model - INFO - **** Epoch 27 (27/400) ****
+2023-10-23 22:26:41,853 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:28:08,342 - Model - INFO - Training mean loss: 0.324311
+2023-10-23 22:28:08,343 - Model - INFO - Training accuracy: 0.837068
+2023-10-23 22:28:08,378 - Model - INFO - **** Epoch 28 (28/400) ****
+2023-10-23 22:28:08,379 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:29:36,603 - Model - INFO - Training mean loss: 0.319358
+2023-10-23 22:29:36,603 - Model - INFO - Training accuracy: 0.840502
+2023-10-23 22:29:36,636 - Model - INFO - **** Epoch 29 (29/400) ****
+2023-10-23 22:29:36,636 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:31:04,153 - Model - INFO - Training mean loss: 0.316613
+2023-10-23 22:31:04,154 - Model - INFO - Training accuracy: 0.842330
+2023-10-23 22:31:04,185 - Model - INFO - **** Epoch 30 (30/400) ****
+2023-10-23 22:31:04,186 - Model - INFO - Learning rate:0.001000
+2023-10-23 22:32:31,312 - Model - INFO - Training mean loss: 0.316166
+2023-10-23 22:32:31,313 - Model - INFO - Training accuracy: 0.842792
+2023-10-23 22:32:31,352 - Model - INFO - **** Epoch 31 (31/400) ****
+2023-10-23 22:32:31,353 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:33:52,691 - Model - INFO - Training mean loss: 0.313152
+2023-10-23 22:33:52,692 - Model - INFO - Training accuracy: 0.844478
+2023-10-23 22:33:52,718 - Model - INFO - Save model...
+2023-10-23 22:33:52,718 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 22:33:52,808 - Model - INFO - Saving model....
+2023-10-23 22:33:52,809 - Model - INFO - ---- EPOCH 031 EVALUATION ----
+2023-10-23 22:35:38,042 - Model - INFO - eval mean loss: 0.301595
+2023-10-23 22:35:38,043 - Model - INFO - eval mIoU: 0.720434
+2023-10-23 22:35:38,043 - Model - INFO - eval point accuracy: 0.847564
+2023-10-23 22:35:38,043 - Model - INFO - eval point class accuracy: 0.868108
+2023-10-23 22:35:38,082 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.785 
+class trim_line      weight: 0.686, IoU: 0.656 
+
+2023-10-23 22:35:38,083 - Model - INFO - Save model...
+2023-10-23 22:35:38,083 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-23 22:35:38,171 - Model - INFO - Saving model....
+2023-10-23 22:35:38,171 - Model - INFO - Best mIoU: 0.720434
+2023-10-23 22:35:38,172 - Model - INFO - **** Epoch 32 (32/400) ****
+2023-10-23 22:35:38,172 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:37:04,056 - Model - INFO - Training mean loss: 0.312024
+2023-10-23 22:37:04,057 - Model - INFO - Training accuracy: 0.845318
+2023-10-23 22:37:04,083 - Model - INFO - **** Epoch 33 (33/400) ****
+2023-10-23 22:37:04,083 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:38:28,026 - Model - INFO - Training mean loss: 0.310197
+2023-10-23 22:38:28,027 - Model - INFO - Training accuracy: 0.846334
+2023-10-23 22:38:28,063 - Model - INFO - **** Epoch 34 (34/400) ****
+2023-10-23 22:38:28,064 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:39:55,364 - Model - INFO - Training mean loss: 0.310376
+2023-10-23 22:39:55,365 - Model - INFO - Training accuracy: 0.846155
+2023-10-23 22:39:55,403 - Model - INFO - **** Epoch 35 (35/400) ****
+2023-10-23 22:39:55,404 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:41:24,223 - Model - INFO - Training mean loss: 0.309623
+2023-10-23 22:41:24,224 - Model - INFO - Training accuracy: 0.846838
+2023-10-23 22:41:24,247 - Model - INFO - **** Epoch 36 (36/400) ****
+2023-10-23 22:41:24,247 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:42:46,747 - Model - INFO - Training mean loss: 0.306483
+2023-10-23 22:42:46,748 - Model - INFO - Training accuracy: 0.848347
+2023-10-23 22:42:46,785 - Model - INFO - Save model...
+2023-10-23 22:42:46,786 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 22:42:46,879 - Model - INFO - Saving model....
+2023-10-23 22:42:46,880 - Model - INFO - ---- EPOCH 036 EVALUATION ----
+2023-10-23 22:44:30,885 - Model - INFO - eval mean loss: 0.304072
+2023-10-23 22:44:30,885 - Model - INFO - eval mIoU: 0.718411
+2023-10-23 22:44:30,886 - Model - INFO - eval point accuracy: 0.846170
+2023-10-23 22:44:30,886 - Model - INFO - eval point class accuracy: 0.867046
+2023-10-23 22:44:30,919 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.783 
+class trim_line      weight: 0.686, IoU: 0.654 
+
+2023-10-23 22:44:30,919 - Model - INFO - Best mIoU: 0.720434
+2023-10-23 22:44:30,919 - Model - INFO - **** Epoch 37 (37/400) ****
+2023-10-23 22:44:30,919 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:45:53,428 - Model - INFO - Training mean loss: 0.304425
+2023-10-23 22:45:53,429 - Model - INFO - Training accuracy: 0.849701
+2023-10-23 22:45:53,466 - Model - INFO - **** Epoch 38 (38/400) ****
+2023-10-23 22:45:53,467 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:47:14,594 - Model - INFO - Training mean loss: 0.304623
+2023-10-23 22:47:14,594 - Model - INFO - Training accuracy: 0.849462
+2023-10-23 22:47:14,627 - Model - INFO - **** Epoch 39 (39/400) ****
+2023-10-23 22:47:14,627 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:48:37,825 - Model - INFO - Training mean loss: 0.304787
+2023-10-23 22:48:37,826 - Model - INFO - Training accuracy: 0.850029
+2023-10-23 22:48:37,861 - Model - INFO - **** Epoch 40 (40/400) ****
+2023-10-23 22:48:37,862 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:50:04,774 - Model - INFO - Training mean loss: 0.302734
+2023-10-23 22:50:04,774 - Model - INFO - Training accuracy: 0.850712
+2023-10-23 22:50:04,809 - Model - INFO - **** Epoch 41 (41/400) ****
+2023-10-23 22:50:04,809 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:51:27,532 - Model - INFO - Training mean loss: 0.301505
+2023-10-23 22:51:27,533 - Model - INFO - Training accuracy: 0.851604
+2023-10-23 22:51:27,569 - Model - INFO - Save model...
+2023-10-23 22:51:27,569 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 22:51:27,652 - Model - INFO - Saving model....
+2023-10-23 22:51:27,652 - Model - INFO - ---- EPOCH 041 EVALUATION ----
+2023-10-23 22:53:09,934 - Model - INFO - eval mean loss: 0.292928
+2023-10-23 22:53:09,934 - Model - INFO - eval mIoU: 0.732865
+2023-10-23 22:53:09,935 - Model - INFO - eval point accuracy: 0.856244
+2023-10-23 22:53:09,935 - Model - INFO - eval point class accuracy: 0.873573
+2023-10-23 22:53:09,980 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.798 
+class trim_line      weight: 0.686, IoU: 0.668 
+
+2023-10-23 22:53:09,980 - Model - INFO - Save model...
+2023-10-23 22:53:09,981 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-23 22:53:10,075 - Model - INFO - Saving model....
+2023-10-23 22:53:10,075 - Model - INFO - Best mIoU: 0.732865
+2023-10-23 22:53:10,075 - Model - INFO - **** Epoch 42 (42/400) ****
+2023-10-23 22:53:10,075 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:54:36,774 - Model - INFO - Training mean loss: 0.301275
+2023-10-23 22:54:36,775 - Model - INFO - Training accuracy: 0.851963
+2023-10-23 22:54:36,813 - Model - INFO - **** Epoch 43 (43/400) ****
+2023-10-23 22:54:36,813 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:56:02,786 - Model - INFO - Training mean loss: 0.301700
+2023-10-23 22:56:02,787 - Model - INFO - Training accuracy: 0.851622
+2023-10-23 22:56:02,818 - Model - INFO - **** Epoch 44 (44/400) ****
+2023-10-23 22:56:02,818 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:57:22,579 - Model - INFO - Training mean loss: 0.299657
+2023-10-23 22:57:22,579 - Model - INFO - Training accuracy: 0.852596
+2023-10-23 22:57:22,610 - Model - INFO - **** Epoch 45 (45/400) ****
+2023-10-23 22:57:22,611 - Model - INFO - Learning rate:0.000950
+2023-10-23 22:58:45,596 - Model - INFO - Training mean loss: 0.299221
+2023-10-23 22:58:45,596 - Model - INFO - Training accuracy: 0.853012
+2023-10-23 22:58:45,635 - Model - INFO - **** Epoch 46 (46/400) ****
+2023-10-23 22:58:45,635 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:00:06,243 - Model - INFO - Training mean loss: 0.296468
+2023-10-23 23:00:06,244 - Model - INFO - Training accuracy: 0.854106
+2023-10-23 23:00:06,277 - Model - INFO - Save model...
+2023-10-23 23:00:06,277 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 23:00:06,365 - Model - INFO - Saving model....
+2023-10-23 23:00:06,366 - Model - INFO - ---- EPOCH 046 EVALUATION ----
+2023-10-23 23:01:48,306 - Model - INFO - eval mean loss: 0.288021
+2023-10-23 23:01:48,306 - Model - INFO - eval mIoU: 0.727239
+2023-10-23 23:01:48,306 - Model - INFO - eval point accuracy: 0.851579
+2023-10-23 23:01:48,306 - Model - INFO - eval point class accuracy: 0.874631
+2023-10-23 23:01:48,340 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.790 
+class trim_line      weight: 0.686, IoU: 0.665 
+
+2023-10-23 23:01:48,340 - Model - INFO - Best mIoU: 0.732865
+2023-10-23 23:01:48,340 - Model - INFO - **** Epoch 47 (47/400) ****
+2023-10-23 23:01:48,340 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:03:11,853 - Model - INFO - Training mean loss: 0.299133
+2023-10-23 23:03:11,853 - Model - INFO - Training accuracy: 0.852902
+2023-10-23 23:03:11,892 - Model - INFO - **** Epoch 48 (48/400) ****
+2023-10-23 23:03:11,892 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:04:38,627 - Model - INFO - Training mean loss: 0.299739
+2023-10-23 23:04:38,628 - Model - INFO - Training accuracy: 0.852726
+2023-10-23 23:04:38,659 - Model - INFO - **** Epoch 49 (49/400) ****
+2023-10-23 23:04:38,659 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:06:02,728 - Model - INFO - Training mean loss: 0.297102
+2023-10-23 23:06:02,728 - Model - INFO - Training accuracy: 0.853816
+2023-10-23 23:06:02,764 - Model - INFO - **** Epoch 50 (50/400) ****
+2023-10-23 23:06:02,764 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:07:25,420 - Model - INFO - Training mean loss: 0.295254
+2023-10-23 23:07:25,421 - Model - INFO - Training accuracy: 0.855178
+2023-10-23 23:07:25,459 - Model - INFO - **** Epoch 51 (51/400) ****
+2023-10-23 23:07:25,459 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:08:48,708 - Model - INFO - Training mean loss: 0.295290
+2023-10-23 23:08:48,709 - Model - INFO - Training accuracy: 0.854926
+2023-10-23 23:08:48,741 - Model - INFO - Save model...
+2023-10-23 23:08:48,742 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 23:08:48,837 - Model - INFO - Saving model....
+2023-10-23 23:08:48,838 - Model - INFO - ---- EPOCH 051 EVALUATION ----
+2023-10-23 23:10:33,197 - Model - INFO - eval mean loss: 0.291868
+2023-10-23 23:10:33,197 - Model - INFO - eval mIoU: 0.725032
+2023-10-23 23:10:33,197 - Model - INFO - eval point accuracy: 0.850002
+2023-10-23 23:10:33,197 - Model - INFO - eval point class accuracy: 0.873817
+2023-10-23 23:10:33,229 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.787 
+class trim_line      weight: 0.686, IoU: 0.663 
+
+2023-10-23 23:10:33,229 - Model - INFO - Best mIoU: 0.732865
+2023-10-23 23:10:33,230 - Model - INFO - **** Epoch 52 (52/400) ****
+2023-10-23 23:10:33,230 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:11:55,557 - Model - INFO - Training mean loss: 0.295891
+2023-10-23 23:11:55,558 - Model - INFO - Training accuracy: 0.855201
+2023-10-23 23:11:55,593 - Model - INFO - **** Epoch 53 (53/400) ****
+2023-10-23 23:11:55,594 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:13:20,035 - Model - INFO - Training mean loss: 0.292994
+2023-10-23 23:13:20,035 - Model - INFO - Training accuracy: 0.856394
+2023-10-23 23:13:20,073 - Model - INFO - **** Epoch 54 (54/400) ****
+2023-10-23 23:13:20,073 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:14:42,558 - Model - INFO - Training mean loss: 0.294433
+2023-10-23 23:14:42,558 - Model - INFO - Training accuracy: 0.855397
+2023-10-23 23:14:42,596 - Model - INFO - **** Epoch 55 (55/400) ****
+2023-10-23 23:14:42,596 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:16:07,752 - Model - INFO - Training mean loss: 0.293443
+2023-10-23 23:16:07,752 - Model - INFO - Training accuracy: 0.856413
+2023-10-23 23:16:07,782 - Model - INFO - **** Epoch 56 (56/400) ****
+2023-10-23 23:16:07,782 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:17:35,724 - Model - INFO - Training mean loss: 0.292747
+2023-10-23 23:17:35,724 - Model - INFO - Training accuracy: 0.856671
+2023-10-23 23:17:35,760 - Model - INFO - Save model...
+2023-10-23 23:17:35,760 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 23:17:35,839 - Model - INFO - Saving model....
+2023-10-23 23:17:35,840 - Model - INFO - ---- EPOCH 056 EVALUATION ----
+2023-10-23 23:19:15,099 - Model - INFO - eval mean loss: 0.291068
+2023-10-23 23:19:15,099 - Model - INFO - eval mIoU: 0.720378
+2023-10-23 23:19:15,100 - Model - INFO - eval point accuracy: 0.846432
+2023-10-23 23:19:15,100 - Model - INFO - eval point class accuracy: 0.873195
+2023-10-23 23:19:15,130 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.782 
+class trim_line      weight: 0.686, IoU: 0.659 
+
+2023-10-23 23:19:15,130 - Model - INFO - Best mIoU: 0.732865
+2023-10-23 23:19:15,130 - Model - INFO - **** Epoch 57 (57/400) ****
+2023-10-23 23:19:15,130 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:20:38,002 - Model - INFO - Training mean loss: 0.292467
+2023-10-23 23:20:38,003 - Model - INFO - Training accuracy: 0.856422
+2023-10-23 23:20:38,039 - Model - INFO - **** Epoch 58 (58/400) ****
+2023-10-23 23:20:38,039 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:22:03,908 - Model - INFO - Training mean loss: 0.290976
+2023-10-23 23:22:03,908 - Model - INFO - Training accuracy: 0.857544
+2023-10-23 23:22:03,945 - Model - INFO - **** Epoch 59 (59/400) ****
+2023-10-23 23:22:03,945 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:23:27,745 - Model - INFO - Training mean loss: 0.291181
+2023-10-23 23:23:27,745 - Model - INFO - Training accuracy: 0.857443
+2023-10-23 23:23:27,779 - Model - INFO - **** Epoch 60 (60/400) ****
+2023-10-23 23:23:27,779 - Model - INFO - Learning rate:0.000950
+2023-10-23 23:24:53,770 - Model - INFO - Training mean loss: 0.290987
+2023-10-23 23:24:53,770 - Model - INFO - Training accuracy: 0.857725
+2023-10-23 23:24:53,804 - Model - INFO - **** Epoch 61 (61/400) ****
+2023-10-23 23:24:53,804 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:26:21,933 - Model - INFO - Training mean loss: 0.289324
+2023-10-23 23:26:21,933 - Model - INFO - Training accuracy: 0.858732
+2023-10-23 23:26:21,965 - Model - INFO - Save model...
+2023-10-23 23:26:21,965 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 23:26:22,050 - Model - INFO - Saving model....
+2023-10-23 23:26:22,051 - Model - INFO - ---- EPOCH 061 EVALUATION ----
+2023-10-23 23:28:01,507 - Model - INFO - eval mean loss: 0.301507
+2023-10-23 23:28:01,508 - Model - INFO - eval mIoU: 0.726234
+2023-10-23 23:28:01,508 - Model - INFO - eval point accuracy: 0.851654
+2023-10-23 23:28:01,508 - Model - INFO - eval point class accuracy: 0.870590
+2023-10-23 23:28:01,547 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.791 
+class trim_line      weight: 0.686, IoU: 0.661 
+
+2023-10-23 23:28:01,547 - Model - INFO - Best mIoU: 0.732865
+2023-10-23 23:28:01,547 - Model - INFO - **** Epoch 62 (62/400) ****
+2023-10-23 23:28:01,548 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:29:30,112 - Model - INFO - Training mean loss: 0.288539
+2023-10-23 23:29:30,113 - Model - INFO - Training accuracy: 0.859021
+2023-10-23 23:29:30,152 - Model - INFO - **** Epoch 63 (63/400) ****
+2023-10-23 23:29:30,152 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:30:51,955 - Model - INFO - Training mean loss: 0.288825
+2023-10-23 23:30:51,956 - Model - INFO - Training accuracy: 0.858841
+2023-10-23 23:30:51,990 - Model - INFO - **** Epoch 64 (64/400) ****
+2023-10-23 23:30:51,990 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:32:17,185 - Model - INFO - Training mean loss: 0.288048
+2023-10-23 23:32:17,186 - Model - INFO - Training accuracy: 0.859135
+2023-10-23 23:32:17,219 - Model - INFO - **** Epoch 65 (65/400) ****
+2023-10-23 23:32:17,220 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:33:40,227 - Model - INFO - Training mean loss: 0.287888
+2023-10-23 23:33:40,227 - Model - INFO - Training accuracy: 0.859618
+2023-10-23 23:33:40,261 - Model - INFO - **** Epoch 66 (66/400) ****
+2023-10-23 23:33:40,262 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:35:05,582 - Model - INFO - Training mean loss: 0.286843
+2023-10-23 23:35:05,582 - Model - INFO - Training accuracy: 0.859779
+2023-10-23 23:35:05,615 - Model - INFO - Save model...
+2023-10-23 23:35:05,615 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 23:35:05,696 - Model - INFO - Saving model....
+2023-10-23 23:35:05,697 - Model - INFO - ---- EPOCH 066 EVALUATION ----
+2023-10-23 23:36:47,913 - Model - INFO - eval mean loss: 0.296174
+2023-10-23 23:36:47,913 - Model - INFO - eval mIoU: 0.746739
+2023-10-23 23:36:47,913 - Model - INFO - eval point accuracy: 0.867184
+2023-10-23 23:36:47,914 - Model - INFO - eval point class accuracy: 0.873075
+2023-10-23 23:36:47,945 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.816 
+class trim_line      weight: 0.686, IoU: 0.678 
+
+2023-10-23 23:36:47,945 - Model - INFO - Save model...
+2023-10-23 23:36:47,945 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-23 23:36:48,028 - Model - INFO - Saving model....
+2023-10-23 23:36:48,028 - Model - INFO - Best mIoU: 0.746739
+2023-10-23 23:36:48,028 - Model - INFO - **** Epoch 67 (67/400) ****
+2023-10-23 23:36:48,028 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:38:13,430 - Model - INFO - Training mean loss: 0.287638
+2023-10-23 23:38:13,430 - Model - INFO - Training accuracy: 0.859644
+2023-10-23 23:38:13,465 - Model - INFO - **** Epoch 68 (68/400) ****
+2023-10-23 23:38:13,466 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:39:40,797 - Model - INFO - Training mean loss: 0.287232
+2023-10-23 23:39:40,798 - Model - INFO - Training accuracy: 0.859774
+2023-10-23 23:39:40,836 - Model - INFO - **** Epoch 69 (69/400) ****
+2023-10-23 23:39:40,837 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:41:09,770 - Model - INFO - Training mean loss: 0.286024
+2023-10-23 23:41:09,770 - Model - INFO - Training accuracy: 0.860313
+2023-10-23 23:41:09,810 - Model - INFO - **** Epoch 70 (70/400) ****
+2023-10-23 23:41:09,810 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:42:35,666 - Model - INFO - Training mean loss: 0.286790
+2023-10-23 23:42:35,667 - Model - INFO - Training accuracy: 0.859841
+2023-10-23 23:42:35,703 - Model - INFO - **** Epoch 71 (71/400) ****
+2023-10-23 23:42:35,703 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:44:01,497 - Model - INFO - Training mean loss: 0.286910
+2023-10-23 23:44:01,498 - Model - INFO - Training accuracy: 0.859880
+2023-10-23 23:44:01,539 - Model - INFO - Save model...
+2023-10-23 23:44:01,539 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 23:44:01,634 - Model - INFO - Saving model....
+2023-10-23 23:44:01,635 - Model - INFO - ---- EPOCH 071 EVALUATION ----
+2023-10-23 23:45:44,856 - Model - INFO - eval mean loss: 0.284710
+2023-10-23 23:45:44,857 - Model - INFO - eval mIoU: 0.729401
+2023-10-23 23:45:44,857 - Model - INFO - eval point accuracy: 0.852887
+2023-10-23 23:45:44,858 - Model - INFO - eval point class accuracy: 0.876525
+2023-10-23 23:45:44,892 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.791 
+class trim_line      weight: 0.686, IoU: 0.668 
+
+2023-10-23 23:45:44,892 - Model - INFO - Best mIoU: 0.746739
+2023-10-23 23:45:44,892 - Model - INFO - **** Epoch 72 (72/400) ****
+2023-10-23 23:45:44,892 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:47:08,395 - Model - INFO - Training mean loss: 0.287085
+2023-10-23 23:47:08,396 - Model - INFO - Training accuracy: 0.860015
+2023-10-23 23:47:08,433 - Model - INFO - **** Epoch 73 (73/400) ****
+2023-10-23 23:47:08,433 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:48:32,438 - Model - INFO - Training mean loss: 0.286057
+2023-10-23 23:48:32,438 - Model - INFO - Training accuracy: 0.860243
+2023-10-23 23:48:32,475 - Model - INFO - **** Epoch 74 (74/400) ****
+2023-10-23 23:48:32,475 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:49:59,781 - Model - INFO - Training mean loss: 0.285039
+2023-10-23 23:49:59,781 - Model - INFO - Training accuracy: 0.860978
+2023-10-23 23:49:59,809 - Model - INFO - **** Epoch 75 (75/400) ****
+2023-10-23 23:49:59,810 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:51:23,232 - Model - INFO - Training mean loss: 0.285282
+2023-10-23 23:51:23,233 - Model - INFO - Training accuracy: 0.860922
+2023-10-23 23:51:23,262 - Model - INFO - **** Epoch 76 (76/400) ****
+2023-10-23 23:51:23,262 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:52:51,443 - Model - INFO - Training mean loss: 0.284085
+2023-10-23 23:52:51,444 - Model - INFO - Training accuracy: 0.861375
+2023-10-23 23:52:51,484 - Model - INFO - Save model...
+2023-10-23 23:52:51,484 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-23 23:52:51,584 - Model - INFO - Saving model....
+2023-10-23 23:52:51,585 - Model - INFO - ---- EPOCH 076 EVALUATION ----
+2023-10-23 23:54:36,457 - Model - INFO - eval mean loss: 0.279925
+2023-10-23 23:54:36,458 - Model - INFO - eval mIoU: 0.742425
+2023-10-23 23:54:36,458 - Model - INFO - eval point accuracy: 0.862332
+2023-10-23 23:54:36,458 - Model - INFO - eval point class accuracy: 0.879867
+2023-10-23 23:54:36,496 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.806 
+class trim_line      weight: 0.686, IoU: 0.679 
+
+2023-10-23 23:54:36,496 - Model - INFO - Best mIoU: 0.746739
+2023-10-23 23:54:36,496 - Model - INFO - **** Epoch 77 (77/400) ****
+2023-10-23 23:54:36,496 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:56:00,580 - Model - INFO - Training mean loss: 0.284712
+2023-10-23 23:56:00,581 - Model - INFO - Training accuracy: 0.860986
+2023-10-23 23:56:00,617 - Model - INFO - **** Epoch 78 (78/400) ****
+2023-10-23 23:56:00,617 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:57:23,105 - Model - INFO - Training mean loss: 0.283422
+2023-10-23 23:57:23,106 - Model - INFO - Training accuracy: 0.861918
+2023-10-23 23:57:23,138 - Model - INFO - **** Epoch 79 (79/400) ****
+2023-10-23 23:57:23,138 - Model - INFO - Learning rate:0.000902
+2023-10-23 23:58:46,723 - Model - INFO - Training mean loss: 0.282944
+2023-10-23 23:58:46,724 - Model - INFO - Training accuracy: 0.861868
+2023-10-23 23:58:46,754 - Model - INFO - **** Epoch 80 (80/400) ****
+2023-10-23 23:58:46,754 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:00:08,045 - Model - INFO - Training mean loss: 0.282811
+2023-10-24 00:00:08,045 - Model - INFO - Training accuracy: 0.862161
+2023-10-24 00:00:08,077 - Model - INFO - **** Epoch 81 (81/400) ****
+2023-10-24 00:00:08,078 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:01:34,710 - Model - INFO - Training mean loss: 0.284397
+2023-10-24 00:01:34,710 - Model - INFO - Training accuracy: 0.861773
+2023-10-24 00:01:34,747 - Model - INFO - Save model...
+2023-10-24 00:01:34,747 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 00:01:34,827 - Model - INFO - Saving model....
+2023-10-24 00:01:34,828 - Model - INFO - ---- EPOCH 081 EVALUATION ----
+2023-10-24 00:03:13,653 - Model - INFO - eval mean loss: 0.278809
+2023-10-24 00:03:13,654 - Model - INFO - eval mIoU: 0.741584
+2023-10-24 00:03:13,654 - Model - INFO - eval point accuracy: 0.861596
+2023-10-24 00:03:13,654 - Model - INFO - eval point class accuracy: 0.880282
+2023-10-24 00:03:13,688 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.804 
+class trim_line      weight: 0.686, IoU: 0.679 
+
+2023-10-24 00:03:13,688 - Model - INFO - Best mIoU: 0.746739
+2023-10-24 00:03:13,688 - Model - INFO - **** Epoch 82 (82/400) ****
+2023-10-24 00:03:13,688 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:04:40,590 - Model - INFO - Training mean loss: 0.283427
+2023-10-24 00:04:40,591 - Model - INFO - Training accuracy: 0.861658
+2023-10-24 00:04:40,624 - Model - INFO - **** Epoch 83 (83/400) ****
+2023-10-24 00:04:40,624 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:06:08,705 - Model - INFO - Training mean loss: 0.282153
+2023-10-24 00:06:08,706 - Model - INFO - Training accuracy: 0.862520
+2023-10-24 00:06:08,743 - Model - INFO - **** Epoch 84 (84/400) ****
+2023-10-24 00:06:08,744 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:07:36,735 - Model - INFO - Training mean loss: 0.282490
+2023-10-24 00:07:36,735 - Model - INFO - Training accuracy: 0.862537
+2023-10-24 00:07:36,769 - Model - INFO - **** Epoch 85 (85/400) ****
+2023-10-24 00:07:36,769 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:09:04,006 - Model - INFO - Training mean loss: 0.281842
+2023-10-24 00:09:04,007 - Model - INFO - Training accuracy: 0.862856
+2023-10-24 00:09:04,048 - Model - INFO - **** Epoch 86 (86/400) ****
+2023-10-24 00:09:04,048 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:10:30,941 - Model - INFO - Training mean loss: 0.282721
+2023-10-24 00:10:30,941 - Model - INFO - Training accuracy: 0.862392
+2023-10-24 00:10:30,974 - Model - INFO - Save model...
+2023-10-24 00:10:30,974 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 00:10:31,073 - Model - INFO - Saving model....
+2023-10-24 00:10:31,073 - Model - INFO - ---- EPOCH 086 EVALUATION ----
+2023-10-24 00:12:16,173 - Model - INFO - eval mean loss: 0.281594
+2023-10-24 00:12:16,174 - Model - INFO - eval mIoU: 0.756935
+2023-10-24 00:12:16,174 - Model - INFO - eval point accuracy: 0.873548
+2023-10-24 00:12:16,174 - Model - INFO - eval point class accuracy: 0.879262
+2023-10-24 00:12:16,217 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.824 
+class trim_line      weight: 0.686, IoU: 0.690 
+
+2023-10-24 00:12:16,217 - Model - INFO - Save model...
+2023-10-24 00:12:16,218 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-24 00:12:16,296 - Model - INFO - Saving model....
+2023-10-24 00:12:16,296 - Model - INFO - Best mIoU: 0.756935
+2023-10-24 00:12:16,297 - Model - INFO - **** Epoch 87 (87/400) ****
+2023-10-24 00:12:16,297 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:13:38,213 - Model - INFO - Training mean loss: 0.279841
+2023-10-24 00:13:38,214 - Model - INFO - Training accuracy: 0.863848
+2023-10-24 00:13:38,253 - Model - INFO - **** Epoch 88 (88/400) ****
+2023-10-24 00:13:38,253 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:15:06,035 - Model - INFO - Training mean loss: 0.280422
+2023-10-24 00:15:06,036 - Model - INFO - Training accuracy: 0.863496
+2023-10-24 00:15:06,069 - Model - INFO - **** Epoch 89 (89/400) ****
+2023-10-24 00:15:06,069 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:16:32,850 - Model - INFO - Training mean loss: 0.280293
+2023-10-24 00:16:32,851 - Model - INFO - Training accuracy: 0.863438
+2023-10-24 00:16:32,889 - Model - INFO - **** Epoch 90 (90/400) ****
+2023-10-24 00:16:32,890 - Model - INFO - Learning rate:0.000902
+2023-10-24 00:17:55,242 - Model - INFO - Training mean loss: 0.280016
+2023-10-24 00:17:55,243 - Model - INFO - Training accuracy: 0.863682
+2023-10-24 00:17:55,284 - Model - INFO - **** Epoch 91 (91/400) ****
+2023-10-24 00:17:55,284 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:19:22,200 - Model - INFO - Training mean loss: 0.279297
+2023-10-24 00:19:22,201 - Model - INFO - Training accuracy: 0.864170
+2023-10-24 00:19:22,233 - Model - INFO - Save model...
+2023-10-24 00:19:22,233 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 00:19:22,306 - Model - INFO - Saving model....
+2023-10-24 00:19:22,306 - Model - INFO - ---- EPOCH 091 EVALUATION ----
+2023-10-24 00:21:04,128 - Model - INFO - eval mean loss: 0.287470
+2023-10-24 00:21:04,128 - Model - INFO - eval mIoU: 0.748811
+2023-10-24 00:21:04,129 - Model - INFO - eval point accuracy: 0.867887
+2023-10-24 00:21:04,129 - Model - INFO - eval point class accuracy: 0.876940
+2023-10-24 00:21:04,170 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.816 
+class trim_line      weight: 0.686, IoU: 0.682 
+
+2023-10-24 00:21:04,170 - Model - INFO - Best mIoU: 0.756935
+2023-10-24 00:21:04,170 - Model - INFO - **** Epoch 92 (92/400) ****
+2023-10-24 00:21:04,170 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:22:31,675 - Model - INFO - Training mean loss: 0.279062
+2023-10-24 00:22:31,675 - Model - INFO - Training accuracy: 0.864238
+2023-10-24 00:22:31,720 - Model - INFO - **** Epoch 93 (93/400) ****
+2023-10-24 00:22:31,721 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:24:00,113 - Model - INFO - Training mean loss: 0.278106
+2023-10-24 00:24:00,114 - Model - INFO - Training accuracy: 0.865011
+2023-10-24 00:24:00,154 - Model - INFO - **** Epoch 94 (94/400) ****
+2023-10-24 00:24:00,154 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:25:27,513 - Model - INFO - Training mean loss: 0.278063
+2023-10-24 00:25:27,514 - Model - INFO - Training accuracy: 0.864730
+2023-10-24 00:25:27,548 - Model - INFO - **** Epoch 95 (95/400) ****
+2023-10-24 00:25:27,549 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:26:49,931 - Model - INFO - Training mean loss: 0.277026
+2023-10-24 00:26:49,932 - Model - INFO - Training accuracy: 0.865187
+2023-10-24 00:26:49,962 - Model - INFO - **** Epoch 96 (96/400) ****
+2023-10-24 00:26:49,962 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:28:13,110 - Model - INFO - Training mean loss: 0.277469
+2023-10-24 00:28:13,111 - Model - INFO - Training accuracy: 0.865438
+2023-10-24 00:28:13,149 - Model - INFO - Save model...
+2023-10-24 00:28:13,150 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 00:28:13,240 - Model - INFO - Saving model....
+2023-10-24 00:28:13,241 - Model - INFO - ---- EPOCH 096 EVALUATION ----
+2023-10-24 00:29:55,546 - Model - INFO - eval mean loss: 0.280296
+2023-10-24 00:29:55,546 - Model - INFO - eval mIoU: 0.744678
+2023-10-24 00:29:55,546 - Model - INFO - eval point accuracy: 0.864041
+2023-10-24 00:29:55,547 - Model - INFO - eval point class accuracy: 0.879990
+2023-10-24 00:29:55,595 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.808 
+class trim_line      weight: 0.686, IoU: 0.681 
+
+2023-10-24 00:29:55,595 - Model - INFO - Best mIoU: 0.756935
+2023-10-24 00:29:55,596 - Model - INFO - **** Epoch 97 (97/400) ****
+2023-10-24 00:29:55,596 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:31:18,438 - Model - INFO - Training mean loss: 0.277351
+2023-10-24 00:31:18,438 - Model - INFO - Training accuracy: 0.865558
+2023-10-24 00:31:18,464 - Model - INFO - **** Epoch 98 (98/400) ****
+2023-10-24 00:31:18,465 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:32:43,078 - Model - INFO - Training mean loss: 0.277880
+2023-10-24 00:32:43,079 - Model - INFO - Training accuracy: 0.865127
+2023-10-24 00:32:43,110 - Model - INFO - **** Epoch 99 (99/400) ****
+2023-10-24 00:32:43,111 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:34:09,011 - Model - INFO - Training mean loss: 0.276384
+2023-10-24 00:34:09,011 - Model - INFO - Training accuracy: 0.865667
+2023-10-24 00:34:09,047 - Model - INFO - **** Epoch 100 (100/400) ****
+2023-10-24 00:34:09,048 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:35:36,653 - Model - INFO - Training mean loss: 0.276505
+2023-10-24 00:35:36,654 - Model - INFO - Training accuracy: 0.865825
+2023-10-24 00:35:36,703 - Model - INFO - **** Epoch 101 (101/400) ****
+2023-10-24 00:35:36,704 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:37:04,110 - Model - INFO - Training mean loss: 0.277009
+2023-10-24 00:37:04,111 - Model - INFO - Training accuracy: 0.865476
+2023-10-24 00:37:04,150 - Model - INFO - Save model...
+2023-10-24 00:37:04,150 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 00:37:04,259 - Model - INFO - Saving model....
+2023-10-24 00:37:04,260 - Model - INFO - ---- EPOCH 101 EVALUATION ----
+2023-10-24 00:38:50,577 - Model - INFO - eval mean loss: 0.273255
+2023-10-24 00:38:50,577 - Model - INFO - eval mIoU: 0.759227
+2023-10-24 00:38:50,577 - Model - INFO - eval point accuracy: 0.874328
+2023-10-24 00:38:50,578 - Model - INFO - eval point class accuracy: 0.883533
+2023-10-24 00:38:50,613 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.824 
+class trim_line      weight: 0.686, IoU: 0.694 
+
+2023-10-24 00:38:50,614 - Model - INFO - Save model...
+2023-10-24 00:38:50,614 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-24 00:38:50,701 - Model - INFO - Saving model....
+2023-10-24 00:38:50,701 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 00:38:50,701 - Model - INFO - **** Epoch 102 (102/400) ****
+2023-10-24 00:38:50,701 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:40:16,643 - Model - INFO - Training mean loss: 0.275414
+2023-10-24 00:40:16,644 - Model - INFO - Training accuracy: 0.866458
+2023-10-24 00:40:16,672 - Model - INFO - **** Epoch 103 (103/400) ****
+2023-10-24 00:40:16,672 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:41:42,198 - Model - INFO - Training mean loss: 0.275014
+2023-10-24 00:41:42,199 - Model - INFO - Training accuracy: 0.866608
+2023-10-24 00:41:42,236 - Model - INFO - **** Epoch 104 (104/400) ****
+2023-10-24 00:41:42,236 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:43:10,815 - Model - INFO - Training mean loss: 0.275513
+2023-10-24 00:43:10,816 - Model - INFO - Training accuracy: 0.866264
+2023-10-24 00:43:10,848 - Model - INFO - **** Epoch 105 (105/400) ****
+2023-10-24 00:43:10,849 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:44:38,086 - Model - INFO - Training mean loss: 0.275735
+2023-10-24 00:44:38,087 - Model - INFO - Training accuracy: 0.866372
+2023-10-24 00:44:38,132 - Model - INFO - **** Epoch 106 (106/400) ****
+2023-10-24 00:44:38,132 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:46:01,572 - Model - INFO - Training mean loss: 0.275639
+2023-10-24 00:46:01,573 - Model - INFO - Training accuracy: 0.866272
+2023-10-24 00:46:01,608 - Model - INFO - Save model...
+2023-10-24 00:46:01,608 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 00:46:01,692 - Model - INFO - Saving model....
+2023-10-24 00:46:01,693 - Model - INFO - ---- EPOCH 106 EVALUATION ----
+2023-10-24 00:47:51,431 - Model - INFO - eval mean loss: 0.278622
+2023-10-24 00:47:51,432 - Model - INFO - eval mIoU: 0.744903
+2023-10-24 00:47:51,432 - Model - INFO - eval point accuracy: 0.864111
+2023-10-24 00:47:51,433 - Model - INFO - eval point class accuracy: 0.880468
+2023-10-24 00:47:51,472 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.808 
+class trim_line      weight: 0.686, IoU: 0.681 
+
+2023-10-24 00:47:51,472 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 00:47:51,472 - Model - INFO - **** Epoch 107 (107/400) ****
+2023-10-24 00:47:51,473 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:49:16,076 - Model - INFO - Training mean loss: 0.275315
+2023-10-24 00:49:16,077 - Model - INFO - Training accuracy: 0.866515
+2023-10-24 00:49:16,110 - Model - INFO - **** Epoch 108 (108/400) ****
+2023-10-24 00:49:16,111 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:50:41,072 - Model - INFO - Training mean loss: 0.273505
+2023-10-24 00:50:41,073 - Model - INFO - Training accuracy: 0.867041
+2023-10-24 00:50:41,105 - Model - INFO - **** Epoch 109 (109/400) ****
+2023-10-24 00:50:41,105 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:52:07,290 - Model - INFO - Training mean loss: 0.275158
+2023-10-24 00:52:07,290 - Model - INFO - Training accuracy: 0.866444
+2023-10-24 00:52:07,329 - Model - INFO - **** Epoch 110 (110/400) ****
+2023-10-24 00:52:07,329 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:53:33,774 - Model - INFO - Training mean loss: 0.274449
+2023-10-24 00:53:33,775 - Model - INFO - Training accuracy: 0.866797
+2023-10-24 00:53:33,812 - Model - INFO - **** Epoch 111 (111/400) ****
+2023-10-24 00:53:33,812 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:55:00,501 - Model - INFO - Training mean loss: 0.274712
+2023-10-24 00:55:00,502 - Model - INFO - Training accuracy: 0.866815
+2023-10-24 00:55:00,539 - Model - INFO - Save model...
+2023-10-24 00:55:00,540 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 00:55:00,635 - Model - INFO - Saving model....
+2023-10-24 00:55:00,636 - Model - INFO - ---- EPOCH 111 EVALUATION ----
+2023-10-24 00:56:43,608 - Model - INFO - eval mean loss: 0.284933
+2023-10-24 00:56:43,609 - Model - INFO - eval mIoU: 0.724231
+2023-10-24 00:56:43,609 - Model - INFO - eval point accuracy: 0.848807
+2023-10-24 00:56:43,609 - Model - INFO - eval point class accuracy: 0.876550
+2023-10-24 00:56:43,652 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.784 
+class trim_line      weight: 0.686, IoU: 0.664 
+
+2023-10-24 00:56:43,653 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 00:56:43,653 - Model - INFO - **** Epoch 112 (112/400) ****
+2023-10-24 00:56:43,653 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:58:05,036 - Model - INFO - Training mean loss: 0.274479
+2023-10-24 00:58:05,037 - Model - INFO - Training accuracy: 0.866897
+2023-10-24 00:58:05,076 - Model - INFO - **** Epoch 113 (113/400) ****
+2023-10-24 00:58:05,076 - Model - INFO - Learning rate:0.000857
+2023-10-24 00:59:30,119 - Model - INFO - Training mean loss: 0.274017
+2023-10-24 00:59:30,120 - Model - INFO - Training accuracy: 0.867296
+2023-10-24 00:59:30,159 - Model - INFO - **** Epoch 114 (114/400) ****
+2023-10-24 00:59:30,160 - Model - INFO - Learning rate:0.000857
+2023-10-24 01:00:51,806 - Model - INFO - Training mean loss: 0.275573
+2023-10-24 01:00:51,807 - Model - INFO - Training accuracy: 0.866295
+2023-10-24 01:00:51,844 - Model - INFO - **** Epoch 115 (115/400) ****
+2023-10-24 01:00:51,844 - Model - INFO - Learning rate:0.000857
+2023-10-24 01:02:15,847 - Model - INFO - Training mean loss: 0.274620
+2023-10-24 01:02:15,847 - Model - INFO - Training accuracy: 0.866931
+2023-10-24 01:02:15,886 - Model - INFO - **** Epoch 116 (116/400) ****
+2023-10-24 01:02:15,887 - Model - INFO - Learning rate:0.000857
+2023-10-24 01:03:42,852 - Model - INFO - Training mean loss: 0.273781
+2023-10-24 01:03:42,853 - Model - INFO - Training accuracy: 0.867315
+2023-10-24 01:03:42,891 - Model - INFO - Save model...
+2023-10-24 01:03:42,892 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 01:03:42,980 - Model - INFO - Saving model....
+2023-10-24 01:03:42,981 - Model - INFO - ---- EPOCH 116 EVALUATION ----
+2023-10-24 01:05:23,109 - Model - INFO - eval mean loss: 0.274207
+2023-10-24 01:05:23,109 - Model - INFO - eval mIoU: 0.759125
+2023-10-24 01:05:23,110 - Model - INFO - eval point accuracy: 0.874198
+2023-10-24 01:05:23,110 - Model - INFO - eval point class accuracy: 0.883776
+2023-10-24 01:05:23,145 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.824 
+class trim_line      weight: 0.686, IoU: 0.694 
+
+2023-10-24 01:05:23,145 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 01:05:23,145 - Model - INFO - **** Epoch 117 (117/400) ****
+2023-10-24 01:05:23,145 - Model - INFO - Learning rate:0.000857
+2023-10-24 01:06:51,094 - Model - INFO - Training mean loss: 0.273489
+2023-10-24 01:06:51,095 - Model - INFO - Training accuracy: 0.867553
+2023-10-24 01:06:51,133 - Model - INFO - **** Epoch 118 (118/400) ****
+2023-10-24 01:06:51,133 - Model - INFO - Learning rate:0.000857
+2023-10-24 01:08:16,895 - Model - INFO - Training mean loss: 0.272905
+2023-10-24 01:08:16,896 - Model - INFO - Training accuracy: 0.867912
+2023-10-24 01:08:16,931 - Model - INFO - **** Epoch 119 (119/400) ****
+2023-10-24 01:08:16,931 - Model - INFO - Learning rate:0.000857
+2023-10-24 01:09:42,777 - Model - INFO - Training mean loss: 0.272950
+2023-10-24 01:09:42,778 - Model - INFO - Training accuracy: 0.867969
+2023-10-24 01:09:42,821 - Model - INFO - **** Epoch 120 (120/400) ****
+2023-10-24 01:09:42,822 - Model - INFO - Learning rate:0.000857
+2023-10-24 01:11:09,553 - Model - INFO - Training mean loss: 0.272816
+2023-10-24 01:11:09,553 - Model - INFO - Training accuracy: 0.867812
+2023-10-24 01:11:09,584 - Model - INFO - **** Epoch 121 (121/400) ****
+2023-10-24 01:11:09,584 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:12:33,477 - Model - INFO - Training mean loss: 0.272788
+2023-10-24 01:12:33,477 - Model - INFO - Training accuracy: 0.867821
+2023-10-24 01:12:33,513 - Model - INFO - Save model...
+2023-10-24 01:12:33,514 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 01:12:33,606 - Model - INFO - Saving model....
+2023-10-24 01:12:33,607 - Model - INFO - ---- EPOCH 121 EVALUATION ----
+2023-10-24 01:14:16,465 - Model - INFO - eval mean loss: 0.269475
+2023-10-24 01:14:16,466 - Model - INFO - eval mIoU: 0.748001
+2023-10-24 01:14:16,466 - Model - INFO - eval point accuracy: 0.865619
+2023-10-24 01:14:16,467 - Model - INFO - eval point class accuracy: 0.884601
+2023-10-24 01:14:16,510 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.810 
+class trim_line      weight: 0.686, IoU: 0.686 
+
+2023-10-24 01:14:16,510 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 01:14:16,511 - Model - INFO - **** Epoch 122 (122/400) ****
+2023-10-24 01:14:16,511 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:15:42,526 - Model - INFO - Training mean loss: 0.271830
+2023-10-24 01:15:42,526 - Model - INFO - Training accuracy: 0.868476
+2023-10-24 01:15:42,556 - Model - INFO - **** Epoch 123 (123/400) ****
+2023-10-24 01:15:42,556 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:17:10,240 - Model - INFO - Training mean loss: 0.273757
+2023-10-24 01:17:10,241 - Model - INFO - Training accuracy: 0.867391
+2023-10-24 01:17:10,278 - Model - INFO - **** Epoch 124 (124/400) ****
+2023-10-24 01:17:10,278 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:18:36,026 - Model - INFO - Training mean loss: 0.271722
+2023-10-24 01:18:36,026 - Model - INFO - Training accuracy: 0.868307
+2023-10-24 01:18:36,059 - Model - INFO - **** Epoch 125 (125/400) ****
+2023-10-24 01:18:36,060 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:20:02,155 - Model - INFO - Training mean loss: 0.271272
+2023-10-24 01:20:02,156 - Model - INFO - Training accuracy: 0.868802
+2023-10-24 01:20:02,193 - Model - INFO - **** Epoch 126 (126/400) ****
+2023-10-24 01:20:02,193 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:21:24,404 - Model - INFO - Training mean loss: 0.272120
+2023-10-24 01:21:24,405 - Model - INFO - Training accuracy: 0.868301
+2023-10-24 01:21:24,445 - Model - INFO - Save model...
+2023-10-24 01:21:24,446 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 01:21:24,535 - Model - INFO - Saving model....
+2023-10-24 01:21:24,536 - Model - INFO - ---- EPOCH 126 EVALUATION ----
+2023-10-24 01:23:06,684 - Model - INFO - eval mean loss: 0.273200
+2023-10-24 01:23:06,685 - Model - INFO - eval mIoU: 0.738139
+2023-10-24 01:23:06,685 - Model - INFO - eval point accuracy: 0.858573
+2023-10-24 01:23:06,685 - Model - INFO - eval point class accuracy: 0.882041
+2023-10-24 01:23:06,728 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.799 
+class trim_line      weight: 0.686, IoU: 0.677 
+
+2023-10-24 01:23:06,728 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 01:23:06,728 - Model - INFO - **** Epoch 127 (127/400) ****
+2023-10-24 01:23:06,728 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:24:34,686 - Model - INFO - Training mean loss: 0.271724
+2023-10-24 01:24:34,686 - Model - INFO - Training accuracy: 0.868404
+2023-10-24 01:24:34,729 - Model - INFO - **** Epoch 128 (128/400) ****
+2023-10-24 01:24:34,729 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:26:02,186 - Model - INFO - Training mean loss: 0.270904
+2023-10-24 01:26:02,187 - Model - INFO - Training accuracy: 0.868747
+2023-10-24 01:26:02,229 - Model - INFO - **** Epoch 129 (129/400) ****
+2023-10-24 01:26:02,230 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:27:29,731 - Model - INFO - Training mean loss: 0.271468
+2023-10-24 01:27:29,731 - Model - INFO - Training accuracy: 0.868515
+2023-10-24 01:27:29,768 - Model - INFO - **** Epoch 130 (130/400) ****
+2023-10-24 01:27:29,769 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:28:51,629 - Model - INFO - Training mean loss: 0.271317
+2023-10-24 01:28:51,630 - Model - INFO - Training accuracy: 0.868556
+2023-10-24 01:28:51,675 - Model - INFO - **** Epoch 131 (131/400) ****
+2023-10-24 01:28:51,676 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:30:19,194 - Model - INFO - Training mean loss: 0.271388
+2023-10-24 01:30:19,194 - Model - INFO - Training accuracy: 0.868612
+2023-10-24 01:30:19,224 - Model - INFO - Save model...
+2023-10-24 01:30:19,224 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 01:30:19,303 - Model - INFO - Saving model....
+2023-10-24 01:30:19,304 - Model - INFO - ---- EPOCH 131 EVALUATION ----
+2023-10-24 01:31:59,021 - Model - INFO - eval mean loss: 0.286032
+2023-10-24 01:31:59,022 - Model - INFO - eval mIoU: 0.724603
+2023-10-24 01:31:59,022 - Model - INFO - eval point accuracy: 0.849336
+2023-10-24 01:31:59,022 - Model - INFO - eval point class accuracy: 0.875393
+2023-10-24 01:31:59,062 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.786 
+class trim_line      weight: 0.686, IoU: 0.664 
+
+2023-10-24 01:31:59,063 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 01:31:59,063 - Model - INFO - **** Epoch 132 (132/400) ****
+2023-10-24 01:31:59,064 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:33:20,183 - Model - INFO - Training mean loss: 0.272186
+2023-10-24 01:33:20,183 - Model - INFO - Training accuracy: 0.868239
+2023-10-24 01:33:20,235 - Model - INFO - **** Epoch 133 (133/400) ****
+2023-10-24 01:33:20,236 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:34:45,881 - Model - INFO - Training mean loss: 0.270932
+2023-10-24 01:34:45,881 - Model - INFO - Training accuracy: 0.869036
+2023-10-24 01:34:45,917 - Model - INFO - **** Epoch 134 (134/400) ****
+2023-10-24 01:34:45,918 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:36:08,981 - Model - INFO - Training mean loss: 0.271072
+2023-10-24 01:36:08,981 - Model - INFO - Training accuracy: 0.868731
+2023-10-24 01:36:09,016 - Model - INFO - **** Epoch 135 (135/400) ****
+2023-10-24 01:36:09,016 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:37:34,523 - Model - INFO - Training mean loss: 0.270933
+2023-10-24 01:37:34,524 - Model - INFO - Training accuracy: 0.868873
+2023-10-24 01:37:34,557 - Model - INFO - **** Epoch 136 (136/400) ****
+2023-10-24 01:37:34,557 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:39:00,247 - Model - INFO - Training mean loss: 0.270800
+2023-10-24 01:39:00,247 - Model - INFO - Training accuracy: 0.869115
+2023-10-24 01:39:00,283 - Model - INFO - Save model...
+2023-10-24 01:39:00,283 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 01:39:00,365 - Model - INFO - Saving model....
+2023-10-24 01:39:00,366 - Model - INFO - ---- EPOCH 136 EVALUATION ----
+2023-10-24 01:40:43,890 - Model - INFO - eval mean loss: 0.268203
+2023-10-24 01:40:43,891 - Model - INFO - eval mIoU: 0.754113
+2023-10-24 01:40:43,892 - Model - INFO - eval point accuracy: 0.869994
+2023-10-24 01:40:43,892 - Model - INFO - eval point class accuracy: 0.885841
+2023-10-24 01:40:43,935 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.816 
+class trim_line      weight: 0.686, IoU: 0.692 
+
+2023-10-24 01:40:43,935 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 01:40:43,935 - Model - INFO - **** Epoch 137 (137/400) ****
+2023-10-24 01:40:43,936 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:42:05,959 - Model - INFO - Training mean loss: 0.270927
+2023-10-24 01:42:05,959 - Model - INFO - Training accuracy: 0.868686
+2023-10-24 01:42:06,003 - Model - INFO - **** Epoch 138 (138/400) ****
+2023-10-24 01:42:06,003 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:43:32,061 - Model - INFO - Training mean loss: 0.270777
+2023-10-24 01:43:32,062 - Model - INFO - Training accuracy: 0.869059
+2023-10-24 01:43:32,098 - Model - INFO - **** Epoch 139 (139/400) ****
+2023-10-24 01:43:32,098 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:44:59,319 - Model - INFO - Training mean loss: 0.269173
+2023-10-24 01:44:59,319 - Model - INFO - Training accuracy: 0.869691
+2023-10-24 01:44:59,352 - Model - INFO - **** Epoch 140 (140/400) ****
+2023-10-24 01:44:59,352 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:46:22,099 - Model - INFO - Training mean loss: 0.269570
+2023-10-24 01:46:22,100 - Model - INFO - Training accuracy: 0.869648
+2023-10-24 01:46:22,134 - Model - INFO - **** Epoch 141 (141/400) ****
+2023-10-24 01:46:22,134 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:47:47,697 - Model - INFO - Training mean loss: 0.270719
+2023-10-24 01:47:47,698 - Model - INFO - Training accuracy: 0.868966
+2023-10-24 01:47:47,731 - Model - INFO - Save model...
+2023-10-24 01:47:47,732 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 01:47:47,817 - Model - INFO - Saving model....
+2023-10-24 01:47:47,817 - Model - INFO - ---- EPOCH 141 EVALUATION ----
+2023-10-24 01:49:27,083 - Model - INFO - eval mean loss: 0.277177
+2023-10-24 01:49:27,084 - Model - INFO - eval mIoU: 0.741834
+2023-10-24 01:49:27,084 - Model - INFO - eval point accuracy: 0.861469
+2023-10-24 01:49:27,084 - Model - INFO - eval point class accuracy: 0.881817
+2023-10-24 01:49:27,121 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.804 
+class trim_line      weight: 0.686, IoU: 0.680 
+
+2023-10-24 01:49:27,121 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 01:49:27,122 - Model - INFO - **** Epoch 142 (142/400) ****
+2023-10-24 01:49:27,122 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:50:50,654 - Model - INFO - Training mean loss: 0.271099
+2023-10-24 01:50:50,654 - Model - INFO - Training accuracy: 0.868672
+2023-10-24 01:50:50,692 - Model - INFO - **** Epoch 143 (143/400) ****
+2023-10-24 01:50:50,692 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:52:19,411 - Model - INFO - Training mean loss: 0.270153
+2023-10-24 01:52:19,411 - Model - INFO - Training accuracy: 0.869455
+2023-10-24 01:52:19,444 - Model - INFO - **** Epoch 144 (144/400) ****
+2023-10-24 01:52:19,444 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:53:44,373 - Model - INFO - Training mean loss: 0.269959
+2023-10-24 01:53:44,374 - Model - INFO - Training accuracy: 0.869418
+2023-10-24 01:53:44,413 - Model - INFO - **** Epoch 145 (145/400) ****
+2023-10-24 01:53:44,413 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:55:10,707 - Model - INFO - Training mean loss: 0.269978
+2023-10-24 01:55:10,707 - Model - INFO - Training accuracy: 0.869218
+2023-10-24 01:55:10,738 - Model - INFO - **** Epoch 146 (146/400) ****
+2023-10-24 01:55:10,738 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:56:35,368 - Model - INFO - Training mean loss: 0.270000
+2023-10-24 01:56:35,369 - Model - INFO - Training accuracy: 0.869199
+2023-10-24 01:56:35,408 - Model - INFO - Save model...
+2023-10-24 01:56:35,408 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 01:56:35,501 - Model - INFO - Saving model....
+2023-10-24 01:56:35,502 - Model - INFO - ---- EPOCH 146 EVALUATION ----
+2023-10-24 01:58:20,626 - Model - INFO - eval mean loss: 0.278759
+2023-10-24 01:58:20,627 - Model - INFO - eval mIoU: 0.749373
+2023-10-24 01:58:20,627 - Model - INFO - eval point accuracy: 0.867511
+2023-10-24 01:58:20,628 - Model - INFO - eval point class accuracy: 0.880582
+2023-10-24 01:58:20,669 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.814 
+class trim_line      weight: 0.686, IoU: 0.685 
+
+2023-10-24 01:58:20,670 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 01:58:20,670 - Model - INFO - **** Epoch 147 (147/400) ****
+2023-10-24 01:58:20,670 - Model - INFO - Learning rate:0.000815
+2023-10-24 01:59:47,581 - Model - INFO - Training mean loss: 0.270517
+2023-10-24 01:59:47,582 - Model - INFO - Training accuracy: 0.869269
+2023-10-24 01:59:47,623 - Model - INFO - **** Epoch 148 (148/400) ****
+2023-10-24 01:59:47,623 - Model - INFO - Learning rate:0.000815
+2023-10-24 02:01:16,629 - Model - INFO - Training mean loss: 0.270194
+2023-10-24 02:01:16,630 - Model - INFO - Training accuracy: 0.869441
+2023-10-24 02:01:16,666 - Model - INFO - **** Epoch 149 (149/400) ****
+2023-10-24 02:01:16,666 - Model - INFO - Learning rate:0.000815
+2023-10-24 02:02:42,254 - Model - INFO - Training mean loss: 0.269957
+2023-10-24 02:02:42,255 - Model - INFO - Training accuracy: 0.869562
+2023-10-24 02:02:42,295 - Model - INFO - **** Epoch 150 (150/400) ****
+2023-10-24 02:02:42,295 - Model - INFO - Learning rate:0.000815
+2023-10-24 02:04:09,143 - Model - INFO - Training mean loss: 0.270310
+2023-10-24 02:04:09,143 - Model - INFO - Training accuracy: 0.869343
+2023-10-24 02:04:09,187 - Model - INFO - **** Epoch 151 (151/400) ****
+2023-10-24 02:04:09,188 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:05:34,669 - Model - INFO - Training mean loss: 0.268985
+2023-10-24 02:05:34,669 - Model - INFO - Training accuracy: 0.869950
+2023-10-24 02:05:34,710 - Model - INFO - Save model...
+2023-10-24 02:05:34,710 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 02:05:34,797 - Model - INFO - Saving model....
+2023-10-24 02:05:34,798 - Model - INFO - ---- EPOCH 151 EVALUATION ----
+2023-10-24 02:07:12,893 - Model - INFO - eval mean loss: 0.270771
+2023-10-24 02:07:12,893 - Model - INFO - eval mIoU: 0.755026
+2023-10-24 02:07:12,894 - Model - INFO - eval point accuracy: 0.870998
+2023-10-24 02:07:12,894 - Model - INFO - eval point class accuracy: 0.884331
+2023-10-24 02:07:12,931 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.819 
+class trim_line      weight: 0.686, IoU: 0.692 
+
+2023-10-24 02:07:12,931 - Model - INFO - Best mIoU: 0.759227
+2023-10-24 02:07:12,931 - Model - INFO - **** Epoch 152 (152/400) ****
+2023-10-24 02:07:12,931 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:08:39,873 - Model - INFO - Training mean loss: 0.269062
+2023-10-24 02:08:39,874 - Model - INFO - Training accuracy: 0.869771
+2023-10-24 02:08:39,916 - Model - INFO - **** Epoch 153 (153/400) ****
+2023-10-24 02:08:39,916 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:10:08,742 - Model - INFO - Training mean loss: 0.268989
+2023-10-24 02:10:08,743 - Model - INFO - Training accuracy: 0.870157
+2023-10-24 02:10:08,782 - Model - INFO - **** Epoch 154 (154/400) ****
+2023-10-24 02:10:08,783 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:11:35,861 - Model - INFO - Training mean loss: 0.268385
+2023-10-24 02:11:35,863 - Model - INFO - Training accuracy: 0.870385
+2023-10-24 02:11:35,900 - Model - INFO - **** Epoch 155 (155/400) ****
+2023-10-24 02:11:35,901 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:13:03,626 - Model - INFO - Training mean loss: 0.268785
+2023-10-24 02:13:03,627 - Model - INFO - Training accuracy: 0.870022
+2023-10-24 02:13:03,671 - Model - INFO - **** Epoch 156 (156/400) ****
+2023-10-24 02:13:03,671 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:14:30,505 - Model - INFO - Training mean loss: 0.269182
+2023-10-24 02:14:30,506 - Model - INFO - Training accuracy: 0.869920
+2023-10-24 02:14:30,548 - Model - INFO - Save model...
+2023-10-24 02:14:30,548 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 02:14:30,650 - Model - INFO - Saving model....
+2023-10-24 02:14:30,651 - Model - INFO - ---- EPOCH 156 EVALUATION ----
+2023-10-24 02:16:16,396 - Model - INFO - eval mean loss: 0.270556
+2023-10-24 02:16:16,396 - Model - INFO - eval mIoU: 0.764887
+2023-10-24 02:16:16,396 - Model - INFO - eval point accuracy: 0.878106
+2023-10-24 02:16:16,396 - Model - INFO - eval point class accuracy: 0.885578
+2023-10-24 02:16:16,450 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.830 
+class trim_line      weight: 0.686, IoU: 0.700 
+
+2023-10-24 02:16:16,450 - Model - INFO - Save model...
+2023-10-24 02:16:16,451 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-24 02:16:16,524 - Model - INFO - Saving model....
+2023-10-24 02:16:16,524 - Model - INFO - Best mIoU: 0.764887
+2023-10-24 02:16:16,525 - Model - INFO - **** Epoch 157 (157/400) ****
+2023-10-24 02:16:16,525 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:17:44,667 - Model - INFO - Training mean loss: 0.268692
+2023-10-24 02:17:44,667 - Model - INFO - Training accuracy: 0.870330
+2023-10-24 02:17:44,717 - Model - INFO - **** Epoch 158 (158/400) ****
+2023-10-24 02:17:44,718 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:19:10,231 - Model - INFO - Training mean loss: 0.268075
+2023-10-24 02:19:10,232 - Model - INFO - Training accuracy: 0.870277
+2023-10-24 02:19:10,276 - Model - INFO - **** Epoch 159 (159/400) ****
+2023-10-24 02:19:10,277 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:20:35,005 - Model - INFO - Training mean loss: 0.268752
+2023-10-24 02:20:35,005 - Model - INFO - Training accuracy: 0.869948
+2023-10-24 02:20:35,034 - Model - INFO - **** Epoch 160 (160/400) ****
+2023-10-24 02:20:35,034 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:22:01,664 - Model - INFO - Training mean loss: 0.268266
+2023-10-24 02:22:01,664 - Model - INFO - Training accuracy: 0.870380
+2023-10-24 02:22:01,704 - Model - INFO - **** Epoch 161 (161/400) ****
+2023-10-24 02:22:01,704 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:23:22,125 - Model - INFO - Training mean loss: 0.268661
+2023-10-24 02:23:22,126 - Model - INFO - Training accuracy: 0.870226
+2023-10-24 02:23:22,159 - Model - INFO - Save model...
+2023-10-24 02:23:22,159 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 02:23:22,245 - Model - INFO - Saving model....
+2023-10-24 02:23:22,246 - Model - INFO - ---- EPOCH 161 EVALUATION ----
+2023-10-24 02:25:04,533 - Model - INFO - eval mean loss: 0.270507
+2023-10-24 02:25:04,533 - Model - INFO - eval mIoU: 0.755535
+2023-10-24 02:25:04,534 - Model - INFO - eval point accuracy: 0.871353
+2023-10-24 02:25:04,534 - Model - INFO - eval point class accuracy: 0.884467
+2023-10-24 02:25:04,576 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.819 
+class trim_line      weight: 0.686, IoU: 0.692 
+
+2023-10-24 02:25:04,576 - Model - INFO - Best mIoU: 0.764887
+2023-10-24 02:25:04,576 - Model - INFO - **** Epoch 162 (162/400) ****
+2023-10-24 02:25:04,576 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:26:33,059 - Model - INFO - Training mean loss: 0.268358
+2023-10-24 02:26:33,060 - Model - INFO - Training accuracy: 0.870231
+2023-10-24 02:26:33,100 - Model - INFO - **** Epoch 163 (163/400) ****
+2023-10-24 02:26:33,100 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:27:57,806 - Model - INFO - Training mean loss: 0.268803
+2023-10-24 02:27:57,807 - Model - INFO - Training accuracy: 0.870071
+2023-10-24 02:27:57,845 - Model - INFO - **** Epoch 164 (164/400) ****
+2023-10-24 02:27:57,846 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:29:24,995 - Model - INFO - Training mean loss: 0.268422
+2023-10-24 02:29:24,996 - Model - INFO - Training accuracy: 0.870222
+2023-10-24 02:29:25,055 - Model - INFO - **** Epoch 165 (165/400) ****
+2023-10-24 02:29:25,055 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:30:50,703 - Model - INFO - Training mean loss: 0.268089
+2023-10-24 02:30:50,703 - Model - INFO - Training accuracy: 0.870506
+2023-10-24 02:30:50,737 - Model - INFO - **** Epoch 166 (166/400) ****
+2023-10-24 02:30:50,738 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:32:13,359 - Model - INFO - Training mean loss: 0.267907
+2023-10-24 02:32:13,359 - Model - INFO - Training accuracy: 0.870500
+2023-10-24 02:32:13,393 - Model - INFO - Save model...
+2023-10-24 02:32:13,393 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 02:32:13,471 - Model - INFO - Saving model....
+2023-10-24 02:32:13,471 - Model - INFO - ---- EPOCH 166 EVALUATION ----
+2023-10-24 02:33:57,645 - Model - INFO - eval mean loss: 0.269353
+2023-10-24 02:33:57,645 - Model - INFO - eval mIoU: 0.754732
+2023-10-24 02:33:57,645 - Model - INFO - eval point accuracy: 0.870569
+2023-10-24 02:33:57,645 - Model - INFO - eval point class accuracy: 0.885323
+2023-10-24 02:33:57,686 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.818 
+class trim_line      weight: 0.686, IoU: 0.692 
+
+2023-10-24 02:33:57,686 - Model - INFO - Best mIoU: 0.764887
+2023-10-24 02:33:57,686 - Model - INFO - **** Epoch 167 (167/400) ****
+2023-10-24 02:33:57,686 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:35:26,052 - Model - INFO - Training mean loss: 0.267889
+2023-10-24 02:35:26,052 - Model - INFO - Training accuracy: 0.870693
+2023-10-24 02:35:26,087 - Model - INFO - **** Epoch 168 (168/400) ****
+2023-10-24 02:35:26,087 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:36:53,811 - Model - INFO - Training mean loss: 0.268266
+2023-10-24 02:36:53,811 - Model - INFO - Training accuracy: 0.870270
+2023-10-24 02:36:53,856 - Model - INFO - **** Epoch 169 (169/400) ****
+2023-10-24 02:36:53,856 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:38:22,846 - Model - INFO - Training mean loss: 0.267674
+2023-10-24 02:38:22,846 - Model - INFO - Training accuracy: 0.870718
+2023-10-24 02:38:22,890 - Model - INFO - **** Epoch 170 (170/400) ****
+2023-10-24 02:38:22,891 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:39:48,529 - Model - INFO - Training mean loss: 0.267727
+2023-10-24 02:39:48,529 - Model - INFO - Training accuracy: 0.870635
+2023-10-24 02:39:48,565 - Model - INFO - **** Epoch 171 (171/400) ****
+2023-10-24 02:39:48,565 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:41:13,015 - Model - INFO - Training mean loss: 0.268712
+2023-10-24 02:41:13,016 - Model - INFO - Training accuracy: 0.870147
+2023-10-24 02:41:13,048 - Model - INFO - Save model...
+2023-10-24 02:41:13,048 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 02:41:13,128 - Model - INFO - Saving model....
+2023-10-24 02:41:13,129 - Model - INFO - ---- EPOCH 171 EVALUATION ----
+2023-10-24 02:42:54,237 - Model - INFO - eval mean loss: 0.287326
+2023-10-24 02:42:54,238 - Model - INFO - eval mIoU: 0.726760
+2023-10-24 02:42:54,238 - Model - INFO - eval point accuracy: 0.850754
+2023-10-24 02:42:54,238 - Model - INFO - eval point class accuracy: 0.876792
+2023-10-24 02:42:54,282 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.788 
+class trim_line      weight: 0.686, IoU: 0.666 
+
+2023-10-24 02:42:54,282 - Model - INFO - Best mIoU: 0.764887
+2023-10-24 02:42:54,282 - Model - INFO - **** Epoch 172 (172/400) ****
+2023-10-24 02:42:54,283 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:44:18,956 - Model - INFO - Training mean loss: 0.268476
+2023-10-24 02:44:18,957 - Model - INFO - Training accuracy: 0.870571
+2023-10-24 02:44:18,991 - Model - INFO - **** Epoch 173 (173/400) ****
+2023-10-24 02:44:18,991 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:45:42,734 - Model - INFO - Training mean loss: 0.267537
+2023-10-24 02:45:42,735 - Model - INFO - Training accuracy: 0.870686
+2023-10-24 02:45:42,774 - Model - INFO - **** Epoch 174 (174/400) ****
+2023-10-24 02:45:42,774 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:47:10,155 - Model - INFO - Training mean loss: 0.268651
+2023-10-24 02:47:10,156 - Model - INFO - Training accuracy: 0.870239
+2023-10-24 02:47:10,189 - Model - INFO - **** Epoch 175 (175/400) ****
+2023-10-24 02:47:10,189 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:48:37,185 - Model - INFO - Training mean loss: 0.267813
+2023-10-24 02:48:37,186 - Model - INFO - Training accuracy: 0.870737
+2023-10-24 02:48:37,233 - Model - INFO - **** Epoch 176 (176/400) ****
+2023-10-24 02:48:37,234 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:50:06,300 - Model - INFO - Training mean loss: 0.270039
+2023-10-24 02:50:06,301 - Model - INFO - Training accuracy: 0.869655
+2023-10-24 02:50:06,346 - Model - INFO - Save model...
+2023-10-24 02:50:06,346 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 02:50:06,431 - Model - INFO - Saving model....
+2023-10-24 02:50:06,432 - Model - INFO - ---- EPOCH 176 EVALUATION ----
+2023-10-24 02:51:49,674 - Model - INFO - eval mean loss: 0.289376
+2023-10-24 02:51:49,674 - Model - INFO - eval mIoU: 0.725932
+2023-10-24 02:51:49,675 - Model - INFO - eval point accuracy: 0.850262
+2023-10-24 02:51:49,675 - Model - INFO - eval point class accuracy: 0.876000
+2023-10-24 02:51:49,720 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.787 
+class trim_line      weight: 0.686, IoU: 0.665 
+
+2023-10-24 02:51:49,720 - Model - INFO - Best mIoU: 0.764887
+2023-10-24 02:51:49,720 - Model - INFO - **** Epoch 177 (177/400) ****
+2023-10-24 02:51:49,720 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:53:15,118 - Model - INFO - Training mean loss: 0.268372
+2023-10-24 02:53:15,119 - Model - INFO - Training accuracy: 0.870504
+2023-10-24 02:53:15,162 - Model - INFO - **** Epoch 178 (178/400) ****
+2023-10-24 02:53:15,162 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:54:40,703 - Model - INFO - Training mean loss: 0.267090
+2023-10-24 02:54:40,703 - Model - INFO - Training accuracy: 0.871216
+2023-10-24 02:54:40,747 - Model - INFO - **** Epoch 179 (179/400) ****
+2023-10-24 02:54:40,748 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:56:01,515 - Model - INFO - Training mean loss: 0.267429
+2023-10-24 02:56:01,516 - Model - INFO - Training accuracy: 0.870927
+2023-10-24 02:56:01,554 - Model - INFO - **** Epoch 180 (180/400) ****
+2023-10-24 02:56:01,554 - Model - INFO - Learning rate:0.000774
+2023-10-24 02:57:27,195 - Model - INFO - Training mean loss: 0.267044
+2023-10-24 02:57:27,195 - Model - INFO - Training accuracy: 0.871101
+2023-10-24 02:57:27,234 - Model - INFO - **** Epoch 181 (181/400) ****
+2023-10-24 02:57:27,235 - Model - INFO - Learning rate:0.000735
+2023-10-24 02:58:55,770 - Model - INFO - Training mean loss: 0.266188
+2023-10-24 02:58:55,771 - Model - INFO - Training accuracy: 0.871460
+2023-10-24 02:58:55,818 - Model - INFO - Save model...
+2023-10-24 02:58:55,818 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 02:58:55,922 - Model - INFO - Saving model....
+2023-10-24 02:58:55,923 - Model - INFO - ---- EPOCH 181 EVALUATION ----
+2023-10-24 03:00:39,341 - Model - INFO - eval mean loss: 0.269791
+2023-10-24 03:00:39,342 - Model - INFO - eval mIoU: 0.735772
+2023-10-24 03:00:39,342 - Model - INFO - eval point accuracy: 0.856516
+2023-10-24 03:00:39,342 - Model - INFO - eval point class accuracy: 0.883180
+2023-10-24 03:00:39,388 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.795 
+class trim_line      weight: 0.686, IoU: 0.677 
+
+2023-10-24 03:00:39,389 - Model - INFO - Best mIoU: 0.764887
+2023-10-24 03:00:39,389 - Model - INFO - **** Epoch 182 (182/400) ****
+2023-10-24 03:00:39,389 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:02:07,263 - Model - INFO - Training mean loss: 0.266240
+2023-10-24 03:02:07,264 - Model - INFO - Training accuracy: 0.871476
+2023-10-24 03:02:07,306 - Model - INFO - **** Epoch 183 (183/400) ****
+2023-10-24 03:02:07,307 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:03:31,093 - Model - INFO - Training mean loss: 0.266203
+2023-10-24 03:03:31,093 - Model - INFO - Training accuracy: 0.871854
+2023-10-24 03:03:31,136 - Model - INFO - **** Epoch 184 (184/400) ****
+2023-10-24 03:03:31,136 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:04:58,964 - Model - INFO - Training mean loss: 0.266013
+2023-10-24 03:04:58,965 - Model - INFO - Training accuracy: 0.871721
+2023-10-24 03:04:58,998 - Model - INFO - **** Epoch 185 (185/400) ****
+2023-10-24 03:04:58,998 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:06:22,117 - Model - INFO - Training mean loss: 0.266170
+2023-10-24 03:06:22,118 - Model - INFO - Training accuracy: 0.871772
+2023-10-24 03:06:22,156 - Model - INFO - **** Epoch 186 (186/400) ****
+2023-10-24 03:06:22,156 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:07:43,959 - Model - INFO - Training mean loss: 0.265633
+2023-10-24 03:07:43,960 - Model - INFO - Training accuracy: 0.871912
+2023-10-24 03:07:43,993 - Model - INFO - Save model...
+2023-10-24 03:07:43,993 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 03:07:44,075 - Model - INFO - Saving model....
+2023-10-24 03:07:44,076 - Model - INFO - ---- EPOCH 186 EVALUATION ----
+2023-10-24 03:09:30,212 - Model - INFO - eval mean loss: 0.266091
+2023-10-24 03:09:30,213 - Model - INFO - eval mIoU: 0.754840
+2023-10-24 03:09:30,213 - Model - INFO - eval point accuracy: 0.870356
+2023-10-24 03:09:30,213 - Model - INFO - eval point class accuracy: 0.886749
+2023-10-24 03:09:30,268 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.817 
+class trim_line      weight: 0.686, IoU: 0.693 
+
+2023-10-24 03:09:30,269 - Model - INFO - Best mIoU: 0.764887
+2023-10-24 03:09:30,269 - Model - INFO - **** Epoch 187 (187/400) ****
+2023-10-24 03:09:30,269 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:10:54,009 - Model - INFO - Training mean loss: 0.265858
+2023-10-24 03:10:54,010 - Model - INFO - Training accuracy: 0.871795
+2023-10-24 03:10:54,047 - Model - INFO - **** Epoch 188 (188/400) ****
+2023-10-24 03:10:54,047 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:12:20,064 - Model - INFO - Training mean loss: 0.266244
+2023-10-24 03:12:20,065 - Model - INFO - Training accuracy: 0.871711
+2023-10-24 03:12:20,108 - Model - INFO - **** Epoch 189 (189/400) ****
+2023-10-24 03:12:20,108 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:13:47,747 - Model - INFO - Training mean loss: 0.266632
+2023-10-24 03:13:47,748 - Model - INFO - Training accuracy: 0.871353
+2023-10-24 03:13:47,781 - Model - INFO - **** Epoch 190 (190/400) ****
+2023-10-24 03:13:47,782 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:15:16,133 - Model - INFO - Training mean loss: 0.266360
+2023-10-24 03:15:16,134 - Model - INFO - Training accuracy: 0.871602
+2023-10-24 03:15:16,186 - Model - INFO - **** Epoch 191 (191/400) ****
+2023-10-24 03:15:16,186 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:16:44,021 - Model - INFO - Training mean loss: 0.266170
+2023-10-24 03:16:44,022 - Model - INFO - Training accuracy: 0.871862
+2023-10-24 03:16:44,057 - Model - INFO - Save model...
+2023-10-24 03:16:44,058 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 03:16:44,128 - Model - INFO - Saving model....
+2023-10-24 03:16:44,128 - Model - INFO - ---- EPOCH 191 EVALUATION ----
+2023-10-24 03:18:23,812 - Model - INFO - eval mean loss: 0.272255
+2023-10-24 03:18:23,812 - Model - INFO - eval mIoU: 0.738245
+2023-10-24 03:18:23,812 - Model - INFO - eval point accuracy: 0.858525
+2023-10-24 03:18:23,813 - Model - INFO - eval point class accuracy: 0.882691
+2023-10-24 03:18:23,855 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.799 
+class trim_line      weight: 0.686, IoU: 0.678 
+
+2023-10-24 03:18:23,855 - Model - INFO - Best mIoU: 0.764887
+2023-10-24 03:18:23,855 - Model - INFO - **** Epoch 192 (192/400) ****
+2023-10-24 03:18:23,855 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:19:50,436 - Model - INFO - Training mean loss: 0.266430
+2023-10-24 03:19:50,437 - Model - INFO - Training accuracy: 0.871401
+2023-10-24 03:19:50,478 - Model - INFO - **** Epoch 193 (193/400) ****
+2023-10-24 03:19:50,479 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:21:15,300 - Model - INFO - Training mean loss: 0.265801
+2023-10-24 03:21:15,300 - Model - INFO - Training accuracy: 0.872087
+2023-10-24 03:21:15,335 - Model - INFO - **** Epoch 194 (194/400) ****
+2023-10-24 03:21:15,335 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:22:34,996 - Model - INFO - Training mean loss: 0.266247
+2023-10-24 03:22:34,997 - Model - INFO - Training accuracy: 0.871595
+2023-10-24 03:22:35,032 - Model - INFO - **** Epoch 195 (195/400) ****
+2023-10-24 03:22:35,032 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:23:59,158 - Model - INFO - Training mean loss: 0.264922
+2023-10-24 03:23:59,158 - Model - INFO - Training accuracy: 0.872371
+2023-10-24 03:23:59,196 - Model - INFO - **** Epoch 196 (196/400) ****
+2023-10-24 03:23:59,197 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:25:26,584 - Model - INFO - Training mean loss: 0.265574
+2023-10-24 03:25:26,584 - Model - INFO - Training accuracy: 0.872167
+2023-10-24 03:25:26,628 - Model - INFO - Save model...
+2023-10-24 03:25:26,629 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 03:25:26,722 - Model - INFO - Saving model....
+2023-10-24 03:25:26,723 - Model - INFO - ---- EPOCH 196 EVALUATION ----
+2023-10-24 03:27:10,332 - Model - INFO - eval mean loss: 0.268920
+2023-10-24 03:27:10,332 - Model - INFO - eval mIoU: 0.759985
+2023-10-24 03:27:10,333 - Model - INFO - eval point accuracy: 0.874448
+2023-10-24 03:27:10,333 - Model - INFO - eval point class accuracy: 0.885622
+2023-10-24 03:27:10,380 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.824 
+class trim_line      weight: 0.686, IoU: 0.696 
+
+2023-10-24 03:27:10,380 - Model - INFO - Best mIoU: 0.764887
+2023-10-24 03:27:10,381 - Model - INFO - **** Epoch 197 (197/400) ****
+2023-10-24 03:27:10,381 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:28:33,717 - Model - INFO - Training mean loss: 0.265592
+2023-10-24 03:28:33,718 - Model - INFO - Training accuracy: 0.872046
+2023-10-24 03:28:33,760 - Model - INFO - **** Epoch 198 (198/400) ****
+2023-10-24 03:28:33,760 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:29:59,444 - Model - INFO - Training mean loss: 0.264925
+2023-10-24 03:29:59,445 - Model - INFO - Training accuracy: 0.872366
+2023-10-24 03:29:59,483 - Model - INFO - **** Epoch 199 (199/400) ****
+2023-10-24 03:29:59,483 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:31:26,336 - Model - INFO - Training mean loss: 0.265362
+2023-10-24 03:31:26,336 - Model - INFO - Training accuracy: 0.872432
+2023-10-24 03:31:26,374 - Model - INFO - **** Epoch 200 (200/400) ****
+2023-10-24 03:31:26,374 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:32:50,668 - Model - INFO - Training mean loss: 0.265903
+2023-10-24 03:32:50,669 - Model - INFO - Training accuracy: 0.871989
+2023-10-24 03:32:50,715 - Model - INFO - **** Epoch 201 (201/400) ****
+2023-10-24 03:32:50,716 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:34:14,978 - Model - INFO - Training mean loss: 0.265865
+2023-10-24 03:34:14,978 - Model - INFO - Training accuracy: 0.871797
+2023-10-24 03:34:15,018 - Model - INFO - Save model...
+2023-10-24 03:34:15,018 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 03:34:15,098 - Model - INFO - Saving model....
+2023-10-24 03:34:15,099 - Model - INFO - ---- EPOCH 201 EVALUATION ----
+2023-10-24 03:35:58,463 - Model - INFO - eval mean loss: 0.271145
+2023-10-24 03:35:58,463 - Model - INFO - eval mIoU: 0.741868
+2023-10-24 03:35:58,464 - Model - INFO - eval point accuracy: 0.861001
+2023-10-24 03:35:58,464 - Model - INFO - eval point class accuracy: 0.884253
+2023-10-24 03:35:58,503 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.802 
+class trim_line      weight: 0.686, IoU: 0.682 
+
+2023-10-24 03:35:58,504 - Model - INFO - Best mIoU: 0.764887
+2023-10-24 03:35:58,504 - Model - INFO - **** Epoch 202 (202/400) ****
+2023-10-24 03:35:58,505 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:37:23,918 - Model - INFO - Training mean loss: 0.264592
+2023-10-24 03:37:23,918 - Model - INFO - Training accuracy: 0.872343
+2023-10-24 03:37:23,965 - Model - INFO - **** Epoch 203 (203/400) ****
+2023-10-24 03:37:23,965 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:38:52,279 - Model - INFO - Training mean loss: 0.265132
+2023-10-24 03:38:52,279 - Model - INFO - Training accuracy: 0.872285
+2023-10-24 03:38:52,313 - Model - INFO - **** Epoch 204 (204/400) ****
+2023-10-24 03:38:52,313 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:40:18,612 - Model - INFO - Training mean loss: 0.264432
+2023-10-24 03:40:18,613 - Model - INFO - Training accuracy: 0.872773
+2023-10-24 03:40:18,649 - Model - INFO - **** Epoch 205 (205/400) ****
+2023-10-24 03:40:18,649 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:41:44,031 - Model - INFO - Training mean loss: 0.264331
+2023-10-24 03:41:44,032 - Model - INFO - Training accuracy: 0.873023
+2023-10-24 03:41:44,070 - Model - INFO - **** Epoch 206 (206/400) ****
+2023-10-24 03:41:44,070 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:43:08,756 - Model - INFO - Training mean loss: 0.264042
+2023-10-24 03:43:08,757 - Model - INFO - Training accuracy: 0.872622
+2023-10-24 03:43:08,798 - Model - INFO - Save model...
+2023-10-24 03:43:08,798 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 03:43:08,881 - Model - INFO - Saving model....
+2023-10-24 03:43:08,882 - Model - INFO - ---- EPOCH 206 EVALUATION ----
+2023-10-24 03:44:55,619 - Model - INFO - eval mean loss: 0.285239
+2023-10-24 03:44:55,620 - Model - INFO - eval mIoU: 0.770682
+2023-10-24 03:44:55,620 - Model - INFO - eval point accuracy: 0.883397
+2023-10-24 03:44:55,620 - Model - INFO - eval point class accuracy: 0.881048
+2023-10-24 03:44:55,665 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.839 
+class trim_line      weight: 0.686, IoU: 0.702 
+
+2023-10-24 03:44:55,666 - Model - INFO - Save model...
+2023-10-24 03:44:55,666 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-24 03:44:55,742 - Model - INFO - Saving model....
+2023-10-24 03:44:55,742 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 03:44:55,742 - Model - INFO - **** Epoch 207 (207/400) ****
+2023-10-24 03:44:55,742 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:46:16,957 - Model - INFO - Training mean loss: 0.264321
+2023-10-24 03:46:16,958 - Model - INFO - Training accuracy: 0.872872
+2023-10-24 03:46:17,002 - Model - INFO - **** Epoch 208 (208/400) ****
+2023-10-24 03:46:17,002 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:47:44,174 - Model - INFO - Training mean loss: 0.265078
+2023-10-24 03:47:44,175 - Model - INFO - Training accuracy: 0.872151
+2023-10-24 03:47:44,219 - Model - INFO - **** Epoch 209 (209/400) ****
+2023-10-24 03:47:44,220 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:49:10,662 - Model - INFO - Training mean loss: 0.263960
+2023-10-24 03:49:10,662 - Model - INFO - Training accuracy: 0.872960
+2023-10-24 03:49:10,702 - Model - INFO - **** Epoch 210 (210/400) ****
+2023-10-24 03:49:10,703 - Model - INFO - Learning rate:0.000735
+2023-10-24 03:50:30,644 - Model - INFO - Training mean loss: 0.265141
+2023-10-24 03:50:30,645 - Model - INFO - Training accuracy: 0.872443
+2023-10-24 03:50:30,689 - Model - INFO - **** Epoch 211 (211/400) ****
+2023-10-24 03:50:30,689 - Model - INFO - Learning rate:0.000698
+2023-10-24 03:51:57,112 - Model - INFO - Training mean loss: 0.264385
+2023-10-24 03:51:57,113 - Model - INFO - Training accuracy: 0.872614
+2023-10-24 03:51:57,153 - Model - INFO - Save model...
+2023-10-24 03:51:57,153 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 03:51:57,245 - Model - INFO - Saving model....
+2023-10-24 03:51:57,246 - Model - INFO - ---- EPOCH 211 EVALUATION ----
+2023-10-24 03:53:38,669 - Model - INFO - eval mean loss: 0.265792
+2023-10-24 03:53:38,669 - Model - INFO - eval mIoU: 0.742385
+2023-10-24 03:53:38,669 - Model - INFO - eval point accuracy: 0.861073
+2023-10-24 03:53:38,670 - Model - INFO - eval point class accuracy: 0.885899
+2023-10-24 03:53:38,720 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.802 
+class trim_line      weight: 0.686, IoU: 0.683 
+
+2023-10-24 03:53:38,720 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 03:53:38,720 - Model - INFO - **** Epoch 212 (212/400) ****
+2023-10-24 03:53:38,721 - Model - INFO - Learning rate:0.000698
+2023-10-24 03:55:02,009 - Model - INFO - Training mean loss: 0.263536
+2023-10-24 03:55:02,010 - Model - INFO - Training accuracy: 0.873110
+2023-10-24 03:55:02,049 - Model - INFO - **** Epoch 213 (213/400) ****
+2023-10-24 03:55:02,050 - Model - INFO - Learning rate:0.000698
+2023-10-24 03:56:30,602 - Model - INFO - Training mean loss: 0.263566
+2023-10-24 03:56:30,603 - Model - INFO - Training accuracy: 0.873193
+2023-10-24 03:56:30,644 - Model - INFO - **** Epoch 214 (214/400) ****
+2023-10-24 03:56:30,645 - Model - INFO - Learning rate:0.000698
+2023-10-24 03:57:55,921 - Model - INFO - Training mean loss: 0.263378
+2023-10-24 03:57:55,922 - Model - INFO - Training accuracy: 0.873225
+2023-10-24 03:57:55,967 - Model - INFO - **** Epoch 215 (215/400) ****
+2023-10-24 03:57:55,968 - Model - INFO - Learning rate:0.000698
+2023-10-24 03:59:24,120 - Model - INFO - Training mean loss: 0.263651
+2023-10-24 03:59:24,120 - Model - INFO - Training accuracy: 0.873179
+2023-10-24 03:59:24,157 - Model - INFO - **** Epoch 216 (216/400) ****
+2023-10-24 03:59:24,157 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:00:51,081 - Model - INFO - Training mean loss: 0.264666
+2023-10-24 04:00:51,082 - Model - INFO - Training accuracy: 0.872483
+2023-10-24 04:00:51,116 - Model - INFO - Save model...
+2023-10-24 04:00:51,117 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 04:00:51,207 - Model - INFO - Saving model....
+2023-10-24 04:00:51,208 - Model - INFO - ---- EPOCH 216 EVALUATION ----
+2023-10-24 04:02:29,546 - Model - INFO - eval mean loss: 0.270277
+2023-10-24 04:02:29,546 - Model - INFO - eval mIoU: 0.742771
+2023-10-24 04:02:29,546 - Model - INFO - eval point accuracy: 0.861573
+2023-10-24 04:02:29,546 - Model - INFO - eval point class accuracy: 0.884860
+2023-10-24 04:02:29,597 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.803 
+class trim_line      weight: 0.686, IoU: 0.683 
+
+2023-10-24 04:02:29,597 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 04:02:29,597 - Model - INFO - **** Epoch 217 (217/400) ****
+2023-10-24 04:02:29,597 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:03:57,367 - Model - INFO - Training mean loss: 0.263557
+2023-10-24 04:03:57,367 - Model - INFO - Training accuracy: 0.873261
+2023-10-24 04:03:57,407 - Model - INFO - **** Epoch 218 (218/400) ****
+2023-10-24 04:03:57,408 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:05:25,944 - Model - INFO - Training mean loss: 0.262853
+2023-10-24 04:05:25,945 - Model - INFO - Training accuracy: 0.873562
+2023-10-24 04:05:25,989 - Model - INFO - **** Epoch 219 (219/400) ****
+2023-10-24 04:05:25,989 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:06:50,661 - Model - INFO - Training mean loss: 0.263612
+2023-10-24 04:06:50,661 - Model - INFO - Training accuracy: 0.873292
+2023-10-24 04:06:50,704 - Model - INFO - **** Epoch 220 (220/400) ****
+2023-10-24 04:06:50,704 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:08:16,969 - Model - INFO - Training mean loss: 0.262943
+2023-10-24 04:08:16,969 - Model - INFO - Training accuracy: 0.873486
+2023-10-24 04:08:17,019 - Model - INFO - **** Epoch 221 (221/400) ****
+2023-10-24 04:08:17,019 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:09:44,046 - Model - INFO - Training mean loss: 0.263266
+2023-10-24 04:09:44,047 - Model - INFO - Training accuracy: 0.873236
+2023-10-24 04:09:44,086 - Model - INFO - Save model...
+2023-10-24 04:09:44,087 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 04:09:44,190 - Model - INFO - Saving model....
+2023-10-24 04:09:44,192 - Model - INFO - ---- EPOCH 221 EVALUATION ----
+2023-10-24 04:11:26,952 - Model - INFO - eval mean loss: 0.265247
+2023-10-24 04:11:26,953 - Model - INFO - eval mIoU: 0.769648
+2023-10-24 04:11:26,953 - Model - INFO - eval point accuracy: 0.881262
+2023-10-24 04:11:26,953 - Model - INFO - eval point class accuracy: 0.887248
+2023-10-24 04:11:26,996 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.834 
+class trim_line      weight: 0.686, IoU: 0.705 
+
+2023-10-24 04:11:26,996 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 04:11:26,997 - Model - INFO - **** Epoch 222 (222/400) ****
+2023-10-24 04:11:26,997 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:12:53,354 - Model - INFO - Training mean loss: 0.263996
+2023-10-24 04:12:53,355 - Model - INFO - Training accuracy: 0.872958
+2023-10-24 04:12:53,398 - Model - INFO - **** Epoch 223 (223/400) ****
+2023-10-24 04:12:53,398 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:14:19,912 - Model - INFO - Training mean loss: 0.263353
+2023-10-24 04:14:19,912 - Model - INFO - Training accuracy: 0.873192
+2023-10-24 04:14:19,960 - Model - INFO - **** Epoch 224 (224/400) ****
+2023-10-24 04:14:19,960 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:15:48,031 - Model - INFO - Training mean loss: 0.263725
+2023-10-24 04:15:48,031 - Model - INFO - Training accuracy: 0.873080
+2023-10-24 04:15:48,066 - Model - INFO - **** Epoch 225 (225/400) ****
+2023-10-24 04:15:48,066 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:17:15,523 - Model - INFO - Training mean loss: 0.263761
+2023-10-24 04:17:15,523 - Model - INFO - Training accuracy: 0.873206
+2023-10-24 04:17:15,556 - Model - INFO - **** Epoch 226 (226/400) ****
+2023-10-24 04:17:15,557 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:18:41,366 - Model - INFO - Training mean loss: 0.263333
+2023-10-24 04:18:41,367 - Model - INFO - Training accuracy: 0.873165
+2023-10-24 04:18:41,413 - Model - INFO - Save model...
+2023-10-24 04:18:41,414 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 04:18:41,524 - Model - INFO - Saving model....
+2023-10-24 04:18:41,525 - Model - INFO - ---- EPOCH 226 EVALUATION ----
+2023-10-24 04:20:27,115 - Model - INFO - eval mean loss: 0.266432
+2023-10-24 04:20:27,115 - Model - INFO - eval mIoU: 0.768315
+2023-10-24 04:20:27,115 - Model - INFO - eval point accuracy: 0.880341
+2023-10-24 04:20:27,116 - Model - INFO - eval point class accuracy: 0.886969
+2023-10-24 04:20:27,155 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.833 
+class trim_line      weight: 0.686, IoU: 0.704 
+
+2023-10-24 04:20:27,155 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 04:20:27,155 - Model - INFO - **** Epoch 227 (227/400) ****
+2023-10-24 04:20:27,155 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:21:48,345 - Model - INFO - Training mean loss: 0.263065
+2023-10-24 04:21:48,345 - Model - INFO - Training accuracy: 0.873535
+2023-10-24 04:21:48,384 - Model - INFO - **** Epoch 228 (228/400) ****
+2023-10-24 04:21:48,384 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:23:12,323 - Model - INFO - Training mean loss: 0.263459
+2023-10-24 04:23:12,324 - Model - INFO - Training accuracy: 0.873251
+2023-10-24 04:23:12,372 - Model - INFO - **** Epoch 229 (229/400) ****
+2023-10-24 04:23:12,372 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:24:31,381 - Model - INFO - Training mean loss: 0.263029
+2023-10-24 04:24:31,382 - Model - INFO - Training accuracy: 0.873502
+2023-10-24 04:24:31,416 - Model - INFO - **** Epoch 230 (230/400) ****
+2023-10-24 04:24:31,416 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:25:59,659 - Model - INFO - Training mean loss: 0.263209
+2023-10-24 04:25:59,660 - Model - INFO - Training accuracy: 0.873484
+2023-10-24 04:25:59,707 - Model - INFO - **** Epoch 231 (231/400) ****
+2023-10-24 04:25:59,707 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:27:27,146 - Model - INFO - Training mean loss: 0.263862
+2023-10-24 04:27:27,147 - Model - INFO - Training accuracy: 0.872986
+2023-10-24 04:27:27,190 - Model - INFO - Save model...
+2023-10-24 04:27:27,190 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 04:27:27,295 - Model - INFO - Saving model....
+2023-10-24 04:27:27,296 - Model - INFO - ---- EPOCH 231 EVALUATION ----
+2023-10-24 04:29:07,251 - Model - INFO - eval mean loss: 0.266135
+2023-10-24 04:29:07,252 - Model - INFO - eval mIoU: 0.748514
+2023-10-24 04:29:07,252 - Model - INFO - eval point accuracy: 0.865804
+2023-10-24 04:29:07,252 - Model - INFO - eval point class accuracy: 0.885613
+2023-10-24 04:29:07,297 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.810 
+class trim_line      weight: 0.686, IoU: 0.687 
+
+2023-10-24 04:29:07,297 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 04:29:07,297 - Model - INFO - **** Epoch 232 (232/400) ****
+2023-10-24 04:29:07,297 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:30:35,132 - Model - INFO - Training mean loss: 0.263309
+2023-10-24 04:30:35,133 - Model - INFO - Training accuracy: 0.873449
+2023-10-24 04:30:35,175 - Model - INFO - **** Epoch 233 (233/400) ****
+2023-10-24 04:30:35,176 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:32:03,608 - Model - INFO - Training mean loss: 0.263575
+2023-10-24 04:32:03,609 - Model - INFO - Training accuracy: 0.873169
+2023-10-24 04:32:03,650 - Model - INFO - **** Epoch 234 (234/400) ****
+2023-10-24 04:32:03,650 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:33:30,465 - Model - INFO - Training mean loss: 0.261984
+2023-10-24 04:33:30,466 - Model - INFO - Training accuracy: 0.874100
+2023-10-24 04:33:30,501 - Model - INFO - **** Epoch 235 (235/400) ****
+2023-10-24 04:33:30,502 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:34:59,223 - Model - INFO - Training mean loss: 0.264501
+2023-10-24 04:34:59,224 - Model - INFO - Training accuracy: 0.872704
+2023-10-24 04:34:59,270 - Model - INFO - **** Epoch 236 (236/400) ****
+2023-10-24 04:34:59,271 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:36:28,918 - Model - INFO - Training mean loss: 0.262524
+2023-10-24 04:36:28,919 - Model - INFO - Training accuracy: 0.873618
+2023-10-24 04:36:28,967 - Model - INFO - Save model...
+2023-10-24 04:36:28,968 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 04:36:29,077 - Model - INFO - Saving model....
+2023-10-24 04:36:29,079 - Model - INFO - ---- EPOCH 236 EVALUATION ----
+2023-10-24 04:38:14,646 - Model - INFO - eval mean loss: 0.261185
+2023-10-24 04:38:14,647 - Model - INFO - eval mIoU: 0.749659
+2023-10-24 04:38:14,647 - Model - INFO - eval point accuracy: 0.866161
+2023-10-24 04:38:14,647 - Model - INFO - eval point class accuracy: 0.888179
+2023-10-24 04:38:14,707 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.809 
+class trim_line      weight: 0.686, IoU: 0.690 
+
+2023-10-24 04:38:14,708 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 04:38:14,708 - Model - INFO - **** Epoch 237 (237/400) ****
+2023-10-24 04:38:14,708 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:39:43,114 - Model - INFO - Training mean loss: 0.262587
+2023-10-24 04:39:43,114 - Model - INFO - Training accuracy: 0.873937
+2023-10-24 04:39:43,155 - Model - INFO - **** Epoch 238 (238/400) ****
+2023-10-24 04:39:43,155 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:41:06,572 - Model - INFO - Training mean loss: 0.261790
+2023-10-24 04:41:06,572 - Model - INFO - Training accuracy: 0.874207
+2023-10-24 04:41:06,612 - Model - INFO - **** Epoch 239 (239/400) ****
+2023-10-24 04:41:06,612 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:42:31,618 - Model - INFO - Training mean loss: 0.263579
+2023-10-24 04:42:31,619 - Model - INFO - Training accuracy: 0.873290
+2023-10-24 04:42:31,659 - Model - INFO - **** Epoch 240 (240/400) ****
+2023-10-24 04:42:31,659 - Model - INFO - Learning rate:0.000698
+2023-10-24 04:43:55,194 - Model - INFO - Training mean loss: 0.262713
+2023-10-24 04:43:55,195 - Model - INFO - Training accuracy: 0.873668
+2023-10-24 04:43:55,227 - Model - INFO - **** Epoch 241 (241/400) ****
+2023-10-24 04:43:55,227 - Model - INFO - Learning rate:0.000663
+2023-10-24 04:45:21,338 - Model - INFO - Training mean loss: 0.262233
+2023-10-24 04:45:21,339 - Model - INFO - Training accuracy: 0.873913
+2023-10-24 04:45:21,388 - Model - INFO - Save model...
+2023-10-24 04:45:21,388 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 04:45:21,492 - Model - INFO - Saving model....
+2023-10-24 04:45:21,492 - Model - INFO - ---- EPOCH 241 EVALUATION ----
+2023-10-24 04:47:06,135 - Model - INFO - eval mean loss: 0.260490
+2023-10-24 04:47:06,135 - Model - INFO - eval mIoU: 0.758928
+2023-10-24 04:47:06,135 - Model - INFO - eval point accuracy: 0.872956
+2023-10-24 04:47:06,135 - Model - INFO - eval point class accuracy: 0.889026
+2023-10-24 04:47:06,186 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.820 
+class trim_line      weight: 0.686, IoU: 0.698 
+
+2023-10-24 04:47:06,186 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 04:47:06,186 - Model - INFO - **** Epoch 242 (242/400) ****
+2023-10-24 04:47:06,186 - Model - INFO - Learning rate:0.000663
+2023-10-24 04:48:28,966 - Model - INFO - Training mean loss: 0.263208
+2023-10-24 04:48:28,967 - Model - INFO - Training accuracy: 0.873459
+2023-10-24 04:48:29,017 - Model - INFO - **** Epoch 243 (243/400) ****
+2023-10-24 04:48:29,017 - Model - INFO - Learning rate:0.000663
+2023-10-24 04:49:55,636 - Model - INFO - Training mean loss: 0.261824
+2023-10-24 04:49:55,637 - Model - INFO - Training accuracy: 0.874178
+2023-10-24 04:49:55,678 - Model - INFO - **** Epoch 244 (244/400) ****
+2023-10-24 04:49:55,679 - Model - INFO - Learning rate:0.000663
+2023-10-24 04:51:21,515 - Model - INFO - Training mean loss: 0.261641
+2023-10-24 04:51:21,516 - Model - INFO - Training accuracy: 0.874188
+2023-10-24 04:51:21,560 - Model - INFO - **** Epoch 245 (245/400) ****
+2023-10-24 04:51:21,560 - Model - INFO - Learning rate:0.000663
+2023-10-24 04:52:49,251 - Model - INFO - Training mean loss: 0.261950
+2023-10-24 04:52:49,252 - Model - INFO - Training accuracy: 0.874217
+2023-10-24 04:52:49,299 - Model - INFO - **** Epoch 246 (246/400) ****
+2023-10-24 04:52:49,299 - Model - INFO - Learning rate:0.000663
+2023-10-24 04:54:13,183 - Model - INFO - Training mean loss: 0.262090
+2023-10-24 04:54:13,184 - Model - INFO - Training accuracy: 0.873911
+2023-10-24 04:54:13,231 - Model - INFO - Save model...
+2023-10-24 04:54:13,232 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 04:54:13,325 - Model - INFO - Saving model....
+2023-10-24 04:54:13,326 - Model - INFO - ---- EPOCH 246 EVALUATION ----
+2023-10-24 04:55:55,021 - Model - INFO - eval mean loss: 0.271189
+2023-10-24 04:55:55,022 - Model - INFO - eval mIoU: 0.743114
+2023-10-24 04:55:55,022 - Model - INFO - eval point accuracy: 0.861901
+2023-10-24 04:55:55,022 - Model - INFO - eval point class accuracy: 0.884531
+2023-10-24 04:55:55,066 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.804 
+class trim_line      weight: 0.686, IoU: 0.683 
+
+2023-10-24 04:55:55,067 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 04:55:55,067 - Model - INFO - **** Epoch 247 (247/400) ****
+2023-10-24 04:55:55,067 - Model - INFO - Learning rate:0.000663
+2023-10-24 04:57:20,513 - Model - INFO - Training mean loss: 0.262181
+2023-10-24 04:57:20,513 - Model - INFO - Training accuracy: 0.874197
+2023-10-24 04:57:20,548 - Model - INFO - **** Epoch 248 (248/400) ****
+2023-10-24 04:57:20,548 - Model - INFO - Learning rate:0.000663
+2023-10-24 04:58:46,682 - Model - INFO - Training mean loss: 0.262481
+2023-10-24 04:58:46,682 - Model - INFO - Training accuracy: 0.873677
+2023-10-24 04:58:46,747 - Model - INFO - **** Epoch 249 (249/400) ****
+2023-10-24 04:58:46,748 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:00:12,026 - Model - INFO - Training mean loss: 0.261997
+2023-10-24 05:00:12,027 - Model - INFO - Training accuracy: 0.874222
+2023-10-24 05:00:12,082 - Model - INFO - **** Epoch 250 (250/400) ****
+2023-10-24 05:00:12,082 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:01:37,142 - Model - INFO - Training mean loss: 0.261298
+2023-10-24 05:01:37,143 - Model - INFO - Training accuracy: 0.874427
+2023-10-24 05:01:37,183 - Model - INFO - **** Epoch 251 (251/400) ****
+2023-10-24 05:01:37,184 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:03:00,497 - Model - INFO - Training mean loss: 0.261938
+2023-10-24 05:03:00,497 - Model - INFO - Training accuracy: 0.873998
+2023-10-24 05:03:00,538 - Model - INFO - Save model...
+2023-10-24 05:03:00,539 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 05:03:00,646 - Model - INFO - Saving model....
+2023-10-24 05:03:00,647 - Model - INFO - ---- EPOCH 251 EVALUATION ----
+2023-10-24 05:04:45,127 - Model - INFO - eval mean loss: 0.264944
+2023-10-24 05:04:45,128 - Model - INFO - eval mIoU: 0.764074
+2023-10-24 05:04:45,128 - Model - INFO - eval point accuracy: 0.877049
+2023-10-24 05:04:45,128 - Model - INFO - eval point class accuracy: 0.887724
+2023-10-24 05:04:45,172 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.827 
+class trim_line      weight: 0.686, IoU: 0.701 
+
+2023-10-24 05:04:45,172 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 05:04:45,172 - Model - INFO - **** Epoch 252 (252/400) ****
+2023-10-24 05:04:45,172 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:06:11,107 - Model - INFO - Training mean loss: 0.261426
+2023-10-24 05:06:11,108 - Model - INFO - Training accuracy: 0.874324
+2023-10-24 05:06:11,145 - Model - INFO - **** Epoch 253 (253/400) ****
+2023-10-24 05:06:11,146 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:07:37,851 - Model - INFO - Training mean loss: 0.262266
+2023-10-24 05:07:37,851 - Model - INFO - Training accuracy: 0.873945
+2023-10-24 05:07:37,898 - Model - INFO - **** Epoch 254 (254/400) ****
+2023-10-24 05:07:37,898 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:09:06,458 - Model - INFO - Training mean loss: 0.262452
+2023-10-24 05:09:06,459 - Model - INFO - Training accuracy: 0.874122
+2023-10-24 05:09:06,505 - Model - INFO - **** Epoch 255 (255/400) ****
+2023-10-24 05:09:06,506 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:10:34,770 - Model - INFO - Training mean loss: 0.262104
+2023-10-24 05:10:34,770 - Model - INFO - Training accuracy: 0.873890
+2023-10-24 05:10:34,811 - Model - INFO - **** Epoch 256 (256/400) ****
+2023-10-24 05:10:34,812 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:12:02,199 - Model - INFO - Training mean loss: 0.261279
+2023-10-24 05:12:02,199 - Model - INFO - Training accuracy: 0.874382
+2023-10-24 05:12:02,247 - Model - INFO - Save model...
+2023-10-24 05:12:02,247 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 05:12:02,347 - Model - INFO - Saving model....
+2023-10-24 05:12:02,348 - Model - INFO - ---- EPOCH 256 EVALUATION ----
+2023-10-24 05:13:39,831 - Model - INFO - eval mean loss: 0.269021
+2023-10-24 05:13:39,831 - Model - INFO - eval mIoU: 0.759875
+2023-10-24 05:13:39,831 - Model - INFO - eval point accuracy: 0.874240
+2023-10-24 05:13:39,832 - Model - INFO - eval point class accuracy: 0.886221
+2023-10-24 05:13:39,883 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.823 
+class trim_line      weight: 0.686, IoU: 0.697 
+
+2023-10-24 05:13:39,883 - Model - INFO - Best mIoU: 0.770682
+2023-10-24 05:13:39,883 - Model - INFO - **** Epoch 257 (257/400) ****
+2023-10-24 05:13:39,883 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:15:06,244 - Model - INFO - Training mean loss: 0.260675
+2023-10-24 05:15:06,244 - Model - INFO - Training accuracy: 0.874819
+2023-10-24 05:15:06,280 - Model - INFO - **** Epoch 258 (258/400) ****
+2023-10-24 05:15:06,280 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:16:30,364 - Model - INFO - Training mean loss: 0.261874
+2023-10-24 05:16:30,364 - Model - INFO - Training accuracy: 0.874139
+2023-10-24 05:16:30,406 - Model - INFO - **** Epoch 259 (259/400) ****
+2023-10-24 05:16:30,407 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:17:57,614 - Model - INFO - Training mean loss: 0.262077
+2023-10-24 05:17:57,615 - Model - INFO - Training accuracy: 0.874241
+2023-10-24 05:17:57,656 - Model - INFO - **** Epoch 260 (260/400) ****
+2023-10-24 05:17:57,657 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:19:24,672 - Model - INFO - Training mean loss: 0.261472
+2023-10-24 05:19:24,673 - Model - INFO - Training accuracy: 0.874350
+2023-10-24 05:19:24,716 - Model - INFO - **** Epoch 261 (261/400) ****
+2023-10-24 05:19:24,716 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:20:53,231 - Model - INFO - Training mean loss: 0.260672
+2023-10-24 05:20:53,232 - Model - INFO - Training accuracy: 0.874947
+2023-10-24 05:20:53,277 - Model - INFO - Save model...
+2023-10-24 05:20:53,278 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 05:20:53,376 - Model - INFO - Saving model....
+2023-10-24 05:20:53,377 - Model - INFO - ---- EPOCH 261 EVALUATION ----
+2023-10-24 05:22:38,726 - Model - INFO - eval mean loss: 0.263378
+2023-10-24 05:22:38,726 - Model - INFO - eval mIoU: 0.772935
+2023-10-24 05:22:38,726 - Model - INFO - eval point accuracy: 0.883297
+2023-10-24 05:22:38,727 - Model - INFO - eval point class accuracy: 0.888989
+2023-10-24 05:22:38,772 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.837 
+class trim_line      weight: 0.686, IoU: 0.709 
+
+2023-10-24 05:22:38,772 - Model - INFO - Save model...
+2023-10-24 05:22:38,773 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-24 05:22:38,858 - Model - INFO - Saving model....
+2023-10-24 05:22:38,858 - Model - INFO - Best mIoU: 0.772935
+2023-10-24 05:22:38,858 - Model - INFO - **** Epoch 262 (262/400) ****
+2023-10-24 05:22:38,858 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:24:06,900 - Model - INFO - Training mean loss: 0.261293
+2023-10-24 05:24:06,901 - Model - INFO - Training accuracy: 0.874363
+2023-10-24 05:24:06,938 - Model - INFO - **** Epoch 263 (263/400) ****
+2023-10-24 05:24:06,939 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:25:31,290 - Model - INFO - Training mean loss: 0.261259
+2023-10-24 05:25:31,290 - Model - INFO - Training accuracy: 0.874448
+2023-10-24 05:25:31,334 - Model - INFO - **** Epoch 264 (264/400) ****
+2023-10-24 05:25:31,334 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:26:54,487 - Model - INFO - Training mean loss: 0.260859
+2023-10-24 05:26:54,488 - Model - INFO - Training accuracy: 0.874825
+2023-10-24 05:26:54,529 - Model - INFO - **** Epoch 265 (265/400) ****
+2023-10-24 05:26:54,530 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:28:20,446 - Model - INFO - Training mean loss: 0.261295
+2023-10-24 05:28:20,447 - Model - INFO - Training accuracy: 0.874280
+2023-10-24 05:28:20,485 - Model - INFO - **** Epoch 266 (266/400) ****
+2023-10-24 05:28:20,486 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:29:47,350 - Model - INFO - Training mean loss: 0.261801
+2023-10-24 05:29:47,350 - Model - INFO - Training accuracy: 0.874401
+2023-10-24 05:29:47,384 - Model - INFO - Save model...
+2023-10-24 05:29:47,384 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 05:29:47,467 - Model - INFO - Saving model....
+2023-10-24 05:29:47,468 - Model - INFO - ---- EPOCH 266 EVALUATION ----
+2023-10-24 05:31:28,478 - Model - INFO - eval mean loss: 0.257183
+2023-10-24 05:31:28,479 - Model - INFO - eval mIoU: 0.762606
+2023-10-24 05:31:28,479 - Model - INFO - eval point accuracy: 0.875331
+2023-10-24 05:31:28,479 - Model - INFO - eval point class accuracy: 0.890816
+2023-10-24 05:31:28,528 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.824 
+class trim_line      weight: 0.686, IoU: 0.702 
+
+2023-10-24 05:31:28,528 - Model - INFO - Best mIoU: 0.772935
+2023-10-24 05:31:28,529 - Model - INFO - **** Epoch 267 (267/400) ****
+2023-10-24 05:31:28,529 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:32:51,917 - Model - INFO - Training mean loss: 0.261464
+2023-10-24 05:32:51,917 - Model - INFO - Training accuracy: 0.874498
+2023-10-24 05:32:51,970 - Model - INFO - **** Epoch 268 (268/400) ****
+2023-10-24 05:32:51,970 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:34:20,483 - Model - INFO - Training mean loss: 0.261474
+2023-10-24 05:34:20,484 - Model - INFO - Training accuracy: 0.874218
+2023-10-24 05:34:20,520 - Model - INFO - **** Epoch 269 (269/400) ****
+2023-10-24 05:34:20,521 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:35:43,550 - Model - INFO - Training mean loss: 0.261752
+2023-10-24 05:35:43,550 - Model - INFO - Training accuracy: 0.874246
+2023-10-24 05:35:43,594 - Model - INFO - **** Epoch 270 (270/400) ****
+2023-10-24 05:35:43,594 - Model - INFO - Learning rate:0.000663
+2023-10-24 05:37:11,164 - Model - INFO - Training mean loss: 0.261925
+2023-10-24 05:37:11,164 - Model - INFO - Training accuracy: 0.874371
+2023-10-24 05:37:11,215 - Model - INFO - **** Epoch 271 (271/400) ****
+2023-10-24 05:37:11,215 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:38:37,900 - Model - INFO - Training mean loss: 0.261132
+2023-10-24 05:38:37,901 - Model - INFO - Training accuracy: 0.874611
+2023-10-24 05:38:37,940 - Model - INFO - Save model...
+2023-10-24 05:38:37,940 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 05:38:38,021 - Model - INFO - Saving model....
+2023-10-24 05:38:38,022 - Model - INFO - ---- EPOCH 271 EVALUATION ----
+2023-10-24 05:40:21,983 - Model - INFO - eval mean loss: 0.261814
+2023-10-24 05:40:21,983 - Model - INFO - eval mIoU: 0.757633
+2023-10-24 05:40:21,984 - Model - INFO - eval point accuracy: 0.872054
+2023-10-24 05:40:21,984 - Model - INFO - eval point class accuracy: 0.888701
+2023-10-24 05:40:22,041 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.819 
+class trim_line      weight: 0.686, IoU: 0.696 
+
+2023-10-24 05:40:22,041 - Model - INFO - Best mIoU: 0.772935
+2023-10-24 05:40:22,042 - Model - INFO - **** Epoch 272 (272/400) ****
+2023-10-24 05:40:22,042 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:41:50,533 - Model - INFO - Training mean loss: 0.261132
+2023-10-24 05:41:50,534 - Model - INFO - Training accuracy: 0.874406
+2023-10-24 05:41:50,580 - Model - INFO - **** Epoch 273 (273/400) ****
+2023-10-24 05:41:50,581 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:43:17,334 - Model - INFO - Training mean loss: 0.260078
+2023-10-24 05:43:17,335 - Model - INFO - Training accuracy: 0.875236
+2023-10-24 05:43:17,375 - Model - INFO - **** Epoch 274 (274/400) ****
+2023-10-24 05:43:17,375 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:44:44,982 - Model - INFO - Training mean loss: 0.260312
+2023-10-24 05:44:44,983 - Model - INFO - Training accuracy: 0.874787
+2023-10-24 05:44:45,023 - Model - INFO - **** Epoch 275 (275/400) ****
+2023-10-24 05:44:45,023 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:46:11,590 - Model - INFO - Training mean loss: 0.261156
+2023-10-24 05:46:11,591 - Model - INFO - Training accuracy: 0.874658
+2023-10-24 05:46:11,631 - Model - INFO - **** Epoch 276 (276/400) ****
+2023-10-24 05:46:11,632 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:47:41,410 - Model - INFO - Training mean loss: 0.261531
+2023-10-24 05:47:41,411 - Model - INFO - Training accuracy: 0.874287
+2023-10-24 05:47:41,452 - Model - INFO - Save model...
+2023-10-24 05:47:41,453 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 05:47:41,537 - Model - INFO - Saving model....
+2023-10-24 05:47:41,537 - Model - INFO - ---- EPOCH 276 EVALUATION ----
+2023-10-24 05:49:21,536 - Model - INFO - eval mean loss: 0.259468
+2023-10-24 05:49:21,536 - Model - INFO - eval mIoU: 0.774642
+2023-10-24 05:49:21,536 - Model - INFO - eval point accuracy: 0.884127
+2023-10-24 05:49:21,536 - Model - INFO - eval point class accuracy: 0.890961
+2023-10-24 05:49:21,578 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.838 
+class trim_line      weight: 0.686, IoU: 0.712 
+
+2023-10-24 05:49:21,578 - Model - INFO - Save model...
+2023-10-24 05:49:21,578 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-24 05:49:21,655 - Model - INFO - Saving model....
+2023-10-24 05:49:21,655 - Model - INFO - Best mIoU: 0.774642
+2023-10-24 05:49:21,655 - Model - INFO - **** Epoch 277 (277/400) ****
+2023-10-24 05:49:21,655 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:50:50,216 - Model - INFO - Training mean loss: 0.259751
+2023-10-24 05:50:50,217 - Model - INFO - Training accuracy: 0.875265
+2023-10-24 05:50:50,266 - Model - INFO - **** Epoch 278 (278/400) ****
+2023-10-24 05:50:50,266 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:52:15,139 - Model - INFO - Training mean loss: 0.260474
+2023-10-24 05:52:15,140 - Model - INFO - Training accuracy: 0.875044
+2023-10-24 05:52:15,180 - Model - INFO - **** Epoch 279 (279/400) ****
+2023-10-24 05:52:15,181 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:53:43,119 - Model - INFO - Training mean loss: 0.259865
+2023-10-24 05:53:43,120 - Model - INFO - Training accuracy: 0.875243
+2023-10-24 05:53:43,166 - Model - INFO - **** Epoch 280 (280/400) ****
+2023-10-24 05:53:43,167 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:55:07,614 - Model - INFO - Training mean loss: 0.261032
+2023-10-24 05:55:07,615 - Model - INFO - Training accuracy: 0.874646
+2023-10-24 05:55:07,656 - Model - INFO - **** Epoch 281 (281/400) ****
+2023-10-24 05:55:07,656 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:56:33,702 - Model - INFO - Training mean loss: 0.260971
+2023-10-24 05:56:33,703 - Model - INFO - Training accuracy: 0.874772
+2023-10-24 05:56:33,744 - Model - INFO - Save model...
+2023-10-24 05:56:33,744 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 05:56:33,844 - Model - INFO - Saving model....
+2023-10-24 05:56:33,845 - Model - INFO - ---- EPOCH 281 EVALUATION ----
+2023-10-24 05:58:20,280 - Model - INFO - eval mean loss: 0.273025
+2023-10-24 05:58:20,280 - Model - INFO - eval mIoU: 0.736644
+2023-10-24 05:58:20,280 - Model - INFO - eval point accuracy: 0.857068
+2023-10-24 05:58:20,280 - Model - INFO - eval point class accuracy: 0.883805
+2023-10-24 05:58:20,319 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.796 
+class trim_line      weight: 0.686, IoU: 0.678 
+
+2023-10-24 05:58:20,319 - Model - INFO - Best mIoU: 0.774642
+2023-10-24 05:58:20,320 - Model - INFO - **** Epoch 282 (282/400) ****
+2023-10-24 05:58:20,320 - Model - INFO - Learning rate:0.000630
+2023-10-24 05:59:44,457 - Model - INFO - Training mean loss: 0.259999
+2023-10-24 05:59:44,457 - Model - INFO - Training accuracy: 0.875204
+2023-10-24 05:59:44,491 - Model - INFO - **** Epoch 283 (283/400) ****
+2023-10-24 05:59:44,492 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:01:12,782 - Model - INFO - Training mean loss: 0.259651
+2023-10-24 06:01:12,782 - Model - INFO - Training accuracy: 0.875144
+2023-10-24 06:01:12,820 - Model - INFO - **** Epoch 284 (284/400) ****
+2023-10-24 06:01:12,821 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:02:39,380 - Model - INFO - Training mean loss: 0.260214
+2023-10-24 06:02:39,381 - Model - INFO - Training accuracy: 0.875317
+2023-10-24 06:02:39,418 - Model - INFO - **** Epoch 285 (285/400) ****
+2023-10-24 06:02:39,419 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:04:07,206 - Model - INFO - Training mean loss: 0.259486
+2023-10-24 06:04:07,207 - Model - INFO - Training accuracy: 0.875598
+2023-10-24 06:04:07,251 - Model - INFO - **** Epoch 286 (286/400) ****
+2023-10-24 06:04:07,252 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:05:35,757 - Model - INFO - Training mean loss: 0.260939
+2023-10-24 06:05:35,758 - Model - INFO - Training accuracy: 0.874478
+2023-10-24 06:05:35,800 - Model - INFO - Save model...
+2023-10-24 06:05:35,800 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 06:05:35,897 - Model - INFO - Saving model....
+2023-10-24 06:05:35,898 - Model - INFO - ---- EPOCH 286 EVALUATION ----
+2023-10-24 06:07:15,078 - Model - INFO - eval mean loss: 0.261509
+2023-10-24 06:07:15,078 - Model - INFO - eval mIoU: 0.771957
+2023-10-24 06:07:15,079 - Model - INFO - eval point accuracy: 0.882309
+2023-10-24 06:07:15,079 - Model - INFO - eval point class accuracy: 0.890305
+2023-10-24 06:07:15,128 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.835 
+class trim_line      weight: 0.686, IoU: 0.709 
+
+2023-10-24 06:07:15,129 - Model - INFO - Best mIoU: 0.774642
+2023-10-24 06:07:15,129 - Model - INFO - **** Epoch 287 (287/400) ****
+2023-10-24 06:07:15,129 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:08:39,005 - Model - INFO - Training mean loss: 0.260645
+2023-10-24 06:08:39,006 - Model - INFO - Training accuracy: 0.874838
+2023-10-24 06:08:39,050 - Model - INFO - **** Epoch 288 (288/400) ****
+2023-10-24 06:08:39,050 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:10:07,222 - Model - INFO - Training mean loss: 0.260355
+2023-10-24 06:10:07,222 - Model - INFO - Training accuracy: 0.875130
+2023-10-24 06:10:07,268 - Model - INFO - **** Epoch 289 (289/400) ****
+2023-10-24 06:10:07,269 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:11:28,733 - Model - INFO - Training mean loss: 0.260491
+2023-10-24 06:11:28,733 - Model - INFO - Training accuracy: 0.875177
+2023-10-24 06:11:28,778 - Model - INFO - **** Epoch 290 (290/400) ****
+2023-10-24 06:11:28,779 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:12:56,245 - Model - INFO - Training mean loss: 0.259949
+2023-10-24 06:12:56,246 - Model - INFO - Training accuracy: 0.875096
+2023-10-24 06:12:56,288 - Model - INFO - **** Epoch 291 (291/400) ****
+2023-10-24 06:12:56,288 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:14:25,121 - Model - INFO - Training mean loss: 0.260429
+2023-10-24 06:14:25,121 - Model - INFO - Training accuracy: 0.874858
+2023-10-24 06:14:25,165 - Model - INFO - Save model...
+2023-10-24 06:14:25,166 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 06:14:25,266 - Model - INFO - Saving model....
+2023-10-24 06:14:25,267 - Model - INFO - ---- EPOCH 291 EVALUATION ----
+2023-10-24 06:16:11,658 - Model - INFO - eval mean loss: 0.270053
+2023-10-24 06:16:11,658 - Model - INFO - eval mIoU: 0.774026
+2023-10-24 06:16:11,658 - Model - INFO - eval point accuracy: 0.884429
+2023-10-24 06:16:11,659 - Model - INFO - eval point class accuracy: 0.887410
+2023-10-24 06:16:11,710 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.839 
+class trim_line      weight: 0.686, IoU: 0.709 
+
+2023-10-24 06:16:11,711 - Model - INFO - Best mIoU: 0.774642
+2023-10-24 06:16:11,711 - Model - INFO - **** Epoch 292 (292/400) ****
+2023-10-24 06:16:11,711 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:17:36,044 - Model - INFO - Training mean loss: 0.260532
+2023-10-24 06:17:36,045 - Model - INFO - Training accuracy: 0.874843
+2023-10-24 06:17:36,082 - Model - INFO - **** Epoch 293 (293/400) ****
+2023-10-24 06:17:36,082 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:19:04,779 - Model - INFO - Training mean loss: 0.260437
+2023-10-24 06:19:04,780 - Model - INFO - Training accuracy: 0.874888
+2023-10-24 06:19:04,833 - Model - INFO - **** Epoch 294 (294/400) ****
+2023-10-24 06:19:04,834 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:20:30,875 - Model - INFO - Training mean loss: 0.260139
+2023-10-24 06:20:30,875 - Model - INFO - Training accuracy: 0.875116
+2023-10-24 06:20:30,924 - Model - INFO - **** Epoch 295 (295/400) ****
+2023-10-24 06:20:30,925 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:21:59,489 - Model - INFO - Training mean loss: 0.260005
+2023-10-24 06:21:59,490 - Model - INFO - Training accuracy: 0.875322
+2023-10-24 06:21:59,544 - Model - INFO - **** Epoch 296 (296/400) ****
+2023-10-24 06:21:59,544 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:23:29,023 - Model - INFO - Training mean loss: 0.260220
+2023-10-24 06:23:29,024 - Model - INFO - Training accuracy: 0.875073
+2023-10-24 06:23:29,063 - Model - INFO - Save model...
+2023-10-24 06:23:29,063 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 06:23:29,165 - Model - INFO - Saving model....
+2023-10-24 06:23:29,167 - Model - INFO - ---- EPOCH 296 EVALUATION ----
+2023-10-24 06:25:17,024 - Model - INFO - eval mean loss: 0.263485
+2023-10-24 06:25:17,024 - Model - INFO - eval mIoU: 0.755780
+2023-10-24 06:25:17,024 - Model - INFO - eval point accuracy: 0.870847
+2023-10-24 06:25:17,024 - Model - INFO - eval point class accuracy: 0.887808
+2023-10-24 06:25:17,072 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.817 
+class trim_line      weight: 0.686, IoU: 0.694 
+
+2023-10-24 06:25:17,072 - Model - INFO - Best mIoU: 0.774642
+2023-10-24 06:25:17,072 - Model - INFO - **** Epoch 297 (297/400) ****
+2023-10-24 06:25:17,072 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:26:40,261 - Model - INFO - Training mean loss: 0.260153
+2023-10-24 06:26:40,262 - Model - INFO - Training accuracy: 0.875072
+2023-10-24 06:26:40,301 - Model - INFO - **** Epoch 298 (298/400) ****
+2023-10-24 06:26:40,301 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:28:01,015 - Model - INFO - Training mean loss: 0.259195
+2023-10-24 06:28:01,015 - Model - INFO - Training accuracy: 0.875388
+2023-10-24 06:28:01,063 - Model - INFO - **** Epoch 299 (299/400) ****
+2023-10-24 06:28:01,063 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:29:30,038 - Model - INFO - Training mean loss: 0.259495
+2023-10-24 06:29:30,039 - Model - INFO - Training accuracy: 0.875397
+2023-10-24 06:29:30,083 - Model - INFO - **** Epoch 300 (300/400) ****
+2023-10-24 06:29:30,083 - Model - INFO - Learning rate:0.000630
+2023-10-24 06:30:59,914 - Model - INFO - Training mean loss: 0.260294
+2023-10-24 06:30:59,914 - Model - INFO - Training accuracy: 0.874905
+2023-10-24 06:30:59,958 - Model - INFO - **** Epoch 301 (301/400) ****
+2023-10-24 06:30:59,958 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:32:28,494 - Model - INFO - Training mean loss: 0.258898
+2023-10-24 06:32:28,495 - Model - INFO - Training accuracy: 0.875669
+2023-10-24 06:32:28,537 - Model - INFO - Save model...
+2023-10-24 06:32:28,537 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 06:32:28,630 - Model - INFO - Saving model....
+2023-10-24 06:32:28,631 - Model - INFO - ---- EPOCH 301 EVALUATION ----
+2023-10-24 06:34:12,409 - Model - INFO - eval mean loss: 0.266645
+2023-10-24 06:34:12,410 - Model - INFO - eval mIoU: 0.763107
+2023-10-24 06:34:12,410 - Model - INFO - eval point accuracy: 0.876447
+2023-10-24 06:34:12,410 - Model - INFO - eval point class accuracy: 0.887174
+2023-10-24 06:34:12,453 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.826 
+class trim_line      weight: 0.686, IoU: 0.700 
+
+2023-10-24 06:34:12,453 - Model - INFO - Best mIoU: 0.774642
+2023-10-24 06:34:12,453 - Model - INFO - **** Epoch 302 (302/400) ****
+2023-10-24 06:34:12,453 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:35:37,298 - Model - INFO - Training mean loss: 0.259616
+2023-10-24 06:35:37,298 - Model - INFO - Training accuracy: 0.875500
+2023-10-24 06:35:37,338 - Model - INFO - **** Epoch 303 (303/400) ****
+2023-10-24 06:35:37,339 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:37:05,182 - Model - INFO - Training mean loss: 0.259911
+2023-10-24 06:37:05,183 - Model - INFO - Training accuracy: 0.875347
+2023-10-24 06:37:05,234 - Model - INFO - **** Epoch 304 (304/400) ****
+2023-10-24 06:37:05,234 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:38:28,819 - Model - INFO - Training mean loss: 0.259278
+2023-10-24 06:38:28,820 - Model - INFO - Training accuracy: 0.875714
+2023-10-24 06:38:28,866 - Model - INFO - **** Epoch 305 (305/400) ****
+2023-10-24 06:38:28,867 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:39:47,591 - Model - INFO - Training mean loss: 0.259049
+2023-10-24 06:39:47,591 - Model - INFO - Training accuracy: 0.875772
+2023-10-24 06:39:47,629 - Model - INFO - **** Epoch 306 (306/400) ****
+2023-10-24 06:39:47,629 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:41:12,828 - Model - INFO - Training mean loss: 0.258511
+2023-10-24 06:41:12,829 - Model - INFO - Training accuracy: 0.875958
+2023-10-24 06:41:12,871 - Model - INFO - Save model...
+2023-10-24 06:41:12,872 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 06:41:12,968 - Model - INFO - Saving model....
+2023-10-24 06:41:12,969 - Model - INFO - ---- EPOCH 306 EVALUATION ----
+2023-10-24 06:42:58,435 - Model - INFO - eval mean loss: 0.258774
+2023-10-24 06:42:58,436 - Model - INFO - eval mIoU: 0.749645
+2023-10-24 06:42:58,436 - Model - INFO - eval point accuracy: 0.865940
+2023-10-24 06:42:58,437 - Model - INFO - eval point class accuracy: 0.889262
+2023-10-24 06:42:58,485 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.809 
+class trim_line      weight: 0.686, IoU: 0.691 
+
+2023-10-24 06:42:58,486 - Model - INFO - Best mIoU: 0.774642
+2023-10-24 06:42:58,486 - Model - INFO - **** Epoch 307 (307/400) ****
+2023-10-24 06:42:58,487 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:44:25,662 - Model - INFO - Training mean loss: 0.259505
+2023-10-24 06:44:25,663 - Model - INFO - Training accuracy: 0.875461
+2023-10-24 06:44:25,709 - Model - INFO - **** Epoch 308 (308/400) ****
+2023-10-24 06:44:25,709 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:45:45,681 - Model - INFO - Training mean loss: 0.258216
+2023-10-24 06:45:45,682 - Model - INFO - Training accuracy: 0.876081
+2023-10-24 06:45:45,736 - Model - INFO - **** Epoch 309 (309/400) ****
+2023-10-24 06:45:45,737 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:47:13,862 - Model - INFO - Training mean loss: 0.259257
+2023-10-24 06:47:13,863 - Model - INFO - Training accuracy: 0.875881
+2023-10-24 06:47:13,909 - Model - INFO - **** Epoch 310 (310/400) ****
+2023-10-24 06:47:13,909 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:48:39,477 - Model - INFO - Training mean loss: 0.259586
+2023-10-24 06:48:39,477 - Model - INFO - Training accuracy: 0.875415
+2023-10-24 06:48:39,527 - Model - INFO - **** Epoch 311 (311/400) ****
+2023-10-24 06:48:39,527 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:50:02,985 - Model - INFO - Training mean loss: 0.259801
+2023-10-24 06:50:02,985 - Model - INFO - Training accuracy: 0.875366
+2023-10-24 06:50:03,031 - Model - INFO - Save model...
+2023-10-24 06:50:03,031 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 06:50:03,129 - Model - INFO - Saving model....
+2023-10-24 06:50:03,130 - Model - INFO - ---- EPOCH 311 EVALUATION ----
+2023-10-24 06:51:44,613 - Model - INFO - eval mean loss: 0.262312
+2023-10-24 06:51:44,613 - Model - INFO - eval mIoU: 0.775075
+2023-10-24 06:51:44,614 - Model - INFO - eval point accuracy: 0.884609
+2023-10-24 06:51:44,614 - Model - INFO - eval point class accuracy: 0.890152
+2023-10-24 06:51:44,667 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.839 
+class trim_line      weight: 0.686, IoU: 0.711 
+
+2023-10-24 06:51:44,667 - Model - INFO - Save model...
+2023-10-24 06:51:44,667 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-24 06:51:44,757 - Model - INFO - Saving model....
+2023-10-24 06:51:44,757 - Model - INFO - Best mIoU: 0.775075
+2023-10-24 06:51:44,757 - Model - INFO - **** Epoch 312 (312/400) ****
+2023-10-24 06:51:44,758 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:53:12,521 - Model - INFO - Training mean loss: 0.259058
+2023-10-24 06:53:12,521 - Model - INFO - Training accuracy: 0.875589
+2023-10-24 06:53:12,561 - Model - INFO - **** Epoch 313 (313/400) ****
+2023-10-24 06:53:12,561 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:54:37,917 - Model - INFO - Training mean loss: 0.259087
+2023-10-24 06:54:37,918 - Model - INFO - Training accuracy: 0.875623
+2023-10-24 06:54:37,965 - Model - INFO - **** Epoch 314 (314/400) ****
+2023-10-24 06:54:37,965 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:56:01,544 - Model - INFO - Training mean loss: 0.258596
+2023-10-24 06:56:01,545 - Model - INFO - Training accuracy: 0.875990
+2023-10-24 06:56:01,585 - Model - INFO - **** Epoch 315 (315/400) ****
+2023-10-24 06:56:01,586 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:57:30,434 - Model - INFO - Training mean loss: 0.258677
+2023-10-24 06:57:30,434 - Model - INFO - Training accuracy: 0.875818
+2023-10-24 06:57:30,477 - Model - INFO - **** Epoch 316 (316/400) ****
+2023-10-24 06:57:30,477 - Model - INFO - Learning rate:0.000599
+2023-10-24 06:58:58,767 - Model - INFO - Training mean loss: 0.258706
+2023-10-24 06:58:58,768 - Model - INFO - Training accuracy: 0.875669
+2023-10-24 06:58:58,805 - Model - INFO - Save model...
+2023-10-24 06:58:58,806 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 06:58:58,891 - Model - INFO - Saving model....
+2023-10-24 06:58:58,892 - Model - INFO - ---- EPOCH 316 EVALUATION ----
+2023-10-24 07:00:39,647 - Model - INFO - eval mean loss: 0.255585
+2023-10-24 07:00:39,648 - Model - INFO - eval mIoU: 0.762330
+2023-10-24 07:00:39,648 - Model - INFO - eval point accuracy: 0.874938
+2023-10-24 07:00:39,648 - Model - INFO - eval point class accuracy: 0.891761
+2023-10-24 07:00:39,692 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.823 
+class trim_line      weight: 0.686, IoU: 0.702 
+
+2023-10-24 07:00:39,692 - Model - INFO - Best mIoU: 0.775075
+2023-10-24 07:00:39,692 - Model - INFO - **** Epoch 317 (317/400) ****
+2023-10-24 07:00:39,693 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:02:01,521 - Model - INFO - Training mean loss: 0.258261
+2023-10-24 07:02:01,522 - Model - INFO - Training accuracy: 0.876187
+2023-10-24 07:02:01,557 - Model - INFO - **** Epoch 318 (318/400) ****
+2023-10-24 07:02:01,558 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:03:27,848 - Model - INFO - Training mean loss: 0.260037
+2023-10-24 07:03:27,849 - Model - INFO - Training accuracy: 0.875248
+2023-10-24 07:03:27,894 - Model - INFO - **** Epoch 319 (319/400) ****
+2023-10-24 07:03:27,895 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:04:51,112 - Model - INFO - Training mean loss: 0.258711
+2023-10-24 07:04:51,113 - Model - INFO - Training accuracy: 0.876000
+2023-10-24 07:04:51,152 - Model - INFO - **** Epoch 320 (320/400) ****
+2023-10-24 07:04:51,152 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:06:16,911 - Model - INFO - Training mean loss: 0.260078
+2023-10-24 07:06:16,911 - Model - INFO - Training accuracy: 0.875341
+2023-10-24 07:06:16,961 - Model - INFO - **** Epoch 321 (321/400) ****
+2023-10-24 07:06:16,961 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:07:42,769 - Model - INFO - Training mean loss: 0.258530
+2023-10-24 07:07:42,770 - Model - INFO - Training accuracy: 0.875864
+2023-10-24 07:07:42,815 - Model - INFO - Save model...
+2023-10-24 07:07:42,815 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 07:07:42,921 - Model - INFO - Saving model....
+2023-10-24 07:07:42,922 - Model - INFO - ---- EPOCH 321 EVALUATION ----
+2023-10-24 07:09:25,618 - Model - INFO - eval mean loss: 0.260532
+2023-10-24 07:09:25,618 - Model - INFO - eval mIoU: 0.756864
+2023-10-24 07:09:25,619 - Model - INFO - eval point accuracy: 0.871345
+2023-10-24 07:09:25,619 - Model - INFO - eval point class accuracy: 0.889374
+2023-10-24 07:09:25,661 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.818 
+class trim_line      weight: 0.686, IoU: 0.696 
+
+2023-10-24 07:09:25,662 - Model - INFO - Best mIoU: 0.775075
+2023-10-24 07:09:25,662 - Model - INFO - **** Epoch 322 (322/400) ****
+2023-10-24 07:09:25,662 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:10:50,194 - Model - INFO - Training mean loss: 0.259723
+2023-10-24 07:10:50,195 - Model - INFO - Training accuracy: 0.875404
+2023-10-24 07:10:50,234 - Model - INFO - **** Epoch 323 (323/400) ****
+2023-10-24 07:10:50,234 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:12:14,480 - Model - INFO - Training mean loss: 0.258313
+2023-10-24 07:12:14,481 - Model - INFO - Training accuracy: 0.876063
+2023-10-24 07:12:14,526 - Model - INFO - **** Epoch 324 (324/400) ****
+2023-10-24 07:12:14,526 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:13:34,592 - Model - INFO - Training mean loss: 0.259192
+2023-10-24 07:13:34,592 - Model - INFO - Training accuracy: 0.875529
+2023-10-24 07:13:34,633 - Model - INFO - **** Epoch 325 (325/400) ****
+2023-10-24 07:13:34,633 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:14:59,242 - Model - INFO - Training mean loss: 0.258801
+2023-10-24 07:14:59,242 - Model - INFO - Training accuracy: 0.875828
+2023-10-24 07:14:59,279 - Model - INFO - **** Epoch 326 (326/400) ****
+2023-10-24 07:14:59,279 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:16:20,306 - Model - INFO - Training mean loss: 0.259159
+2023-10-24 07:16:20,307 - Model - INFO - Training accuracy: 0.875622
+2023-10-24 07:16:20,346 - Model - INFO - Save model...
+2023-10-24 07:16:20,346 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 07:16:20,430 - Model - INFO - Saving model....
+2023-10-24 07:16:20,431 - Model - INFO - ---- EPOCH 326 EVALUATION ----
+2023-10-24 07:18:04,282 - Model - INFO - eval mean loss: 0.258864
+2023-10-24 07:18:04,283 - Model - INFO - eval mIoU: 0.760972
+2023-10-24 07:18:04,283 - Model - INFO - eval point accuracy: 0.874183
+2023-10-24 07:18:04,283 - Model - INFO - eval point class accuracy: 0.890491
+2023-10-24 07:18:04,322 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.822 
+class trim_line      weight: 0.686, IoU: 0.700 
+
+2023-10-24 07:18:04,322 - Model - INFO - Best mIoU: 0.775075
+2023-10-24 07:18:04,322 - Model - INFO - **** Epoch 327 (327/400) ****
+2023-10-24 07:18:04,322 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:19:30,126 - Model - INFO - Training mean loss: 0.259157
+2023-10-24 07:19:30,126 - Model - INFO - Training accuracy: 0.875677
+2023-10-24 07:19:30,167 - Model - INFO - **** Epoch 328 (328/400) ****
+2023-10-24 07:19:30,167 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:20:53,612 - Model - INFO - Training mean loss: 0.259170
+2023-10-24 07:20:53,612 - Model - INFO - Training accuracy: 0.875662
+2023-10-24 07:20:53,655 - Model - INFO - **** Epoch 329 (329/400) ****
+2023-10-24 07:20:53,656 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:22:20,506 - Model - INFO - Training mean loss: 0.258528
+2023-10-24 07:22:20,506 - Model - INFO - Training accuracy: 0.875893
+2023-10-24 07:22:20,545 - Model - INFO - **** Epoch 330 (330/400) ****
+2023-10-24 07:22:20,546 - Model - INFO - Learning rate:0.000599
+2023-10-24 07:23:46,514 - Model - INFO - Training mean loss: 0.258335
+2023-10-24 07:23:46,515 - Model - INFO - Training accuracy: 0.876113
+2023-10-24 07:23:46,559 - Model - INFO - **** Epoch 331 (331/400) ****
+2023-10-24 07:23:46,560 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:25:15,461 - Model - INFO - Training mean loss: 0.258413
+2023-10-24 07:25:15,461 - Model - INFO - Training accuracy: 0.875910
+2023-10-24 07:25:15,513 - Model - INFO - Save model...
+2023-10-24 07:25:15,514 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 07:25:15,615 - Model - INFO - Saving model....
+2023-10-24 07:25:15,616 - Model - INFO - ---- EPOCH 331 EVALUATION ----
+2023-10-24 07:27:00,854 - Model - INFO - eval mean loss: 0.256490
+2023-10-24 07:27:00,854 - Model - INFO - eval mIoU: 0.767037
+2023-10-24 07:27:00,854 - Model - INFO - eval point accuracy: 0.878390
+2023-10-24 07:27:00,854 - Model - INFO - eval point class accuracy: 0.891862
+2023-10-24 07:27:00,906 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.828 
+class trim_line      weight: 0.686, IoU: 0.706 
+
+2023-10-24 07:27:00,907 - Model - INFO - Best mIoU: 0.775075
+2023-10-24 07:27:00,907 - Model - INFO - **** Epoch 332 (332/400) ****
+2023-10-24 07:27:00,907 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:28:26,144 - Model - INFO - Training mean loss: 0.258987
+2023-10-24 07:28:26,145 - Model - INFO - Training accuracy: 0.875907
+2023-10-24 07:28:26,185 - Model - INFO - **** Epoch 333 (333/400) ****
+2023-10-24 07:28:26,185 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:29:52,416 - Model - INFO - Training mean loss: 0.257222
+2023-10-24 07:29:52,417 - Model - INFO - Training accuracy: 0.876695
+2023-10-24 07:29:52,471 - Model - INFO - **** Epoch 334 (334/400) ****
+2023-10-24 07:29:52,471 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:31:20,069 - Model - INFO - Training mean loss: 0.258297
+2023-10-24 07:31:20,070 - Model - INFO - Training accuracy: 0.875920
+2023-10-24 07:31:20,111 - Model - INFO - **** Epoch 335 (335/400) ****
+2023-10-24 07:31:20,111 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:32:48,753 - Model - INFO - Training mean loss: 0.257944
+2023-10-24 07:32:48,754 - Model - INFO - Training accuracy: 0.876394
+2023-10-24 07:32:48,799 - Model - INFO - **** Epoch 336 (336/400) ****
+2023-10-24 07:32:48,799 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:34:14,586 - Model - INFO - Training mean loss: 0.258463
+2023-10-24 07:34:14,586 - Model - INFO - Training accuracy: 0.876198
+2023-10-24 07:34:14,627 - Model - INFO - Save model...
+2023-10-24 07:34:14,627 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 07:34:14,713 - Model - INFO - Saving model....
+2023-10-24 07:34:14,714 - Model - INFO - ---- EPOCH 336 EVALUATION ----
+2023-10-24 07:35:54,894 - Model - INFO - eval mean loss: 0.269601
+2023-10-24 07:35:54,895 - Model - INFO - eval mIoU: 0.775386
+2023-10-24 07:35:54,895 - Model - INFO - eval point accuracy: 0.885504
+2023-10-24 07:35:54,895 - Model - INFO - eval point class accuracy: 0.887011
+2023-10-24 07:35:54,947 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.841 
+class trim_line      weight: 0.686, IoU: 0.710 
+
+2023-10-24 07:35:54,948 - Model - INFO - Save model...
+2023-10-24 07:35:54,948 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-24 07:35:55,032 - Model - INFO - Saving model....
+2023-10-24 07:35:55,032 - Model - INFO - Best mIoU: 0.775386
+2023-10-24 07:35:55,033 - Model - INFO - **** Epoch 337 (337/400) ****
+2023-10-24 07:35:55,033 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:37:22,376 - Model - INFO - Training mean loss: 0.258465
+2023-10-24 07:37:22,376 - Model - INFO - Training accuracy: 0.875963
+2023-10-24 07:37:22,418 - Model - INFO - **** Epoch 338 (338/400) ****
+2023-10-24 07:37:22,418 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:38:51,324 - Model - INFO - Training mean loss: 0.258306
+2023-10-24 07:38:51,325 - Model - INFO - Training accuracy: 0.876180
+2023-10-24 07:38:51,368 - Model - INFO - **** Epoch 339 (339/400) ****
+2023-10-24 07:38:51,368 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:40:20,552 - Model - INFO - Training mean loss: 0.258286
+2023-10-24 07:40:20,553 - Model - INFO - Training accuracy: 0.876140
+2023-10-24 07:40:20,603 - Model - INFO - **** Epoch 340 (340/400) ****
+2023-10-24 07:40:20,603 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:41:41,875 - Model - INFO - Training mean loss: 0.258172
+2023-10-24 07:41:41,876 - Model - INFO - Training accuracy: 0.876182
+2023-10-24 07:41:41,927 - Model - INFO - **** Epoch 341 (341/400) ****
+2023-10-24 07:41:41,928 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:43:07,795 - Model - INFO - Training mean loss: 0.257447
+2023-10-24 07:43:07,795 - Model - INFO - Training accuracy: 0.876590
+2023-10-24 07:43:07,838 - Model - INFO - Save model...
+2023-10-24 07:43:07,838 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 07:43:07,933 - Model - INFO - Saving model....
+2023-10-24 07:43:07,934 - Model - INFO - ---- EPOCH 341 EVALUATION ----
+2023-10-24 07:44:51,475 - Model - INFO - eval mean loss: 0.279422
+2023-10-24 07:44:51,475 - Model - INFO - eval mIoU: 0.722684
+2023-10-24 07:44:51,476 - Model - INFO - eval point accuracy: 0.846944
+2023-10-24 07:44:51,476 - Model - INFO - eval point class accuracy: 0.879840
+2023-10-24 07:44:51,520 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.780 
+class trim_line      weight: 0.686, IoU: 0.665 
+
+2023-10-24 07:44:51,520 - Model - INFO - Best mIoU: 0.775386
+2023-10-24 07:44:51,520 - Model - INFO - **** Epoch 342 (342/400) ****
+2023-10-24 07:44:51,520 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:46:10,948 - Model - INFO - Training mean loss: 0.258170
+2023-10-24 07:46:10,949 - Model - INFO - Training accuracy: 0.876144
+2023-10-24 07:46:10,996 - Model - INFO - **** Epoch 343 (343/400) ****
+2023-10-24 07:46:10,997 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:47:36,045 - Model - INFO - Training mean loss: 0.258237
+2023-10-24 07:47:36,046 - Model - INFO - Training accuracy: 0.876162
+2023-10-24 07:47:36,098 - Model - INFO - **** Epoch 344 (344/400) ****
+2023-10-24 07:47:36,099 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:49:01,833 - Model - INFO - Training mean loss: 0.257997
+2023-10-24 07:49:01,833 - Model - INFO - Training accuracy: 0.876090
+2023-10-24 07:49:01,876 - Model - INFO - **** Epoch 345 (345/400) ****
+2023-10-24 07:49:01,876 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:50:31,557 - Model - INFO - Training mean loss: 0.258062
+2023-10-24 07:50:31,557 - Model - INFO - Training accuracy: 0.876318
+2023-10-24 07:50:31,604 - Model - INFO - **** Epoch 346 (346/400) ****
+2023-10-24 07:50:31,605 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:51:57,486 - Model - INFO - Training mean loss: 0.258201
+2023-10-24 07:51:57,486 - Model - INFO - Training accuracy: 0.876152
+2023-10-24 07:51:57,527 - Model - INFO - Save model...
+2023-10-24 07:51:57,527 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 07:51:57,613 - Model - INFO - Saving model....
+2023-10-24 07:51:57,614 - Model - INFO - ---- EPOCH 346 EVALUATION ----
+2023-10-24 07:53:36,951 - Model - INFO - eval mean loss: 0.261252
+2023-10-24 07:53:36,951 - Model - INFO - eval mIoU: 0.766647
+2023-10-24 07:53:36,951 - Model - INFO - eval point accuracy: 0.878500
+2023-10-24 07:53:36,952 - Model - INFO - eval point class accuracy: 0.889901
+2023-10-24 07:53:36,999 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.829 
+class trim_line      weight: 0.686, IoU: 0.704 
+
+2023-10-24 07:53:36,999 - Model - INFO - Best mIoU: 0.775386
+2023-10-24 07:53:37,000 - Model - INFO - **** Epoch 347 (347/400) ****
+2023-10-24 07:53:37,000 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:54:59,588 - Model - INFO - Training mean loss: 0.258189
+2023-10-24 07:54:59,588 - Model - INFO - Training accuracy: 0.876080
+2023-10-24 07:54:59,631 - Model - INFO - **** Epoch 348 (348/400) ****
+2023-10-24 07:54:59,631 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:56:25,202 - Model - INFO - Training mean loss: 0.257615
+2023-10-24 07:56:25,202 - Model - INFO - Training accuracy: 0.876434
+2023-10-24 07:56:25,232 - Model - INFO - **** Epoch 349 (349/400) ****
+2023-10-24 07:56:25,232 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:57:51,630 - Model - INFO - Training mean loss: 0.260994
+2023-10-24 07:57:51,631 - Model - INFO - Training accuracy: 0.875248
+2023-10-24 07:57:51,672 - Model - INFO - **** Epoch 350 (350/400) ****
+2023-10-24 07:57:51,673 - Model - INFO - Learning rate:0.000569
+2023-10-24 07:59:21,497 - Model - INFO - Training mean loss: 0.258351
+2023-10-24 07:59:21,498 - Model - INFO - Training accuracy: 0.875827
+2023-10-24 07:59:21,549 - Model - INFO - **** Epoch 351 (351/400) ****
+2023-10-24 07:59:21,550 - Model - INFO - Learning rate:0.000569
+2023-10-24 08:00:48,686 - Model - INFO - Training mean loss: 0.258064
+2023-10-24 08:00:48,686 - Model - INFO - Training accuracy: 0.876182
+2023-10-24 08:00:48,731 - Model - INFO - Save model...
+2023-10-24 08:00:48,732 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 08:00:48,829 - Model - INFO - Saving model....
+2023-10-24 08:00:48,830 - Model - INFO - ---- EPOCH 351 EVALUATION ----
+2023-10-24 08:02:25,382 - Model - INFO - eval mean loss: 0.255267
+2023-10-24 08:02:25,382 - Model - INFO - eval mIoU: 0.760687
+2023-10-24 08:02:25,382 - Model - INFO - eval point accuracy: 0.873760
+2023-10-24 08:02:25,382 - Model - INFO - eval point class accuracy: 0.891561
+2023-10-24 08:02:25,429 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.821 
+class trim_line      weight: 0.686, IoU: 0.701 
+
+2023-10-24 08:02:25,430 - Model - INFO - Best mIoU: 0.775386
+2023-10-24 08:02:25,430 - Model - INFO - **** Epoch 352 (352/400) ****
+2023-10-24 08:02:25,430 - Model - INFO - Learning rate:0.000569
+2023-10-24 08:03:48,454 - Model - INFO - Training mean loss: 0.257422
+2023-10-24 08:03:48,455 - Model - INFO - Training accuracy: 0.876691
+2023-10-24 08:03:48,504 - Model - INFO - **** Epoch 353 (353/400) ****
+2023-10-24 08:03:48,505 - Model - INFO - Learning rate:0.000569
+2023-10-24 08:05:17,578 - Model - INFO - Training mean loss: 0.257442
+2023-10-24 08:05:17,579 - Model - INFO - Training accuracy: 0.876417
+2023-10-24 08:05:17,626 - Model - INFO - **** Epoch 354 (354/400) ****
+2023-10-24 08:05:17,627 - Model - INFO - Learning rate:0.000569
+2023-10-24 08:06:39,091 - Model - INFO - Training mean loss: 0.258403
+2023-10-24 08:06:39,091 - Model - INFO - Training accuracy: 0.876075
+2023-10-24 08:06:39,139 - Model - INFO - **** Epoch 355 (355/400) ****
+2023-10-24 08:06:39,139 - Model - INFO - Learning rate:0.000569
+2023-10-24 08:08:04,024 - Model - INFO - Training mean loss: 0.257515
+2023-10-24 08:08:04,025 - Model - INFO - Training accuracy: 0.876420
+2023-10-24 08:08:04,086 - Model - INFO - **** Epoch 356 (356/400) ****
+2023-10-24 08:08:04,087 - Model - INFO - Learning rate:0.000569
+2023-10-24 08:09:31,545 - Model - INFO - Training mean loss: 0.257644
+2023-10-24 08:09:31,546 - Model - INFO - Training accuracy: 0.876515
+2023-10-24 08:09:31,588 - Model - INFO - Save model...
+2023-10-24 08:09:31,589 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 08:09:31,690 - Model - INFO - Saving model....
+2023-10-24 08:09:31,691 - Model - INFO - ---- EPOCH 356 EVALUATION ----
+2023-10-24 08:11:15,392 - Model - INFO - eval mean loss: 0.260586
+2023-10-24 08:11:15,393 - Model - INFO - eval mIoU: 0.759578
+2023-10-24 08:11:15,393 - Model - INFO - eval point accuracy: 0.873377
+2023-10-24 08:11:15,393 - Model - INFO - eval point class accuracy: 0.889343
+2023-10-24 08:11:15,444 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.821 
+class trim_line      weight: 0.686, IoU: 0.698 
+
+2023-10-24 08:11:15,444 - Model - INFO - Best mIoU: 0.775386
+2023-10-24 08:11:15,444 - Model - INFO - **** Epoch 357 (357/400) ****
+2023-10-24 08:11:15,444 - Model - INFO - Learning rate:0.000569
+2023-10-24 08:12:39,959 - Model - INFO - Training mean loss: 0.257474
+2023-10-24 08:12:39,960 - Model - INFO - Training accuracy: 0.876441
+2023-10-24 08:12:40,007 - Model - INFO - **** Epoch 358 (358/400) ****
+2023-10-24 08:12:40,008 - Model - INFO - Learning rate:0.000569
+2023-10-24 08:14:07,712 - Model - INFO - Training mean loss: 0.258103
+2023-10-24 08:14:07,712 - Model - INFO - Training accuracy: 0.876128
+2023-10-24 08:14:07,762 - Model - INFO - **** Epoch 359 (359/400) ****
+2023-10-24 08:14:07,762 - Model - INFO - Learning rate:0.000569
+2023-10-24 08:15:29,201 - Model - INFO - Training mean loss: 0.257936
+2023-10-24 08:15:29,202 - Model - INFO - Training accuracy: 0.876328
+2023-10-24 08:15:29,253 - Model - INFO - **** Epoch 360 (360/400) ****
+2023-10-24 08:15:29,253 - Model - INFO - Learning rate:0.000569
+2023-10-24 08:16:58,183 - Model - INFO - Training mean loss: 0.257887
+2023-10-24 08:16:58,184 - Model - INFO - Training accuracy: 0.876216
+2023-10-24 08:16:58,240 - Model - INFO - **** Epoch 361 (361/400) ****
+2023-10-24 08:16:58,240 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:18:19,997 - Model - INFO - Training mean loss: 0.258140
+2023-10-24 08:18:19,998 - Model - INFO - Training accuracy: 0.876116
+2023-10-24 08:18:20,042 - Model - INFO - Save model...
+2023-10-24 08:18:20,043 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 08:18:20,144 - Model - INFO - Saving model....
+2023-10-24 08:18:20,145 - Model - INFO - ---- EPOCH 361 EVALUATION ----
+2023-10-24 08:20:02,184 - Model - INFO - eval mean loss: 0.256951
+2023-10-24 08:20:02,184 - Model - INFO - eval mIoU: 0.771465
+2023-10-24 08:20:02,185 - Model - INFO - eval point accuracy: 0.881672
+2023-10-24 08:20:02,185 - Model - INFO - eval point class accuracy: 0.891665
+2023-10-24 08:20:02,247 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.834 
+class trim_line      weight: 0.686, IoU: 0.709 
+
+2023-10-24 08:20:02,247 - Model - INFO - Best mIoU: 0.775386
+2023-10-24 08:20:02,248 - Model - INFO - **** Epoch 362 (362/400) ****
+2023-10-24 08:20:02,248 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:21:23,184 - Model - INFO - Training mean loss: 0.257140
+2023-10-24 08:21:23,184 - Model - INFO - Training accuracy: 0.876811
+2023-10-24 08:21:23,237 - Model - INFO - **** Epoch 363 (363/400) ****
+2023-10-24 08:21:23,237 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:22:50,132 - Model - INFO - Training mean loss: 0.257670
+2023-10-24 08:22:50,133 - Model - INFO - Training accuracy: 0.876388
+2023-10-24 08:22:50,172 - Model - INFO - **** Epoch 364 (364/400) ****
+2023-10-24 08:22:50,172 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:24:17,103 - Model - INFO - Training mean loss: 0.257041
+2023-10-24 08:24:17,104 - Model - INFO - Training accuracy: 0.876733
+2023-10-24 08:24:17,147 - Model - INFO - **** Epoch 365 (365/400) ****
+2023-10-24 08:24:17,147 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:25:43,631 - Model - INFO - Training mean loss: 0.257004
+2023-10-24 08:25:43,632 - Model - INFO - Training accuracy: 0.876815
+2023-10-24 08:25:43,671 - Model - INFO - **** Epoch 366 (366/400) ****
+2023-10-24 08:25:43,671 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:27:09,208 - Model - INFO - Training mean loss: 0.257281
+2023-10-24 08:27:09,208 - Model - INFO - Training accuracy: 0.876726
+2023-10-24 08:27:09,257 - Model - INFO - Save model...
+2023-10-24 08:27:09,258 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 08:27:09,365 - Model - INFO - Saving model....
+2023-10-24 08:27:09,366 - Model - INFO - ---- EPOCH 366 EVALUATION ----
+2023-10-24 08:28:54,973 - Model - INFO - eval mean loss: 0.296873
+2023-10-24 08:28:54,974 - Model - INFO - eval mIoU: 0.711284
+2023-10-24 08:28:54,974 - Model - INFO - eval point accuracy: 0.838807
+2023-10-24 08:28:54,974 - Model - INFO - eval point class accuracy: 0.875019
+2023-10-24 08:28:55,019 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.768 
+class trim_line      weight: 0.686, IoU: 0.655 
+
+2023-10-24 08:28:55,020 - Model - INFO - Best mIoU: 0.775386
+2023-10-24 08:28:55,020 - Model - INFO - **** Epoch 367 (367/400) ****
+2023-10-24 08:28:55,020 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:30:20,273 - Model - INFO - Training mean loss: 0.257571
+2023-10-24 08:30:20,274 - Model - INFO - Training accuracy: 0.876669
+2023-10-24 08:30:20,319 - Model - INFO - **** Epoch 368 (368/400) ****
+2023-10-24 08:30:20,319 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:31:48,226 - Model - INFO - Training mean loss: 0.258364
+2023-10-24 08:31:48,226 - Model - INFO - Training accuracy: 0.876129
+2023-10-24 08:31:48,272 - Model - INFO - **** Epoch 369 (369/400) ****
+2023-10-24 08:31:48,273 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:33:13,622 - Model - INFO - Training mean loss: 0.257190
+2023-10-24 08:33:13,623 - Model - INFO - Training accuracy: 0.876746
+2023-10-24 08:33:13,671 - Model - INFO - **** Epoch 370 (370/400) ****
+2023-10-24 08:33:13,672 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:34:36,086 - Model - INFO - Training mean loss: 0.257570
+2023-10-24 08:34:36,087 - Model - INFO - Training accuracy: 0.876485
+2023-10-24 08:34:36,137 - Model - INFO - **** Epoch 371 (371/400) ****
+2023-10-24 08:34:36,138 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:36:03,863 - Model - INFO - Training mean loss: 0.258241
+2023-10-24 08:36:03,863 - Model - INFO - Training accuracy: 0.876113
+2023-10-24 08:36:03,904 - Model - INFO - Save model...
+2023-10-24 08:36:03,905 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 08:36:03,996 - Model - INFO - Saving model....
+2023-10-24 08:36:03,997 - Model - INFO - ---- EPOCH 371 EVALUATION ----
+2023-10-24 08:37:44,270 - Model - INFO - eval mean loss: 0.263343
+2023-10-24 08:37:44,270 - Model - INFO - eval mIoU: 0.765323
+2023-10-24 08:37:44,271 - Model - INFO - eval point accuracy: 0.877841
+2023-10-24 08:37:44,271 - Model - INFO - eval point class accuracy: 0.888364
+2023-10-24 08:37:44,322 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.828 
+class trim_line      weight: 0.686, IoU: 0.702 
+
+2023-10-24 08:37:44,322 - Model - INFO - Best mIoU: 0.775386
+2023-10-24 08:37:44,322 - Model - INFO - **** Epoch 372 (372/400) ****
+2023-10-24 08:37:44,323 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:39:11,323 - Model - INFO - Training mean loss: 0.257163
+2023-10-24 08:39:11,323 - Model - INFO - Training accuracy: 0.876537
+2023-10-24 08:39:11,370 - Model - INFO - **** Epoch 373 (373/400) ****
+2023-10-24 08:39:11,370 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:40:38,295 - Model - INFO - Training mean loss: 0.258385
+2023-10-24 08:40:38,295 - Model - INFO - Training accuracy: 0.876222
+2023-10-24 08:40:38,342 - Model - INFO - **** Epoch 374 (374/400) ****
+2023-10-24 08:40:38,343 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:42:00,111 - Model - INFO - Training mean loss: 0.257459
+2023-10-24 08:42:00,112 - Model - INFO - Training accuracy: 0.876382
+2023-10-24 08:42:00,156 - Model - INFO - **** Epoch 375 (375/400) ****
+2023-10-24 08:42:00,157 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:43:26,450 - Model - INFO - Training mean loss: 0.257052
+2023-10-24 08:43:26,450 - Model - INFO - Training accuracy: 0.876719
+2023-10-24 08:43:26,491 - Model - INFO - **** Epoch 376 (376/400) ****
+2023-10-24 08:43:26,491 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:44:52,218 - Model - INFO - Training mean loss: 0.257174
+2023-10-24 08:44:52,219 - Model - INFO - Training accuracy: 0.876757
+2023-10-24 08:44:52,259 - Model - INFO - Save model...
+2023-10-24 08:44:52,259 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 08:44:52,360 - Model - INFO - Saving model....
+2023-10-24 08:44:52,361 - Model - INFO - ---- EPOCH 376 EVALUATION ----
+2023-10-24 08:46:39,477 - Model - INFO - eval mean loss: 0.257044
+2023-10-24 08:46:39,478 - Model - INFO - eval mIoU: 0.757763
+2023-10-24 08:46:39,478 - Model - INFO - eval point accuracy: 0.871807
+2023-10-24 08:46:39,478 - Model - INFO - eval point class accuracy: 0.890431
+2023-10-24 08:46:39,525 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.818 
+class trim_line      weight: 0.686, IoU: 0.698 
+
+2023-10-24 08:46:39,525 - Model - INFO - Best mIoU: 0.775386
+2023-10-24 08:46:39,525 - Model - INFO - **** Epoch 377 (377/400) ****
+2023-10-24 08:46:39,525 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:48:03,245 - Model - INFO - Training mean loss: 0.257423
+2023-10-24 08:48:03,246 - Model - INFO - Training accuracy: 0.876535
+2023-10-24 08:48:03,290 - Model - INFO - **** Epoch 378 (378/400) ****
+2023-10-24 08:48:03,290 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:49:31,874 - Model - INFO - Training mean loss: 0.256545
+2023-10-24 08:49:31,875 - Model - INFO - Training accuracy: 0.877108
+2023-10-24 08:49:31,927 - Model - INFO - **** Epoch 379 (379/400) ****
+2023-10-24 08:49:31,927 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:50:59,735 - Model - INFO - Training mean loss: 0.257120
+2023-10-24 08:50:59,736 - Model - INFO - Training accuracy: 0.876501
+2023-10-24 08:50:59,795 - Model - INFO - **** Epoch 380 (380/400) ****
+2023-10-24 08:50:59,796 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:52:26,638 - Model - INFO - Training mean loss: 0.257593
+2023-10-24 08:52:26,638 - Model - INFO - Training accuracy: 0.876479
+2023-10-24 08:52:26,680 - Model - INFO - **** Epoch 381 (381/400) ****
+2023-10-24 08:52:26,681 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:53:53,553 - Model - INFO - Training mean loss: 0.256908
+2023-10-24 08:53:53,553 - Model - INFO - Training accuracy: 0.876733
+2023-10-24 08:53:53,600 - Model - INFO - Save model...
+2023-10-24 08:53:53,600 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 08:53:53,704 - Model - INFO - Saving model....
+2023-10-24 08:53:53,705 - Model - INFO - ---- EPOCH 381 EVALUATION ----
+2023-10-24 08:55:39,998 - Model - INFO - eval mean loss: 0.265191
+2023-10-24 08:55:39,998 - Model - INFO - eval mIoU: 0.779540
+2023-10-24 08:55:39,999 - Model - INFO - eval point accuracy: 0.887940
+2023-10-24 08:55:39,999 - Model - INFO - eval point class accuracy: 0.889656
+2023-10-24 08:55:40,047 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.844 
+class trim_line      weight: 0.686, IoU: 0.715 
+
+2023-10-24 08:55:40,048 - Model - INFO - Save model...
+2023-10-24 08:55:40,048 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/best_model.pth
+2023-10-24 08:55:40,139 - Model - INFO - Saving model....
+2023-10-24 08:55:40,139 - Model - INFO - Best mIoU: 0.779540
+2023-10-24 08:55:40,139 - Model - INFO - **** Epoch 382 (382/400) ****
+2023-10-24 08:55:40,139 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:57:04,347 - Model - INFO - Training mean loss: 0.256811
+2023-10-24 08:57:04,348 - Model - INFO - Training accuracy: 0.876858
+2023-10-24 08:57:04,388 - Model - INFO - **** Epoch 383 (383/400) ****
+2023-10-24 08:57:04,389 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:58:29,567 - Model - INFO - Training mean loss: 0.256648
+2023-10-24 08:58:29,568 - Model - INFO - Training accuracy: 0.876850
+2023-10-24 08:58:29,608 - Model - INFO - **** Epoch 384 (384/400) ****
+2023-10-24 08:58:29,609 - Model - INFO - Learning rate:0.000540
+2023-10-24 08:59:52,645 - Model - INFO - Training mean loss: 0.256358
+2023-10-24 08:59:52,646 - Model - INFO - Training accuracy: 0.877168
+2023-10-24 08:59:52,692 - Model - INFO - **** Epoch 385 (385/400) ****
+2023-10-24 08:59:52,692 - Model - INFO - Learning rate:0.000540
+2023-10-24 09:01:17,991 - Model - INFO - Training mean loss: 0.257605
+2023-10-24 09:01:17,992 - Model - INFO - Training accuracy: 0.876622
+2023-10-24 09:01:18,051 - Model - INFO - **** Epoch 386 (386/400) ****
+2023-10-24 09:01:18,051 - Model - INFO - Learning rate:0.000540
+2023-10-24 09:02:42,325 - Model - INFO - Training mean loss: 0.257020
+2023-10-24 09:02:42,326 - Model - INFO - Training accuracy: 0.876592
+2023-10-24 09:02:42,381 - Model - INFO - Save model...
+2023-10-24 09:02:42,382 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 09:02:42,464 - Model - INFO - Saving model....
+2023-10-24 09:02:42,465 - Model - INFO - ---- EPOCH 386 EVALUATION ----
+2023-10-24 09:04:25,662 - Model - INFO - eval mean loss: 0.259485
+2023-10-24 09:04:25,663 - Model - INFO - eval mIoU: 0.753840
+2023-10-24 09:04:25,663 - Model - INFO - eval point accuracy: 0.869044
+2023-10-24 09:04:25,663 - Model - INFO - eval point class accuracy: 0.889546
+2023-10-24 09:04:25,713 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.814 
+class trim_line      weight: 0.686, IoU: 0.694 
+
+2023-10-24 09:04:25,713 - Model - INFO - Best mIoU: 0.779540
+2023-10-24 09:04:25,713 - Model - INFO - **** Epoch 387 (387/400) ****
+2023-10-24 09:04:25,714 - Model - INFO - Learning rate:0.000540
+2023-10-24 09:05:47,031 - Model - INFO - Training mean loss: 0.256629
+2023-10-24 09:05:47,032 - Model - INFO - Training accuracy: 0.876883
+2023-10-24 09:05:47,070 - Model - INFO - **** Epoch 388 (388/400) ****
+2023-10-24 09:05:47,071 - Model - INFO - Learning rate:0.000540
+2023-10-24 09:07:13,782 - Model - INFO - Training mean loss: 0.256627
+2023-10-24 09:07:13,783 - Model - INFO - Training accuracy: 0.877067
+2023-10-24 09:07:13,829 - Model - INFO - **** Epoch 389 (389/400) ****
+2023-10-24 09:07:13,829 - Model - INFO - Learning rate:0.000540
+2023-10-24 09:08:42,134 - Model - INFO - Training mean loss: 0.257052
+2023-10-24 09:08:42,134 - Model - INFO - Training accuracy: 0.876610
+2023-10-24 09:08:42,195 - Model - INFO - **** Epoch 390 (390/400) ****
+2023-10-24 09:08:42,195 - Model - INFO - Learning rate:0.000540
+2023-10-24 09:10:07,566 - Model - INFO - Training mean loss: 0.256490
+2023-10-24 09:10:07,566 - Model - INFO - Training accuracy: 0.877034
+2023-10-24 09:10:07,615 - Model - INFO - **** Epoch 391 (391/400) ****
+2023-10-24 09:10:07,616 - Model - INFO - Learning rate:0.000513
+2023-10-24 09:11:33,232 - Model - INFO - Training mean loss: 0.256523
+2023-10-24 09:11:33,232 - Model - INFO - Training accuracy: 0.877040
+2023-10-24 09:11:33,284 - Model - INFO - Save model...
+2023-10-24 09:11:33,284 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 09:11:33,385 - Model - INFO - Saving model....
+2023-10-24 09:11:33,386 - Model - INFO - ---- EPOCH 391 EVALUATION ----
+2023-10-24 09:13:17,576 - Model - INFO - eval mean loss: 0.253071
+2023-10-24 09:13:17,577 - Model - INFO - eval mIoU: 0.764739
+2023-10-24 09:13:17,577 - Model - INFO - eval point accuracy: 0.876502
+2023-10-24 09:13:17,577 - Model - INFO - eval point class accuracy: 0.892860
+2023-10-24 09:13:17,635 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.825 
+class trim_line      weight: 0.686, IoU: 0.705 
+
+2023-10-24 09:13:17,636 - Model - INFO - Best mIoU: 0.779540
+2023-10-24 09:13:17,636 - Model - INFO - **** Epoch 392 (392/400) ****
+2023-10-24 09:13:17,636 - Model - INFO - Learning rate:0.000513
+2023-10-24 09:14:45,336 - Model - INFO - Training mean loss: 0.256981
+2023-10-24 09:14:45,336 - Model - INFO - Training accuracy: 0.876698
+2023-10-24 09:14:45,385 - Model - INFO - **** Epoch 393 (393/400) ****
+2023-10-24 09:14:45,386 - Model - INFO - Learning rate:0.000513
+2023-10-24 09:16:09,344 - Model - INFO - Training mean loss: 0.256401
+2023-10-24 09:16:09,344 - Model - INFO - Training accuracy: 0.877255
+2023-10-24 09:16:09,400 - Model - INFO - **** Epoch 394 (394/400) ****
+2023-10-24 09:16:09,400 - Model - INFO - Learning rate:0.000513
+2023-10-24 09:17:36,360 - Model - INFO - Training mean loss: 0.256469
+2023-10-24 09:17:36,360 - Model - INFO - Training accuracy: 0.877008
+2023-10-24 09:17:36,412 - Model - INFO - **** Epoch 395 (395/400) ****
+2023-10-24 09:17:36,413 - Model - INFO - Learning rate:0.000513
+2023-10-24 09:19:04,285 - Model - INFO - Training mean loss: 0.256666
+2023-10-24 09:19:04,285 - Model - INFO - Training accuracy: 0.877053
+2023-10-24 09:19:04,330 - Model - INFO - **** Epoch 396 (396/400) ****
+2023-10-24 09:19:04,330 - Model - INFO - Learning rate:0.000513
+2023-10-24 09:20:32,733 - Model - INFO - Training mean loss: 0.256453
+2023-10-24 09:20:32,734 - Model - INFO - Training accuracy: 0.876989
+2023-10-24 09:20:32,789 - Model - INFO - Save model...
+2023-10-24 09:20:32,789 - Model - INFO - Saving at log/sem_seg/2023-10-23_21-39/checkpoints/model.pth
+2023-10-24 09:20:32,885 - Model - INFO - Saving model....
+2023-10-24 09:20:32,886 - Model - INFO - ---- EPOCH 396 EVALUATION ----
+2023-10-24 09:22:11,381 - Model - INFO - eval mean loss: 0.263827
+2023-10-24 09:22:11,382 - Model - INFO - eval mIoU: 0.768241
+2023-10-24 09:22:11,382 - Model - INFO - eval point accuracy: 0.879907
+2023-10-24 09:22:11,383 - Model - INFO - eval point class accuracy: 0.888767
+2023-10-24 09:22:11,432 - Model - INFO - ------- IoU --------
+class others         weight: 0.314, IoU: 0.832 
+class trim_line      weight: 0.686, IoU: 0.705 
+
+2023-10-24 09:22:11,432 - Model - INFO - Best mIoU: 0.779540
+2023-10-24 09:22:11,432 - Model - INFO - **** Epoch 397 (397/400) ****
+2023-10-24 09:22:11,432 - Model - INFO - Learning rate:0.000513
+2023-10-24 09:23:36,218 - Model - INFO - Training mean loss: 0.257026
+2023-10-24 09:23:36,219 - Model - INFO - Training accuracy: 0.876811
+2023-10-24 09:23:36,258 - Model - INFO - **** Epoch 398 (398/400) ****
+2023-10-24 09:23:36,258 - Model - INFO - Learning rate:0.000513
+2023-10-24 09:25:04,971 - Model - INFO - Training mean loss: 0.256051
+2023-10-24 09:25:04,972 - Model - INFO - Training accuracy: 0.877090
+2023-10-24 09:25:05,018 - Model - INFO - **** Epoch 399 (399/400) ****
+2023-10-24 09:25:05,019 - Model - INFO - Learning rate:0.000513
+2023-10-24 09:26:30,650 - Model - INFO - Training mean loss: 0.256263
+2023-10-24 09:26:30,650 - Model - INFO - Training accuracy: 0.876963
+2023-10-24 09:26:30,694 - Model - INFO - **** Epoch 400 (400/400) ****
+2023-10-24 09:26:30,694 - Model - INFO - Learning rate:0.000513
+2023-10-24 09:27:59,168 - Model - INFO - Training mean loss: 0.256176
+2023-10-24 09:27:59,169 - Model - INFO - Training accuracy: 0.877178
