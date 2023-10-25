@@ -20,7 +20,7 @@ class TrimLineDataloader(Dataset):
         self.file_list = os.listdir(self.data_root)
 
         # 标签的权重值，避免不平衡的标签数量
-        self.labelweights = np.array([0.3, 0.7])
+        self.labelweights = np.array([0.7, 0.3])
 
     def __getitem__(self, idx):
         tooth_path = os.path.join(self.data_root, self.file_list[idx])
