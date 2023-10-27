@@ -88,11 +88,11 @@ def visualize_ply(cell_labels, cells, points, file_name):
 
 def main(args):
     # 训练数据文件夹
-    root = "/media/why/新加卷/xsf/Dataset/visualize_ply_expand_3_selective_downsample_20000_npy"
+    root = "/media/why/新加卷/xsf/Dataset/实验11/visualize_ply_expand_0_outof_9_selective_downsample_20000_v2_npy"
     # 可视化文件夹
-    visualize_dir = "/media/why/新加卷/xsf/Dataset/实验10/pred_result"
+    visualize_dir = "/media/why/新加卷/xsf/Dataset/实验11/pred_result"
     # 训练结果文件夹
-    experiment_dir = "/media/why/新加卷/xsf/Pointnet_Pointnet2_pytorch/log/sem_seg/实验10"
+    experiment_dir = "/media/why/新加卷/xsf/Pointnet_Pointnet2_pytorch/log/sem_seg/实验11"
 
     '''HYPER PARAMETER'''
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
