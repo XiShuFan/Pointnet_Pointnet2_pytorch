@@ -87,7 +87,7 @@ def output_edge(xyzs, labels, select_index, radius, nsample, info, target_path):
             # TODO: 认为当前点是边界
             pointcloud_info += f'{point[0]} {point[1]} {point[2]} 255 0 0 255\n'
         else:
-            pointcloud_info += f'{point[0]} {point[1]} {point[2]} 255 255 255 255\n'
+            pointcloud_info += f'{point[0]} {point[1]} {point[2]} 200 200 200 255\n'
 
     # 输出到文件中
     header = f"ply\n" \
